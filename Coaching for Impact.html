@@ -1,0 +1,1045 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Coaching for Impact</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap">
+<style>
+/* Layout: dark web-deck in the dss+ KOC style. One section per message: label → claim headline → subtitle → one interactive visual → illustrative caption. */
+:root{
+  --bg:#0E0F22; --surface:rgba(255,255,255,.04); --surface-2:rgba(255,255,255,.07); --surface-3:rgba(255,255,255,.11);
+  --line:rgba(255,255,255,.10); --line-2:rgba(255,255,255,.20);
+  --navy:#23254A; --navy-2:#30336A; --navy-3:#3B3F7E; --red:#DA2128; --coral:#F0585E; --rose:#B42A47;
+  --green:#10B981; --amber:#F59E0B; --grey:#8A8CA0;
+  --fg:#E5E7EB; --fg-strong:#FFFFFF; --muted:rgba(229,231,235,.68); --faint:rgba(229,231,235,.45);
+  --red-tint:rgba(218,33,40,.16); --red-tint-2:rgba(218,33,40,.30);
+  --bar:rgba(14,15,34,.82);
+  --grad:linear-gradient(92deg,#FFFFFF 0%,#F8C9CB 34%,#F0585E 68%,#DA2128 100%);
+  --glow-a:rgba(218,33,40,.20); --glow-b:rgba(48,51,106,.85);
+  --f-display:"Century Gothic","Poppins",ui-sans-serif,system-ui,sans-serif;
+  --f-body:"Inter",ui-sans-serif,system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  color-scheme:dark;
+}
+:root[data-mode="print"]{
+  --bg:#FFFFFF; --surface:#F6F6FA; --surface-2:#EEEEF5; --surface-3:#E4E5EF;
+  --line:#DCDDE8; --line-2:#C3C5D6;
+  --fg:#2A2B40; --fg-strong:#0E0F22; --muted:#55576E; --faint:#85879C;
+  --red-tint:rgba(218,33,40,.07); --red-tint-2:rgba(218,33,40,.16);
+  --bar:rgba(255,255,255,.92);
+  --grad:linear-gradient(92deg,#0E0F22 0%,#0E0F22 30%,#DA2128 75%,#DA2128 100%);
+  --glow-a:transparent; --glow-b:transparent;
+  color-scheme:light;
+}
+@media print{
+  :root{
+    --bg:#FFFFFF; --surface:#F6F6FA; --surface-2:#EEEEF5; --surface-3:#E4E5EF;
+    --line:#DCDDE8; --line-2:#C3C5D6;
+    --fg:#2A2B40; --fg-strong:#0E0F22; --muted:#55576E; --faint:#85879C;
+    --red-tint:rgba(218,33,40,.07); --red-tint-2:rgba(218,33,40,.16);
+    --bar:#FFFFFF;
+    --grad:linear-gradient(92deg,#0E0F22 0%,#0E0F22 30%,#DA2128 75%,#DA2128 100%);
+    --glow-a:transparent; --glow-b:transparent; color-scheme:light;
+  }
+  .topbar,#bg,.review{display:none!important}
+  .sec{break-inside:avoid;page-break-inside:avoid}
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+  background:var(--bg);
+  background-image:radial-gradient(900px 620px at 88% -8%,var(--glow-a),transparent 62%),radial-gradient(900px 700px at -12% 105%,var(--glow-b),transparent 60%);
+  background-attachment:fixed;
+  color:var(--fg); font-family:var(--f-body); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bar)}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+:root[data-mode="print"] #bg{display:none}
+main{position:relative;z-index:1}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--coral);outline-offset:3px;border-radius:8px}
+
+/* ---------- top bar ---------- */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--bar);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.topbar-in{display:flex;align-items:center;gap:16px;height:56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.logo{font-family:var(--f-display);font-weight:600;font-size:26px;letter-spacing:-.02em;color:var(--fg-strong);line-height:1;display:flex;align-items:flex-start}
+.logo sup{font-size:15px;color:var(--fg-strong);margin-left:1px;margin-top:-2px}
+.divider{width:1px;height:22px;background:var(--line-2)}
+.deck-title{font-size:14px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.spacer{flex:1}
+.progress{display:flex;gap:5px}
+.progress button{width:18px;height:5px;border-radius:4px;border:0;background:var(--line-2);cursor:pointer;padding:0;transition:width .3s,background .3s}
+.progress button.on{width:36px;background:var(--coral)}
+.now{font-family:var(--f-mono);font-size:12px;color:var(--muted);white-space:nowrap;min-width:170px;text-align:right}
+.icon-btn{width:36px;height:36px;border-radius:10px;border:1px solid transparent;background:transparent;display:grid;place-items:center;cursor:pointer;color:var(--fg)}
+.icon-btn:hover{background:var(--surface-2);border-color:var(--line)}
+.icon-btn svg{width:18px;height:18px}
+.present{display:flex;align-items:center;gap:8px;background:var(--red);color:#fff;border:0;border-radius:10px;padding:8px 14px;font-weight:600;font-size:14px;cursor:pointer}
+.present svg{width:16px;height:16px}
+.mode-btn{font-size:13px;border:1px solid var(--line-2);background:transparent;border-radius:10px;padding:7px 12px;cursor:pointer;color:var(--fg);white-space:nowrap}
+.mode-btn:hover{background:var(--surface-2)}
+@media (max-width:1060px){.progress,.now{display:none}}
+@media (max-width:620px){.deck-title,.divider{display:none}.present span{display:none}}
+
+/* ---------- sections ---------- */
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.intro{padding-block:56px 24px}
+.sec{padding-block:72px 40px;border-top:1px solid var(--line)}
+.label{font-family:var(--f-mono);font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--coral);margin:0 0 14px}
+h1,h2{font-family:var(--f-display);font-weight:700;color:var(--fg-strong);letter-spacing:-.025em;line-height:1.06;text-wrap:balance;margin:0}
+h1{font-size:clamp(34px,5vw,58px)}
+h2{font-size:clamp(30px,4.2vw,50px);max-width:21ch}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{font-size:clamp(16px,1.6vw,19px);color:var(--muted);max-width:64ch;margin:18px 0 0;font-weight:300}
+.caption{font-size:13px;color:var(--faint);margin:14px 0 0;max-width:110ch}
+.review{margin-top:22px;display:flex;gap:12px;align-items:flex-start;border:1px dashed var(--line-2);border-radius:14px;padding:12px 16px;font-size:13.5px;color:var(--muted);max-width:940px}
+.review b{font-family:var(--f-mono);font-weight:500;font-size:11px;letter-spacing:.2em;color:var(--amber);white-space:nowrap;padding-top:2px}
+.review ul{margin:0;padding-left:18px}
+:root[data-mode="print"] .review{display:none}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:24px}
+.stage{margin-top:36px;padding:28px}
+@media (max-width:620px){.stage{padding:18px;border-radius:18px}}
+.mono{font-family:var(--f-mono)}
+.eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint)}
+.seg{display:inline-flex;padding:4px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line);gap:2px;flex-wrap:wrap}
+.seg button{border:0;background:transparent;border-radius:999px;padding:8px 16px;font-size:14px;cursor:pointer;color:var(--muted);font-weight:500}
+.seg button[aria-pressed="true"]{background:var(--fg-strong);color:var(--bg)}
+.stage-head{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.ghost{border:1px solid var(--line-2);background:transparent;border-radius:10px;padding:9px 14px;font-size:14px;cursor:pointer;color:var(--fg)}
+.ghost:hover{background:var(--surface-2)}
+.ghost[aria-pressed="true"]{border-color:var(--red);color:var(--coral)}
+.ticks{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:14.5px;color:var(--muted)}
+.ticks li{display:flex;gap:10px}
+.ticks li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--coral);margin-top:9px}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:4px 10px;border-radius:999px;background:var(--navy);color:#fff}
+.chip svg{width:13px;height:13px}
+
+/* intro stepper */
+.stepper{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:30px;max-width:980px}
+.stp{padding:14px 16px;border-radius:16px;border:1px solid var(--line);background:var(--surface)}
+.stp .n{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;color:var(--faint)}
+.stp .t{font-family:var(--f-display);font-weight:600;color:var(--fg-strong);font-size:16px;margin-top:4px}
+.stp .s{font-size:12.5px;color:var(--muted)}
+.stp.done .n{color:var(--green)}
+.stp.now{border-color:rgba(218,33,40,.6);background:linear-gradient(160deg,var(--red-tint-2),var(--surface))}
+.stp.now .n{color:var(--coral)}
+@media (max-width:760px){.stepper{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ---------- 01 curve ---------- */
+.curve svg{width:100%;height:auto;display:block}
+.cv-axis{stroke:var(--line-2);stroke-width:1.5}
+.cv-grid{stroke:var(--line);stroke-width:1}
+.cv-t{font-family:var(--f-mono);font-size:12px;fill:var(--faint)}
+.cv-with{fill:none;stroke:var(--green);stroke-width:4;stroke-linecap:round}
+.cv-without{fill:none;stroke:var(--amber);stroke-width:4;stroke-linecap:round;stroke-dasharray:2 9}
+.cv-area{fill:var(--green);opacity:.08}
+.cv-lab{font-family:var(--f-display);font-weight:600;font-size:15px}
+#cvWith,#cvWithout{transition:opacity .3s}
+.cv-dim{opacity:.15}
+
+/* ---------- 02 Do + Be ---------- */
+.dobe{display:grid;grid-template-columns:1fr auto 1fr auto 1.1fr;gap:16px;align-items:stretch}
+.op{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--red);color:#fff;font-weight:700;font-size:22px;align-self:center;font-family:var(--f-display)}
+.db-card{padding:24px;border-radius:20px;background:var(--surface-2);border:1px solid var(--line);transition:opacity .35s,filter .35s}
+.db-card.dim{opacity:.28;filter:grayscale(1)}
+.db-card h3,.res h3{margin:0 0 4px;font-family:var(--f-display);font-size:20px;color:var(--fg-strong)}
+.db-tag{display:inline-block;font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:4px 10px;border-radius:6px;background:var(--navy);color:#fff;margin-bottom:12px}
+.db-tag.be{background:var(--red)}
+.quote{font-style:italic;color:var(--fg-strong);margin:12px 0;font-size:16px}
+.res{padding:26px;border-radius:20px;border:1px solid var(--line);transition:background .35s,border-color .35s}
+.res.good{background:linear-gradient(150deg,var(--red-tint-2),var(--red-tint));border-color:rgba(218,33,40,.45)}
+.res.warn{background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.45)}
+.res .eyebrow{color:var(--coral)}
+.res.warn .eyebrow{color:var(--amber)}
+.res h3{font-size:26px;margin:8px 0 10px}
+.res p{margin:0 0 12px;color:var(--muted);font-size:15px}
+.defn{margin-top:22px;padding:18px 22px;border-left:3px solid var(--red);background:var(--surface);border-radius:0 14px 14px 0;display:grid;grid-template-columns:1.6fr 1fr;gap:24px;align-items:center}
+.defn .eyebrow{color:var(--coral)}
+.defn p{margin:6px 0 0;font-style:italic;color:var(--fg-strong)}
+.three-d{display:flex;gap:8px;flex-wrap:wrap}
+.three-d span{display:flex;flex-direction:column;padding:10px 12px;border-radius:12px;background:var(--surface-2);border:1px solid var(--line);font-size:12.5px;color:var(--muted);flex:1;min-width:120px}
+.three-d b{font-family:var(--f-display);color:var(--fg-strong);font-size:15px}
+@media (max-width:900px){.dobe,.defn{grid-template-columns:1fr}.op{justify-self:center}}
+
+/* ---------- 03 four must-haves ---------- */
+.los{display:flex;align-items:center;margin-bottom:26px;overflow-x:auto;padding:6px 2px 10px}
+.los .pill{flex:none;font-size:13px;padding:8px 14px;border-radius:999px;border:1px solid var(--line-2);white-space:nowrap;color:var(--fg)}
+.los .pill.end{border-color:rgba(16,185,129,.55);color:var(--green);transition:all .3s}
+.los .pill.end.lost{border-color:var(--line-2);color:var(--faint);opacity:.6}
+.los .conn{flex:1;min-width:24px;height:2px;background:var(--line-2)}
+.los .conn.live{background:linear-gradient(90deg,var(--coral),var(--red))}
+.los .conn.cut{background:repeating-linear-gradient(90deg,var(--red) 0 6px,transparent 6px 12px)}
+.los .node{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-family:var(--f-display);background:var(--navy);color:#fff;border:2px solid var(--line-2);transition:all .3s;cursor:pointer}
+.los .node.sel{background:var(--red);border-color:var(--red);box-shadow:0 0 0 6px var(--red-tint)}
+.los .node.broken{background:transparent;border:2px dashed var(--red);color:var(--red)}
+.los-msg{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:-14px 0 22px;min-height:18px}
+.los-msg.bad{color:var(--red)}
+.mh-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.mh{text-align:left;padding:22px;border-radius:20px;background:var(--surface-2);border:1px solid var(--line);cursor:pointer;transition:border-color .25s,background .25s,transform .25s;display:flex;flex-direction:column;gap:10px;min-height:200px}
+.mh:hover{border-color:var(--line-2);transform:translateY(-2px)}
+.mh[aria-pressed="true"]{background:linear-gradient(160deg,var(--red-tint-2),var(--surface));border-color:rgba(218,33,40,.55)}
+.mh .num{font-family:var(--f-mono);font-size:12px;color:var(--faint)}
+.mh .ico{color:var(--coral)}
+.mh .ico svg{width:30px;height:30px;stroke-width:1.6}
+.mh h3{margin:0;font-family:var(--f-display);font-size:19px;line-height:1.2;color:var(--fg-strong)}
+.mh p{margin:0;font-size:14px;color:var(--muted)}
+.mh-detail{margin-top:16px;display:grid;grid-template-columns:1.3fr 1.3fr 1fr;gap:14px}
+.box{padding:18px 20px;border-radius:16px;background:var(--surface);border:1px solid var(--line);min-width:0}
+.box p{margin:6px 0 0;font-size:15px}
+.box.bad .eyebrow{color:var(--red)}
+.mh-actions{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+@media (max-width:980px){.mh-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.mh-detail{grid-template-columns:1fr}}
+@media (max-width:520px){.mh-grid{grid-template-columns:1fr}.mh{min-height:0}}
+
+/* ---------- 04 cause-and-effect chain ---------- */
+.ch2{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));column-gap:30px;row-gap:10px}
+.vfl2{grid-column:4 / 6;grid-row:1;height:26px;display:flex;align-items:center;justify-content:center;font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--navy);border-radius:8px}
+.col{grid-row:2;position:relative;display:flex;flex-direction:column;gap:10px;min-width:0}
+.col:not(:last-child)::after{content:"";position:absolute;right:-21px;top:24px;width:12px;height:12px;border-top:2.5px solid var(--coral);border-right:2.5px solid var(--coral);transform:rotate(45deg);transition:transform .4s}
+.ch2.rev .col:not(:last-child)::after{transform:rotate(-135deg)}
+.col-h{padding:14px 14px 12px;border-radius:16px;background:var(--surface-2);border:1px solid var(--line);border-top:3px solid var(--sw)}
+.col-h .top{display:flex;align-items:center;gap:8px}
+.step{font-family:var(--f-mono);font-size:11px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--surface-3);color:var(--fg-strong);flex:none}
+.col.first .step{background:var(--red);color:#fff}
+.col-h h3{margin:0;font-family:var(--f-display);font-size:16.5px;line-height:1.15;color:var(--fg-strong)}
+.col-h .q{margin:8px 0 0;font-size:13px;color:var(--fg);line-height:1.4;font-weight:500}
+.col-h .d{margin:6px 0 0;font-size:12.5px;color:var(--faint);line-height:1.4}
+.item{text-align:left;padding:12px 13px;border-radius:12px;background:var(--surface);border:1px solid var(--line);font-size:13px;line-height:1.4;color:var(--muted);transition:all .3s}
+.item b{display:block;color:var(--fg-strong);font-size:14px;font-weight:600;margin-bottom:3px}
+.item.on{border-color:rgba(218,33,40,.6);background:linear-gradient(160deg,var(--red-tint-2),var(--surface));color:var(--fg)}
+.item.dim{opacity:.38}
+button.item{cursor:pointer}
+button.item:hover{border-color:var(--line-2)}
+.route{display:flex;gap:10px;align-items:center}
+.route .ri{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:var(--navy);color:#fff;flex:none}
+.route .ri svg{width:16px;height:16px}
+.c2-panels{margin-top:22px;display:grid;grid-template-columns:1fr 1.35fr;gap:14px}
+.c2-panels h4{margin:8px 0 10px;font-family:var(--f-display);font-size:20px;color:var(--fg-strong);line-height:1.25}
+.narr{font-size:15.5px;color:var(--fg);margin:8px 0 0;line-height:1.65}
+.narr b{color:var(--fg-strong);font-weight:600}
+.dobe-mini{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.dobe-mini div{padding:12px 14px;border-radius:12px;background:var(--surface-2);border:1px solid var(--line);font-size:14px}
+.dobe-mini .k{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);display:block;margin-bottom:4px}
+.evq{margin:10px 0 0;padding:10px 14px;border-left:3px solid var(--green);background:rgba(16,185,129,.07);border-radius:0 10px 10px 0;font-style:italic;color:var(--fg-strong);font-size:14.5px}
+.best{font-size:14px;color:var(--muted);margin:10px 0 0}
+.best b{color:var(--fg-strong);font-weight:600}
+.dims{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+@media (max-width:1080px){
+  .ch2{grid-template-columns:1fr;row-gap:30px}
+  .vfl2{grid-column:auto;grid-row:auto;order:4}
+  .col{grid-row:auto}
+  .col:nth-child(2){order:1}.col:nth-child(3){order:2}.col:nth-child(4){order:3}.col:nth-child(5){order:5}.col:nth-child(6){order:6}
+  .col:not(:last-child)::after{right:auto;left:50%;top:auto;bottom:-20px;transform:rotate(135deg)}
+  .ch2.rev .col:not(:last-child)::after{transform:rotate(-45deg)}
+  .c2-panels{grid-template-columns:1fr}
+}
+@media (max-width:560px){.dobe-mini{grid-template-columns:1fr}}
+
+/* ---------- 05 levels ---------- */
+.ladder{display:grid;gap:12px}
+.rung{display:grid;grid-template-columns:64px 1fr 290px;border-radius:18px;border:1px solid var(--line);background:var(--surface-2);overflow:hidden;transition:border-color .3s,box-shadow .3s}
+.rung.hit{border-color:rgba(218,33,40,.6);box-shadow:0 0 0 4px var(--red-tint)}
+.rung:nth-child(2){margin-left:3%}.rung:nth-child(3){margin-left:6%}.rung:nth-child(4){margin-left:9%}
+.lv{display:grid;place-items:center;font-family:var(--f-display);font-weight:700;font-size:20px;color:#fff}
+.rung-body{padding:16px 20px;min-width:0}
+.rung-body h3{margin:0;font-family:var(--f-display);font-size:18px;color:var(--fg-strong)}
+.rung-body p{margin:4px 0 0;font-size:14px;color:var(--muted)}
+.rung-q{padding:16px 18px;border-left:1px solid var(--line);background:var(--surface);display:flex;flex-direction:column;gap:8px;min-width:0}
+.rung-q .eyebrow{color:var(--coral)}
+.rung-q .qtext{font-size:14px;color:var(--fg-strong);line-height:1.45}
+.rung-q .when{font-family:var(--f-mono);font-size:11.5px;color:var(--faint)}
+.rung-q .chip{align-self:flex-start}
+.ladder-foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:18px;font-size:14.5px;color:var(--muted)}
+.circle-view{display:grid;grid-template-columns:minmax(0,440px) 1fr;gap:30px;align-items:center}
+.circle-view svg{width:100%;height:auto;max-width:440px;justify-self:center}
+.seg-path{cursor:pointer;transition:opacity .25s,filter .25s}
+.seg-path:hover{filter:brightness(1.15)}
+.seg-g.dim .seg-path{opacity:.45}
+.seg-g:focus{outline:none}
+.seg-g:focus-visible .seg-path{stroke:var(--coral);stroke-width:3}
+.cv-panel{padding:24px}
+.cv-panel h3{margin:6px 0 10px;font-family:var(--f-display);font-size:24px;color:var(--fg-strong);line-height:1.2}
+.cv-panel p{margin:0 0 10px;color:var(--muted);font-size:15px}
+.cv-panel .eyebrow{color:var(--coral)}
+.cv-panel .sup{padding:12px 14px;border-radius:12px;background:var(--surface-2);border:1px solid var(--line);font-size:14px;color:var(--fg)}
+.cv-legend{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+@media (max-width:900px){
+  .rung{grid-template-columns:52px 1fr}
+  .rung-q{grid-column:1 / -1;border-left:0;border-top:1px solid var(--line)}
+  .rung:nth-child(n){margin-left:0}
+  .circle-view{grid-template-columns:1fr}
+}
+
+/* ---------- 06 triangle ---------- */
+.tri{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:center}
+.tri svg{width:100%;height:auto;max-width:560px;justify-self:center}
+.tnode{cursor:pointer}
+.tnode .ring{fill:none;stroke:var(--coral);stroke-width:2;opacity:0;transition:opacity .3s}
+.tnode.on .ring{opacity:1}
+.tnode text{font-family:var(--f-display);font-weight:700;fill:#fff;pointer-events:none}
+.tnode .small{font-family:var(--f-body);font-weight:500;font-size:12px;fill:rgba(255,255,255,.85)}
+.tedge{stroke:var(--line-2);stroke-width:2;stroke-dasharray:5 6;transition:stroke .3s,stroke-width .3s}
+.tedge.on{stroke:var(--coral);stroke-width:3;stroke-dasharray:none}
+.tlabel{font-family:var(--f-mono);font-size:12px;fill:var(--muted)}
+.tlabel.on{fill:var(--coral)}
+.tlabel-bg{fill:var(--bg)}
+.role{padding:26px}
+.role .eyebrow{color:var(--coral)}
+.role h3{margin:6px 0 4px;font-family:var(--f-display);font-size:26px;color:var(--fg-strong)}
+.role .rsub{margin:0 0 16px;color:var(--muted);font-size:14.5px}
+.role .ticks{font-size:15px;color:var(--fg)}
+.role-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.conf{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.conf .shared .eyebrow{color:var(--green)}
+.conf .private .eyebrow{color:var(--amber)}
+.agree{margin-top:14px;font-size:14.5px;color:var(--muted)}
+@media (max-width:900px){.tri,.conf{grid-template-columns:1fr}}
+
+/* ---------- 07 between sessions ---------- */
+.lanes-scroll{overflow-x:auto;margin:0 -6px;padding:0 6px}
+.lanes-scroll svg{width:100%;min-width:760px;height:auto;display:block}
+.ln-sess{fill:var(--navy)}
+.ln-sess-t{font-family:var(--f-display);font-weight:700;fill:#fff}
+.ln-sess-s{font-family:var(--f-body);font-size:12px;fill:rgba(255,255,255,.75)}
+.ln-sess-n{font-family:var(--f-body);font-size:11.5px;fill:rgba(255,255,255,.9)}
+.ln-lab{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.12em;fill:var(--coral);text-transform:uppercase}
+.ln-track{stroke:var(--line-2);stroke-width:2}
+.ln-track.dash{stroke-dasharray:4 7}
+.ln-ev{transition:opacity .35s}
+.ln-ev.off{opacity:.12}
+.ln-dot{fill:var(--surface-3);stroke:var(--line-2);stroke-width:1.5;transition:fill .3s,stroke .3s}
+.ln-ev.hit .ln-dot{fill:var(--green);stroke:var(--green)}
+.ln-ev-t{font-family:var(--f-body);font-size:12px;fill:var(--fg)}
+.ln-note{font-family:var(--f-body);font-size:12.5px;fill:var(--faint);font-style:italic}
+.ln-tick{stroke:var(--grey);stroke-width:2;opacity:.5}
+.ln-cursor{stroke:var(--coral);stroke-width:2}
+.ln-band{font-family:var(--f-mono);font-size:12px;letter-spacing:.16em;fill:var(--faint)}
+.lane-msg{margin:14px 0 0;font-family:var(--f-display);font-weight:600;font-size:17px;color:var(--fg-strong)}
+.lane-msg.bad{color:var(--amber)}
+.rec-table{margin-top:22px;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.rec-row{display:grid;grid-template-columns:170px 1.6fr 1fr 1fr;border-top:1px solid var(--line)}
+.rec-row:first-child{border-top:0;background:var(--surface-2)}
+.rec-row>div{padding:12px 16px;font-size:14px;min-width:0}
+.rec-row:first-child>div{font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.rec-row .who{font-weight:600;color:var(--fg-strong);display:flex;gap:8px;align-items:center}
+.rec-row .who i{width:10px;height:10px;border-radius:3px;display:inline-block;flex:none}
+.rec-row .ex{display:block;font-style:italic;color:var(--muted);font-size:13px;margin-top:4px}
+@media (max-width:860px){.rec-row{grid-template-columns:1fr}.rec-row:first-child{display:none}.rec-row>div{padding:6px 16px}.rec-row>div:first-child{padding-top:14px}.rec-row>div:last-child{padding-bottom:14px}}
+
+/* ---------- 08 dashboard ---------- */
+.dash{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.dcol h3{margin:0 0 10px;font-family:var(--f-mono);font-weight:500;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+.dcol h3 b{display:block;font-family:var(--f-display);font-size:16px;letter-spacing:0;text-transform:none;color:var(--fg-strong);margin-top:2px}
+.dcol .stack{display:grid;gap:10px}
+.kpi{text-align:left;cursor:pointer;padding:12px 13px;border-radius:12px;background:var(--surface-2);border:1px solid var(--line);border-left:4px solid var(--st);transition:all .25s;display:flex;flex-direction:column;gap:4px}
+.kpi:hover{border-color:var(--line-2);border-left-color:var(--st)}
+.kpi .n{font-size:13px;color:var(--fg);line-height:1.3}
+.kpi .v{font-family:var(--f-display);font-weight:700;font-size:20px;color:var(--fg-strong);font-variant-numeric:tabular-nums;line-height:1.1}
+.kpi .v small{font-family:var(--f-body);font-weight:400;font-size:12px;color:var(--muted)}
+.kpi.sel{box-shadow:0 0 0 2px var(--coral)}
+.kpi.lnk{box-shadow:0 0 0 1px var(--coral)}
+.kpi.dim{opacity:.35}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
+.legend span{display:flex;gap:6px;align-items:center}
+.legend i{width:10px;height:10px;border-radius:3px}
+.d-detail{margin-top:18px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+@media (max-width:1080px){.dash{grid-template-columns:repeat(2,minmax(0,1fr))}.d-detail{grid-template-columns:1fr}}
+@media (max-width:560px){.dash{grid-template-columns:1fr}}
+
+/* ---------- 09 menu ---------- */
+.grp-h{font-family:var(--f-mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);margin:0 0 12px}
+.grp{margin-bottom:22px}
+.opts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.opt{text-align:left;cursor:pointer;padding:18px;border-radius:18px;background:var(--surface-2);border:1px solid var(--line);display:flex;flex-direction:column;gap:8px;transition:border-color .25s,background .25s}
+.opt:hover{border-color:var(--line-2)}
+.opt[aria-pressed="true"]{border-color:rgba(218,33,40,.6);background:linear-gradient(160deg,var(--red-tint-2),var(--surface))}
+.opt .row{display:flex;justify-content:space-between;align-items:center}
+.opt .ico{color:var(--coral)}
+.opt .ico svg{width:24px;height:24px;stroke-width:1.7}
+.chk{width:22px;height:22px;border-radius:6px;border:1.5px solid var(--line-2);display:grid;place-items:center;transition:all .2s}
+.opt[aria-pressed="true"] .chk{background:var(--red);border-color:var(--red)}
+.chk svg{width:14px;height:14px;color:#fff;opacity:0}
+.opt[aria-pressed="true"] .chk svg{opacity:1}
+.opt h3{margin:0;font-family:var(--f-display);font-size:17px;line-height:1.2;color:var(--fg-strong)}
+.opt p{margin:0;font-size:13.5px;color:var(--muted)}
+.focus{margin-top:10px;padding:22px}
+.focus-h{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.focus-h h3{margin:0;font-family:var(--f-display);font-size:20px;color:var(--fg-strong);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.focus-h h3 svg{width:20px;height:20px;color:var(--coral)}
+.ex-tag{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;color:var(--amber);text-transform:uppercase}
+.ftable{border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.frow{display:grid;grid-template-columns:1.05fr 1.2fr .95fr 1.05fr 1.05fr;border-top:1px solid var(--line)}
+.frow:first-child{border-top:0;background:var(--surface-2)}
+.frow>div{padding:12px 14px;font-size:13.5px;min-width:0;color:var(--fg)}
+.frow:first-child>div{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.frow .nm{font-family:var(--f-display);font-weight:600;color:var(--fg-strong);font-size:15px}
+.frow .nm span{display:block;font-family:var(--f-body);font-weight:400;font-size:13px;color:var(--coral);margin-top:4px}
+.frow ul{margin:0;padding-left:16px;display:grid;gap:3px}
+.frow .lab{display:none;font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:4px}
+.empty{font-size:14px;color:var(--faint);margin:6px 0}
+.advice{font-size:13.5px;padding:8px 12px;border-radius:10px;background:var(--surface);border:1px solid var(--line)}
+.advice.warn{border-color:rgba(245,158,11,.45);color:var(--amber)}
+.advice.ok{border-color:rgba(16,185,129,.45);color:var(--green)}
+@media (max-width:1080px){.opts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:860px){.frow{grid-template-columns:1fr}.frow:first-child{display:none}.frow .lab{display:block}.frow>div{padding:8px 14px}}
+@media (max-width:520px){.opts{grid-template-columns:1fr}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding-block:clamp(72px,12vh,140px) clamp(64px,10vh,120px)}
+main{overflow-x:clip}
+.hero-in{position:relative;z-index:2;max-width:820px}
+.hero h1{font-size:clamp(44px,7.4vw,96px);line-height:1.0;max-width:12ch}
+.hero .sub{font-size:clamp(17px,1.8vw,21px);max-width:46ch;margin-top:26px}
+.hero .chips{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:34px}
+.hero .chips span.c{padding:8px 16px;border-radius:999px;border:1px solid;font-size:14.5px;font-weight:500}
+.hero .chips .c1{border-color:rgba(240,88,94,.55);color:var(--coral)}
+.hero .chips .c2{border-color:rgba(245,158,11,.55);color:var(--amber)}
+.hero .chips .c3{border-color:rgba(16,185,129,.55);color:var(--green)}
+.hero .chips .dash{width:28px;height:1px;background:var(--line-2)}
+.hero .meta{margin-top:48px;font-size:14px;color:var(--faint)}
+.hero .meta b{color:var(--fg-strong);font-family:var(--f-display)}
+.rings{position:absolute;z-index:1;right:-180px;top:50%;width:min(760px,90vw);aspect-ratio:1;max-width:100%;translate:0 -50%;pointer-events:none;opacity:.9}
+.rings svg{width:100%;height:100%}
+.rings .r{fill:none;transform-origin:50% 50%;transform-box:fill-box}
+.rings .spin{animation:spin 80s linear infinite}
+.rings .spin2{animation:spin 120s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+:root[data-mode="print"] .rings{opacity:.35}
+@media (max-width:900px){.rings{right:-320px;opacity:.4}}
+
+/* ---------- 10 next steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.stepc{position:relative;text-align:left;cursor:pointer;padding:20px 18px;border-radius:18px;background:var(--surface-2);border:1px solid var(--line);display:flex;flex-direction:column;gap:10px;transition:all .25s;min-height:170px}
+.stepc:hover{border-color:var(--line-2);transform:translateY(-2px)}
+.stepc[aria-pressed="true"]{border-color:rgba(218,33,40,.6);background:linear-gradient(160deg,var(--red-tint-2),var(--surface))}
+.stepc .big{font-family:var(--f-display);font-weight:700;font-size:34px;color:var(--coral);line-height:1}
+.stepc h3{margin:0;font-family:var(--f-display);font-size:17px;line-height:1.25;color:var(--fg-strong)}
+.stepc:not(:last-child)::after{content:"";position:absolute;right:-10px;top:34px;width:8px;height:8px;border-top:2px solid var(--faint);border-right:2px solid var(--faint);transform:rotate(45deg)}
+.st-detail{margin-top:14px;display:grid;grid-template-columns:1fr 1.4fr;gap:14px}
+.agree-box{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.agree-box .box .eyebrow{color:var(--coral)}
+.agree-box .ticks{margin-top:10px;color:var(--fg)}
+@media (max-width:1080px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.stepc::after{display:none}.st-detail,.agree-box{grid-template-columns:1fr}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}.stepc{min-height:0}}
+
+/* ---------- closing ---------- */
+.closing{padding-block:96px 120px;border-top:1px solid var(--line);text-align:center}
+.closing .logo{justify-content:center;font-size:clamp(56px,9vw,104px)}
+.closing .logo sup{font-size:.55em;margin-top:-.08em}
+.closing h2{margin:28px auto 0;max-width:22ch;font-size:clamp(28px,3.6vw,44px)}
+.closing p{margin:16px auto 0;color:var(--faint);font-size:14px}
+
+/* ---------- present mode ---------- */
+html.presenting{scroll-snap-type:y proximity}
+html.presenting main > section{min-height:calc(100vh - 56px);scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center}
+html.presenting .wrap{max-width:1320px}
+
+.outro{padding-block:64px 96px;border-top:1px solid var(--line)}
+.outro ol{margin:18px 0 0;padding-left:22px;color:var(--fg);font-size:16px;display:grid;gap:8px;max-width:80ch}
+</style>
+
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <div class="logo" aria-label="dss+">dss<sup>+</sup></div>
+    <div class="divider"></div>
+    <div class="deck-title">Coaching for Impact</div>
+    <div class="spacer"></div>
+    <nav class="progress" id="progress" aria-label="Sections"></nav>
+    <div class="now" id="now">Overview</div>
+    <button class="icon-btn" id="prev" aria-label="Previous section"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+    <button class="icon-btn" id="next" aria-label="Next section"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+    <button class="mode-btn" id="modeBtn" aria-pressed="false">Print view</button>
+    <button class="present" id="presentBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg><span>Present</span></button>
+  </div>
+</header>
+
+<main>
+  <section class="wrap hero" id="opening" data-name="Opening">
+    <div class="rings" aria-hidden="true">
+      <svg viewBox="0 0 600 600">
+        <defs><radialGradient id="hg" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#DA2128" stop-opacity=".35"/><stop offset="70%" stop-color="#DA2128" stop-opacity="0"/></radialGradient></defs>
+        <circle cx="300" cy="300" r="300" fill="url(#hg)"/>
+        <g class="r spin"><circle cx="300" cy="300" r="270" stroke="#DA2128" stroke-width="22" stroke-opacity=".55" stroke-dasharray="380 40" fill="none"/></g>
+        <g class="r spin2"><circle cx="300" cy="300" r="225" stroke="#F0585E" stroke-width="1.5" stroke-dasharray="3 9" fill="none"/></g>
+        <g class="r spin"><circle cx="300" cy="300" r="190" stroke="#3B3F7E" stroke-width="48" stroke-opacity=".55" stroke-dasharray="270 28" fill="none"/></g>
+        <circle cx="300" cy="300" r="110" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="1"/>
+        <circle cx="300" cy="300" r="12" fill="#F0585E"/>
+      </svg>
+    </div>
+    <div class="hero-in">
+      <p class="label">dss+ · Coaching for Impact</p>
+      <h1>Coaching that lasts <span class="grad">beyond the session.</span></h1>
+      <p class="sub">Helping your leaders turn risk and performance priorities into lasting practice.</p>
+      <div class="chips" aria-label="From coaching to impact"><span class="c c1">Coaching session</span><span class="dash"></span><span class="c c2">Daily routines</span><span class="dash"></span><span class="c c3">Business impact</span></div>
+      <p class="meta">Prepared by <b>dss+</b> · Client presentation · November 2026</p>
+    </div>
+  </section>
+
+  <!-- ===================== 01 WHY ===================== -->
+  <section class="wrap sec" id="why" data-name="Why this matters">
+    <p class="label">01 · Why this matters</p>
+    <h2>Most coaching fades <span class="grad">when the coach leaves.</span></h2>
+    <p class="sub">Sessions get counted, but few organisations can show what changed in the work. Without follow-up between sessions, new practice slips back.</p>
+    <div class="card stage">
+      <div class="stage-head">
+        <span class="eyebrow">How often the new practice is used, between two sessions</span>
+        <div class="seg" role="group" aria-label="Highlight">
+          <button data-cv="both" aria-pressed="true">Both</button>
+          <button data-cv="without" aria-pressed="false">Without follow-up</button>
+          <button data-cv="with" aria-pressed="false">With follow-up</button>
+        </div>
+      </div>
+      <div class="curve">
+        <svg viewBox="0 0 860 360" role="img" aria-label="Illustrative curves: with line manager follow-up the new practice holds and grows; without it, it fades">
+          <line class="cv-grid" x1="70" y1="90" x2="830" y2="90"/><line class="cv-grid" x1="70" y1="170" x2="830" y2="170"/><line class="cv-grid" x1="70" y1="250" x2="830" y2="250"/>
+          <line class="cv-axis" x1="70" y1="40" x2="70" y2="300"/><line class="cv-axis" x1="70" y1="300" x2="830" y2="300"/>
+          <text class="cv-t" x="70" y="324">Session n</text><text class="cv-t" x="300" y="324" text-anchor="middle">Week 2</text><text class="cv-t" x="550" y="324" text-anchor="middle">Week 4</text><text class="cv-t" x="830" y="324" text-anchor="end">Session n+1</text>
+          <text class="cv-t" x="58" y="94" text-anchor="end">High</text><text class="cv-t" x="58" y="296" text-anchor="end">Low</text>
+          <g id="cvWith"><path class="cv-area" d="M70 170 C 260 140, 470 100, 830 72 L 830 300 L 70 300 Z"/><path class="cv-with" d="M70 170 C 260 140, 470 100, 830 72"/><text class="cv-lab" x="822" y="58" text-anchor="end" style="fill:var(--green)">With line manager follow-up</text></g>
+          <g id="cvWithout"><path class="cv-without" d="M70 170 C 200 205, 360 262, 830 278"/><text class="cv-lab" x="822" y="266" text-anchor="end" style="fill:var(--amber)">Without follow-up</text></g>
+          <circle cx="70" cy="170" r="7" fill="var(--coral)"/>
+        </svg>
+      </div>
+    </div>
+    <p class="caption">Illustrative shape, not measured data. It shows the pattern most leaders recognise after any training or coaching session.</p>
+  </section>
+
+  <!-- ===================== 02 DO + BE ===================== -->
+  <section class="wrap sec" id="dobe" data-name="Do + Be">
+    <p class="label">02 · What we mean by coaching</p>
+    <h2>Do + Be = <span class="grad">operational discipline.</span></h2>
+    <p class="sub">Coaching builds what leaders do and why they commit to it. You need both for the result to last.</p>
+    <div class="card stage">
+      <div class="stage-head">
+        <span class="eyebrow">See what happens with only one half</span>
+        <div class="seg" role="group" aria-label="Choose combination">
+          <button data-db="do" aria-pressed="false">Do only</button>
+          <button data-db="be" aria-pressed="false">Be only</button>
+          <button data-db="both" aria-pressed="true">Do + Be</button>
+        </div>
+      </div>
+      <div class="dobe">
+        <div class="db-card" id="dbDo">
+          <span class="db-tag">Do · Knowledge</span>
+          <h3>What leaders do</h3>
+          <p class="quote">“I follow the rules because I have to.”</p>
+          <ul class="ticks"><li>Skills and behaviours you can see</li><li>Standards, procedures and routines we can check</li><li>Knowledge applied in the work</li></ul>
+        </div>
+        <div class="op" aria-hidden="true">+</div>
+        <div class="db-card" id="dbBe">
+          <span class="db-tag be">Be · Mindset</span>
+          <h3>Why they commit to it</h3>
+          <p class="quote">“I follow the rules because I want to.”</p>
+          <ul class="ticks"><li>Commitment, awareness and blind spots</li><li>Values, purpose and ownership</li><li>Makes the doing last</li></ul>
+        </div>
+        <div class="op" aria-hidden="true">=</div>
+        <div class="res good" id="dbRes" aria-live="polite"></div>
+      </div>
+      <div class="defn">
+        <div>
+          <span class="eyebrow">Coaching for Impact at dss+</span>
+          <p>Coaching is a catalyst for impact: a structured yet dynamic process that fosters leadership development, strengthens organisational capability and drives cultural transformation while delivering immediate business results.</p>
+        </div>
+        <div class="three-d" aria-label="The 3D coaching conversation">
+          <span><b>Discover</b>what matters and the current reality</span>
+          <span><b>Develop</b>options and assumptions</span>
+          <span><b>Deliver</b>commitments and actions</span>
+        </div>
+      </div>
+    </div>
+    <p class="caption">Source: dss+ Coaching for Impact Playbook (2026), executive summary. Do and Be are part of every coaching outcome; the balance is tailored to each client.</p>
+  </section>
+
+  <!-- ===================== 03 FOUR MUST-HAVES ===================== -->
+  <section class="wrap sec" id="musts" data-name="Four must-haves">
+    <p class="label">03 · How we make it work</p>
+    <h2>Four must-haves link coaching <span class="grad">to your results.</span></h2>
+    <p class="sub">Miss one, and the line from coaching to business impact breaks. Click a must-have to see what it covers.</p>
+    <div class="card stage">
+      <div class="los" id="los" aria-hidden="true"></div>
+      <div class="los-msg" id="losMsg">Line of sight · intact</div>
+      <div class="mh-grid" id="mhGrid"></div>
+      <div class="mh-detail" id="mhDetail" aria-live="polite"></div>
+      <div class="mh-actions">
+        <button class="ghost" id="breakBtn" aria-pressed="false">Show what happens if it's missing</button>
+        <span class="caption" id="mhSec" style="margin:0"></span>
+      </div>
+    </div>
+    <p class="caption">Each must-have is covered in its own section later in the deck.</p>
+  </section>
+
+  <!-- ===================== 04 CHAIN ===================== -->
+  <section class="wrap sec" id="chain" data-name="Cause and effect">
+    <p class="label">04 · Must-have 1 · Design</p>
+    <h2>Start from the impact you need, <span class="grad">then work back.</span></h2>
+    <p class="sub">Each layer answers one question about the layer before it. Pick an exposure to follow one thread from the impact you want down to what coaching must build.</p>
+    <div class="card stage">
+      <div class="stage-head">
+        <div class="seg" role="group" aria-label="Choose an exposure" id="thrSeg"></div>
+        <div class="seg" role="group" aria-label="Direction">
+          <button data-dir="back" aria-pressed="true">Design backward</button>
+          <button data-dir="fwd" aria-pressed="false">Review forward</button>
+        </div>
+      </div>
+      <div class="ch2" id="ch2"></div>
+      <div class="c2-panels">
+        <div class="box"><span class="eyebrow" id="narrEye">Read the chain · design backward</span><p class="narr" id="narr"></p></div>
+        <div class="box" id="routeBox" aria-live="polite"></div>
+      </div>
+    </div>
+    <p class="caption">Illustrative example, not client data. Coaching contributes alongside your other operational actions; it does not deliver the impact on its own.</p>
+  </section>
+
+  <!-- ===================== 05 LEVELS ===================== -->
+  <section class="wrap sec" id="levels" data-name="Four levels">
+    <p class="label">05 · Must-have 1 · Design</p>
+    <h2>Every session connects to <span class="grad">the result you need.</span></h2>
+    <p class="sub">Four levels from business impact down to a single session. Read down to design the programme. Read up to show what coaching contributed.</p>
+    <div class="card stage">
+      <div class="stage-head">
+        <div class="seg" role="group" aria-label="View">
+          <button data-view="ladder" aria-pressed="true">Levels</button>
+          <button data-view="circle" aria-pressed="false">Circle</button>
+        </div>
+        <div class="seg" role="group" aria-label="Direction" id="ladSeg">
+          <button data-lad="down" aria-pressed="true">Design down</button>
+          <button data-lad="up" aria-pressed="false">Evidence up</button>
+        </div>
+      </div>
+      <div id="ladderView">
+        <div class="ladder" id="ladderEl"></div>
+        <div class="ladder-foot"><span id="ladFoot"></span><span class="mono" style="font-size:12px;color:var(--faint)">Owners and timings are proposals, to confirm with you</span></div>
+      </div>
+      <div id="circleView" hidden>
+        <div class="circle-view">
+          <svg viewBox="0 0 440 440" id="circSvg" role="img" aria-label="Business impact as the outer ring L1; inside it three workstream outcomes L2 and the coaching programme L3, with sessions L4 inside coaching"></svg>
+          <div class="card cv-panel" id="cvPanel" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+    <p class="caption">Illustrative contribution model. Workstream names are examples; segment sizes don't mean equal contribution.</p>
+  </section>
+
+  <!-- ===================== 06 TRIANGLE ===================== -->
+  <section class="wrap sec" id="tri" data-name="Who owns it">
+    <p class="label">06 · Must-have 2 · Accountability</p>
+    <h2>Coaching works when <span class="grad">line managers are part of it.</span></h2>
+    <p class="sub">Clear roles for the coachee, their line manager and the coach make change stick. Hover or tap a role.</p>
+    <div class="card stage">
+      <div class="tri">
+        <svg viewBox="0 0 560 450" role="img" aria-label="Three-way relationship between coachee, line manager and dss+ coach">
+          <line class="tedge" id="e-cc" x1="280" y1="95" x2="110" y2="345"/>
+          <line class="tedge" id="e-cl" x1="280" y1="95" x2="450" y2="345"/>
+          <line class="tedge" id="e-ll" x1="110" y1="345" x2="450" y2="345"/>
+          <g id="l-cc"><rect class="tlabel-bg" x="94" y="200" width="150" height="24" rx="6"/><text class="tlabel" x="169" y="216" text-anchor="middle">Coaching sessions</text></g>
+          <g id="l-cl"><rect class="tlabel-bg" x="321" y="200" width="138" height="24" rx="6"/><text class="tlabel" x="390" y="216" text-anchor="middle">Daily follow-up</text></g>
+          <g id="l-ll"><rect class="tlabel-bg" x="210" y="333" width="140" height="24" rx="6"/><text class="tlabel" x="280" y="349" text-anchor="middle">Agreed check-ins</text></g>
+          <g class="tnode" data-role="coachee" tabindex="0" role="button" aria-label="Coachee"><circle class="ring" cx="280" cy="95" r="76"/><circle cx="280" cy="95" r="66" fill="#DA2128"/><text x="280" y="92" text-anchor="middle" font-size="17">Coachee</text><text class="small" x="280" y="112" text-anchor="middle">direct report</text></g>
+          <g class="tnode" data-role="coach" tabindex="0" role="button" aria-label="dss+ coach"><circle class="ring" cx="110" cy="345" r="76"/><circle cx="110" cy="345" r="66" fill="#23254A" stroke="rgba(255,255,255,.25)"/><text x="110" y="342" text-anchor="middle" font-size="16">dss+ coach</text><text class="small" x="110" y="362" text-anchor="middle">builds capability</text></g>
+          <g class="tnode" data-role="lm" tabindex="0" role="button" aria-label="Line manager"><circle class="ring" cx="450" cy="345" r="76"/><circle cx="450" cy="345" r="66" fill="#30336A" stroke="rgba(255,255,255,.25)"/><text x="450" y="342" text-anchor="middle" font-size="16">Line manager</text><text class="small" x="450" y="362" text-anchor="middle">direct supervisor</text></g>
+        </svg>
+        <div class="card role" id="rolePanel" aria-live="polite"></div>
+      </div>
+      <div class="conf">
+        <div class="box shared"><span class="eyebrow">Shared with the line manager</span><p>Agreed outcomes, actions and progress in the work.</p></div>
+        <div class="box private"><span class="eyebrow">Stays between coach and coachee</span><p>Personal reflections from coaching conversations.</p></div>
+      </div>
+      <p class="agree">We agree participation, access to progress information and confidentiality with you before coaching starts.</p>
+    </div>
+    <p class="caption">Line manager involvement is a proposed minimum requirement. Private reflections are never automatically visible to the line manager.</p>
+  </section>
+
+  <!-- ===================== 07 BETWEEN SESSIONS ===================== -->
+  <section class="wrap sec" id="between" data-name="Between sessions">
+    <p class="label">07 · Must-have 3 · Between sessions</p>
+    <h2>Most of the change happens <span class="grad">between sessions.</span></h2>
+    <p class="sub">From session n to session n+1, each person records a small amount, so the next session starts from evidence, not memory.</p>
+    <div class="card stage">
+      <div class="stage-head">
+        <span class="eyebrow">Who records what, from session n to session n+1</span>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+          <div class="seg" role="group" aria-label="Follow-up">
+            <button data-lp="with" aria-pressed="true">With follow-up</button>
+            <button data-lp="without" aria-pressed="false">Without</button>
+          </div>
+          <button class="ghost" id="lpPlay">Pause</button>
+        </div>
+      </div>
+      <div class="lanes-scroll"><svg viewBox="0 0 1000 450" id="laneSvg" role="img" aria-label="Timeline from session n to session n+1 with lanes for coachee, line manager, dss+ coach and client systems, showing what each records"></svg></div>
+      <p class="lane-msg" id="laneMsg" aria-live="polite"></p>
+      <div class="rec-table" role="table" aria-label="What gets recorded, by whom">
+        <div class="rec-row" role="row"><div role="columnheader">Who</div><div role="columnheader">Records</div><div role="columnheader">When</div><div role="columnheader">Where</div></div>
+        <div class="rec-row" role="row"><div class="who" role="cell"><i style="background:var(--red)"></i>Coachee</div><div role="cell">Actions tried, what they found, one real example<span class="ex">“Checked the 5 critical isolation steps, found a missing lock, stopped the job.”</span></div><div role="cell">After each agreed action</div><div role="cell">Short log, on paper or in the app</div></div>
+        <div class="rec-row" role="row"><div class="who" role="cell"><i style="background:var(--navy-3)"></i>Line manager</div><div role="cell">What they saw in the field against the agreed standard (simple 1–5 rating), and the support they gave</div><div role="cell">At each check-in, for example weekly</div><div role="cell">Check-in record</div></div>
+        <div class="rec-row" role="row"><div class="who" role="cell"><i style="background:var(--coral)"></i>dss+ coach</div><div role="cell">Session outcome, commitments, and progress against the coaching outcome</div><div role="cell">Every session</div><div role="cell">dss+ coaching record</div></div>
+        <div class="rec-row" role="row"><div class="who" role="cell"><i style="background:var(--grey)"></i>Client systems</div><div role="cell">Data you already collect: permits checked, audits, actions closed on time</div><div role="cell">Ongoing, no extra effort</div><div role="cell">Your existing systems</div></div>
+      </div>
+    </div>
+    <p class="caption">Illustrative. What is recorded, and how often, is agreed with you at the start. Keep it light: three or four fields per record.</p>
+  </section>
+
+  <!-- ===================== 08 DASHBOARD ===================== -->
+  <section class="wrap sec" id="progress-view" data-name="Seeing progress">
+    <p class="label">08 · Must-have 4 · Seeing progress</p>
+    <h2>See progress <span class="grad">before incidents tell you.</span></h2>
+    <p class="sub">Serious events are too rare to steer by week to week. Steer by exposure, controls and routines, the same layers as section 04. Click a measure to see what it links to.</p>
+    <div class="card stage">
+      <div class="stage-head">
+        <span class="eyebrow">Illustrative cause-and-effect view · energy isolation thread</span>
+        <div class="legend"><span><i style="background:var(--green)"></i>On track</span><span><i style="background:var(--amber)"></i>Watch</span><span><i style="background:var(--red)"></i>Off track</span><span><i style="background:var(--grey)"></i>No target yet</span></div>
+      </div>
+      <div class="dash" id="dash"></div>
+      <div class="d-detail" id="dDetail" aria-live="polite"></div>
+    </div>
+    <p class="caption">Mock-up with placeholder values, not client data. The real view uses measures agreed with you and data from your own systems.</p>
+  </section>
+
+  <!-- ===================== 09 MENU ===================== -->
+  <section class="wrap sec" id="menu" data-name="Coaching focus">
+    <p class="label">09 · Where it applies</p>
+    <h2>Choose where coaching should <span class="grad">make a difference.</span></h2>
+    <p class="sub">Seven areas, grouped as in your original slide. Select the ones that matter most. Your coaching focus below shows what leaders will do, how they will think, and what changes in the work.</p>
+    <div class="card stage">
+      <div id="menuGroups"></div>
+      <div class="card focus" aria-live="polite">
+        <div class="focus-h">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>Your coaching focus <span class="ex-tag" id="exTag">Example selection</span></h3>
+          <div class="advice" id="advice"></div>
+        </div>
+        <div id="focusBody"></div>
+      </div>
+    </div>
+    <p class="caption">A menu to choose from, not a fixed seven-part framework. Content adapted from the Coaching Outcomes working-group draft.</p>
+  </section>
+
+  <!-- ===================== 10 NEXT STEPS ===================== -->
+  <section class="wrap sec" id="next-steps" data-name="Shaping it together">
+    <p class="label">10 · Shaping it together</p>
+    <h2>From first conversation <span class="grad">to lasting capability.</span></h2>
+    <p class="sub">Five steps from agreeing the impact you need to leaders coaching their own teams without us. Click a step to see who is involved and what it produces.</p>
+    <div class="card stage">
+      <div class="steps" id="stepsEl"></div>
+      <div class="st-detail" id="stDetail" aria-live="polite"></div>
+      <div class="agree-box">
+        <div class="box"><span class="eyebrow">What we agree with you before we start</span>
+          <ul class="ticks"><li>An accountable sponsor and the workstreams coaching will support</li><li>Line manager participation for every coachee</li><li>Who sees progress information, and what stays confidential</li><li>The three or four things each person records, and how often</li></ul></div>
+        <div class="box"><span class="eyebrow">What you can expect from dss+</span>
+          <ul class="ticks"><li>Coaching designed from your impact, not a standard catalogue</li><li>Coaches who know high-hazard operations</li><li>Evidence of contribution at every level, from session to impact</li><li>A planned handover, so your leaders keep coaching without us</li></ul></div>
+      </div>
+    </div>
+    <p class="caption">Steps and timing are shaped with you at the start of the engagement.</p>
+  </section>
+
+  <section class="wrap closing" id="close" data-name="Close">
+    <div class="logo" aria-label="dss+">dss<sup>+</sup></div>
+    <h2>Coaching that lasts beyond the session, <span class="grad">with the evidence to show it.</span></h2>
+    <p>© 2026 DSS Sustainable Solutions. Illustrative examples throughout; no client data.</p>
+  </section>
+</main>
+
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script>
+(function(){
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const icon=n=>`<i data-lucide="${n}"></i>`;
+const drawIcons=()=>{try{window.lucide&&lucide.createIcons({attrs:{'stroke-width':1.7}})}catch(e){}};
+const pressed=(sel,fn)=>$$(sel).forEach(b=>b.setAttribute('aria-pressed',fn(b)));
+
+/* ---------- background ---------- */
+const cv=$('#bg'),cx=cv.getContext('2d');let W,H,bgOn=true;
+function size(){const d=Math.min(window.devicePixelRatio||1,2);W=cv.width=innerWidth*d;H=cv.height=innerHeight*d;}
+function draw(t){cx.clearRect(0,0,W,H);const n=26;for(let i=0;i<n;i++){const base=H*(0.15+i/n*0.95),amp=H*0.05*(1+Math.sin(i*.7));cx.beginPath();for(let x=0;x<=W;x+=W/90){const y=base+Math.sin(x/W*3.2+i*.45+t*.00012)*amp+Math.sin(x/W*7.5-i*.3+t*.00008)*amp*.35;x?cx.lineTo(x,y):cx.moveTo(x,y);}cx.strokeStyle=i%7===3?'rgba(240,88,94,.07)':'rgba(255,255,255,.035)';cx.lineWidth=(window.devicePixelRatio||1);cx.stroke();}}
+function loopBg(t){if(bgOn)draw(t);requestAnimationFrame(loopBg);}
+size();addEventListener('resize',()=>{size();if(bgOn)draw(0)});draw(0);if(!reduce)requestAnimationFrame(loopBg);
+
+/* ---------- top bar ---------- */
+const secs=$$('main > section');
+secs.forEach(s=>{const b=document.createElement('button');b.setAttribute('aria-label',s.dataset.name);b.onclick=()=>s.scrollIntoView();$('#progress').appendChild(b);});
+let cur=0;
+function setCur(i){cur=i;$$('#progress button').forEach((b,j)=>b.classList.toggle('on',j===i));const s=secs[i];const lab=s.querySelector('.label');const num=lab&&/^\d\d/.test(lab.textContent)?lab.textContent.slice(0,2)+' · ':'';$('#now').textContent=num+s.dataset.name;}
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)setCur(secs.indexOf(e.target))})},{rootMargin:'-45% 0px -50% 0px'});
+secs.forEach(s=>io.observe(s));setCur(0);
+const go=d=>secs[Math.max(0,Math.min(secs.length-1,cur+d))].scrollIntoView();
+$('#prev').onclick=()=>go(-1);$('#next').onclick=()=>go(1);
+addEventListener('keydown',e=>{if(e.target.closest('input,textarea'))return;if(['ArrowRight','PageDown'].includes(e.key)){e.preventDefault();go(1)}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(-1)}});
+const root=document.documentElement;
+function setPresent(on){root.classList.toggle('presenting',on);$('#presentBtn span').textContent=on?'Exit':'Present';secs[cur].scrollIntoView();}
+$('#presentBtn').onclick=async()=>{const on=!root.classList.contains('presenting');setPresent(on);try{if(on&&!document.fullscreenElement)await root.requestFullscreen();if(!on&&document.fullscreenElement)await document.exitFullscreen();}catch(e){}};
+document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement&&root.classList.contains('presenting'))setPresent(false);});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&root.classList.contains('presenting'))setPresent(false);});
+
+/* ---------- 10 next steps ---------- */
+const STEPS=[
+  {t:'Agree the impact and workstreams',who:'Sponsor, workstream leads and dss+',out:'The business impact you need (L1), the workstream outcomes behind it (L2), and the exposures and controls coaching will support.'},
+  {t:'Select coachees and line managers',who:'Sponsor, line managers and HR',out:'The coachee group, each line manager’s commitment, and a three-way kick-off conversation for every coachee.'},
+  {t:'Agree outcomes, measures and recording',who:'Workstream leads, line managers and dss+',out:'The coaching outcomes (L3), what each person records between sessions, the check-in rhythm and the confidentiality agreement.'},
+  {t:'Deliver coaching',who:'dss+ coaches, coachees and line managers',out:'Coaching sessions with recorded outcomes (L4), and line manager check-ins between every session.'},
+  {t:'Review contribution and hand over',who:'Steering committee and sponsor',out:'The cause-and-effect view of what changed, decisions on what to keep, adjust or scale, and a handover so leaders coach their own teams.'}
+];
+let stSel=0;
+$('#stepsEl').innerHTML=STEPS.map((s,i)=>`<button class="stepc" data-i="${i}" aria-pressed="${i===0}"><span class="big">${i+1}</span><h3>${s.t}</h3></button>`).join('');
+function selStep(i){stSel=i;pressed('.stepc',b=>+b.dataset.i===i);const s=STEPS[i];$('#stDetail').innerHTML=`<div class="box"><span class="eyebrow">Step ${i+1} · Who is involved</span><p>${s.who}</p></div><div class="box"><span class="eyebrow">What it produces</span><p>${s.out}</p></div>`;}
+$$('.stepc').forEach(b=>b.onclick=()=>selStep(+b.dataset.i));selStep(0);
+$('#modeBtn').onclick=()=>{const on=document.documentElement.getAttribute('data-mode')!=='print';on?document.documentElement.setAttribute('data-mode','print'):document.documentElement.removeAttribute('data-mode');$('#modeBtn').setAttribute('aria-pressed',on);$('#modeBtn').textContent=on?'Screen view':'Print view';bgOn=!on;if(on)cx.clearRect(0,0,W,H);else draw(0);};
+
+/* ---------- 01 curve ---------- */
+$$('[data-cv]').forEach(b=>b.onclick=()=>{const k=b.dataset.cv;pressed('[data-cv]',x=>x===b);$('#cvWith').classList.toggle('cv-dim',k==='without');$('#cvWithout').classList.toggle('cv-dim',k==='with');});
+
+/* ---------- 02 Do + Be ---------- */
+const DB={
+  both:{cls:'good',eye:'The result',h:'Operational discipline',p:'that contributes to business impact.',list:['Routines run well','Controls verified, not assumed','The loop is closed']},
+  do:{cls:'warn',eye:'Do only',h:'Compliance',p:'Works while someone is watching. Under time pressure, or when the supervisor is away, the standard slips.',list:['Routines done to tick the box','Controls assumed, not checked']},
+  be:{cls:'warn',eye:'Be only',h:'Good intent',p:'People care and want to do it right, but without clear standards and skills, effort goes in the wrong place.',list:['Commitment without method','Hard to check, hard to sustain']}
+};
+function setDB(k){pressed('[data-db]',b=>b.dataset.db===k);$('#dbDo').classList.toggle('dim',k==='be');$('#dbBe').classList.toggle('dim',k==='do');const d=DB[k],r=$('#dbRes');r.className='res '+d.cls;r.innerHTML=`<span class="eyebrow">${d.eye}</span><h3>${d.h}</h3><p>${d.p}</p><ul class="ticks">${d.list.map(x=>`<li>${x}</li>`).join('')}</ul>`;}
+$$('[data-db]').forEach(b=>b.onclick=()=>setDB(b.dataset.db));setDB('both');
+
+/* ---------- 03 Four must-haves ---------- */
+const MH=[
+  {t:'Solution design',ic:'drafting-compass',s:'Design from your business impact back to what coaching must change.',what:'We start with the result you need, link it to each workstream outcome, and agree what coaching must change in how people work and lead.',without:'Coaching becomes general development activity. Useful, but with no clear link to your priorities.',owner:'Sponsor, workstream leads and dss+',sec:'Covered in sections 04 and 05'},
+  {t:'Line manager accountability',ic:'users',s:'Line managers own the outcomes and hold their direct reports to them.',what:'The line manager helps set the outcomes, supports their direct report in daily work and acts when progress stalls.',without:'Change depends on the coach. When the coach leaves, the new habits fade.',owner:'Line manager (direct supervisor)',sec:'Covered in section 06'},
+  {t:'Progress captured between sessions',ic:'calendar-check',s:'The line manager keeps progress visible between coaching visits.',what:'Between sessions, the coachee and line manager record what was applied in real work, so each session builds on evidence.',without:'The weeks between sessions become a blind spot. Nobody can say what was practised.',owner:'Coachee and line manager',sec:'Covered in section 07'},
+  {t:'Cause-and-effect view',ic:'git-fork',s:'One view links coaching activity to routines, controls and impact.',what:'A simple view connects coaching to the routines, controls and exposure measures it is meant to improve.',without:'You can count sessions held, but you cannot show what coaching contributed.',owner:'dss+ coach and workstream leads',sec:'Covered in section 08'}
+];
+let mhSel=0,mhBroken=false;
+$('#mhGrid').innerHTML=MH.map((m,i)=>`<button class="mh" data-i="${i}" aria-pressed="false"><span class="num">0${i+1}</span><span class="ico">${icon(m.ic)}</span><h3>${m.t}</h3><p>${m.s}</p></button>`).join('');
+function renderLos(){let h='<span class="pill">Coaching activity</span>';MH.forEach((m,i)=>{const cut=mhBroken&&i===mhSel;h+=`<span class="conn ${cut?'cut':(mhBroken&&i>mhSel?'':'live')}"></span><span class="node ${i===mhSel?(mhBroken?'broken':'sel'):''}" data-i="${i}">${cut?'✕':i+1}</span>`;});h+=`<span class="conn ${mhBroken?'cut':'live'}"></span><span class="pill end ${mhBroken?'lost':''}">Business impact</span>`;$('#los').innerHTML=h;$$('#los .node').forEach(n=>n.onclick=()=>selMH(+n.dataset.i));const msg=$('#losMsg');msg.textContent=mhBroken?`Line of sight · broken at must-have ${mhSel+1}`:'Line of sight · intact';msg.classList.toggle('bad',mhBroken);}
+function selMH(i){mhSel=i;pressed('.mh',b=>+b.dataset.i===i);const m=MH[i];$('#mhDetail').innerHTML=`<div class="box"><span class="eyebrow">What it means</span><p>${m.what}</p></div><div class="box bad"><span class="eyebrow">Without it</span><p>${m.without}</p></div><div class="box"><span class="eyebrow">Owned by</span><p>${m.owner}</p></div>`;$('#mhSec').textContent=m.sec;renderLos();}
+$$('.mh').forEach(b=>b.onclick=()=>selMH(+b.dataset.i));
+$('#breakBtn').onclick=()=>{mhBroken=!mhBroken;$('#breakBtn').setAttribute('aria-pressed',mhBroken);$('#breakBtn').textContent=mhBroken?'Put it back':"Show what happens if it's missing";renderLos();};
+selMH(0);
+
+/* ---------- 04 Cause and effect ---------- */
+const LAYERS=[
+  {k:'impact',t:'Impact',sw:'#DA2128',q:'What must improve, or be prevented?',d:'The result you need.'},
+  {k:'exp',t:'Exposure',sw:'#B42A47',q:'Which tasks and conditions put people in harm’s way?',d:'Where harm could happen. These stand between you and the impact.'},
+  {k:'ctrl',t:'Controls',sw:'#7A2E5F',q:'Which barriers must be in place, and working, for each exposure?',d:'What stops the exposure turning into harm.'},
+  {k:'od',t:'Operational discipline',sw:'#4A3170',q:'Which routines keep each control working, every day?',d:'Planning, checking, verifying and closing the loop.'},
+  {k:'cap',t:'Capability',sw:'#30336A',q:'What do people need to run those routines well?',d:'Knowledge, skill and mindset, built by training, a workshop or coaching.'}
+];
+const IMPACT={t:'Fewer serious injuries and incidents',d:'Fewer recordable and lost-time injuries (lower TRIR). No serious injuries or fatalities.'};
+const TH={
+ energy:{lab:'Hazardous energy',exp:{t:'Release of hazardous energy',d:'Maintenance or line breaking on equipment that is still pressurised, live or full of process fluid.'},
+  ctrl:[{t:'Verified isolation',d:'Permit to work with every isolation point locked, tagged and checked before work starts.'},{t:'Zero-energy check',d:'Test before touch: prove the equipment is depressurised, drained or dead.'}],
+  od:[{t:'Isolation walk-through',d:'Supervisor and crew walk the isolation points against the permit, at the job site.'},{t:'Field verification before release',d:'Supervisor checks locks, tags and the zero-energy test before signing the permit.'},{t:'Stop and re-plan',d:'Work stops when anything on site does not match the permit.'}],
+  routes:{training:{who:'Permit issuers and crews',what:'Learn the isolation procedure and pass the permit-to-work certification.'},workshop:{who:'Supervisors and crews',what:'Practise isolation walk-throughs on a real job package and agree what "verified" looks like.'},
+   coaching:{who:'Supervisors who release permits',do:'Runs a quality field verification: checks every isolation point, asks the crew open questions, closes gaps on the spot.',be:'Sees verification as protecting the crew, not paperwork, and has the confidence to stop the job under production pressure.',routine:'Field verification before release happens every time, including on night shift and under schedule pressure.',ev:'Checked the 5 critical isolation steps, found a missing lock and stopped the job.',dims:['Operational discipline','Risk-based decisions']}},
+  back:'To get <b>fewer serious injuries</b>, we must control the <b>release of hazardous energy</b> during maintenance. That needs <b>verified isolation</b> and a <b>zero-energy check</b> before work starts. Supervisors keep those controls working through <b>isolation walk-throughs</b> and <b>field verification before releasing the permit</b>. Coaching gives them the skill and the confidence to do it every time, and to stop the job when something does not match.',
+  fwd:'Coaching builds supervisors’ <b>skill and confidence to verify isolations</b> in the field. That shows up as <b>consistent walk-throughs and verification</b> before every permit is released. <b>Isolation and zero-energy checks</b> are then in place on every job, which <b>reduces exposure to hazardous energy</b> and contributes to <b>fewer serious injuries</b>.'},
+ lifting:{lab:'Lifting',exp:{t:'People in the line of fire during lifts',d:'Workers under or beside a suspended load, or between the load and a fixed object.'},
+  ctrl:[{t:'Lift plan and exclusion zone',d:'Every lift is planned, and no one stands under or beside the load.'},{t:'Inspected lifting gear',d:'Slings, shackles and cranes certified and checked before use.'}],
+  od:[{t:'Pre-lift briefing',d:'The crew walks through the lift plan, roles and stop signals before the lift.'},{t:'Exclusion zone held',d:'Supervisor checks the zone is set up and stays clear for the whole lift.'},{t:'Pre-use gear check',d:'The rigger checks the gear and records it before each shift.'}],
+  routes:{training:{who:'Riggers and banksmen',what:'Certified on lifting operations, signals and gear inspection.'},workshop:{who:'Lifting crews',what:'Practise spotting line-of-fire positions using photos of their own site.'},
+   coaching:{who:'Lifting supervisors',do:'Briefs the lift with open questions, checks the crew can name the line-of-fire risk and its controls, and holds the zone.',be:'Owns the exclusion zone even when it slows the job, and refuses to accept "just this once".',routine:'Pre-lift briefings become real conversations, and the zone is held for the whole lift.',ev:'The crew named the line-of-fire exposure and its 2 critical controls.',dims:['Technical and risk capability','Communication and collaboration']}},
+  back:'To get <b>fewer serious injuries</b>, we must keep <b>people out of the line of fire during lifts</b>. That needs a <b>lift plan with an exclusion zone</b> and <b>inspected lifting gear</b>. Supervisors keep those controls working through <b>pre-lift briefings</b>, <b>holding the zone</b> and <b>pre-use gear checks</b>. Coaching helps them brief well and hold the zone even when it slows the job.',
+  fwd:'Coaching builds supervisors’ ability to <b>brief the lift and hold the line</b>. Briefings become real conversations and <b>zones stay clear for the whole lift</b>. Lift plans and gear checks then work as intended, <b>fewer people stand in the line of fire</b>, and this contributes to <b>fewer serious injuries</b>.'},
+ height:{lab:'Work at height',exp:{t:'Falls from height',d:'Work on scaffolds, platforms, pipe racks and roofs.'},
+  ctrl:[{t:'Inspected scaffold',d:'Scaffold tagged as safe after inspection, before anyone climbs.'},{t:'Always tied off',d:'Harness worn and tied off at all times above the set height.'}],
+  od:[{t:'Daily tag check',d:'Supervisor checks the scaffold tag before giving access each day.'},{t:'Field observation',d:'Leader observes tie-off in the field and gives feedback on the spot.'},{t:'Same-shift follow-up',d:'Gaps are fixed on the spot and closed before the next shift.'}],
+  routes:{training:{who:'Workers and supervisors',what:'Trained on fall protection, harness use and scaffold tags.'},workshop:{who:'Area teams',what:'Review recent near misses at height together and agree changes to the access routine.'},
+   coaching:{who:'Area supervisors',do:'Observes work at height with the crew, gives feedback on the spot and follows up within the shift.',be:'Shows up in the field because they care about the crew, not to catch people out.',routine:'Field observations happen as planned, and gaps are closed the same shift.',ev:'Asked 3 open questions on the scaffold, agreed 1 improvement, closed it the same shift.',dims:['Leadership and visible felt leadership','Psychological safety and engagement']}},
+  back:'To get <b>fewer serious injuries</b>, we must prevent <b>falls from height</b>. That needs <b>inspected scaffolds</b> and people <b>tied off at all times</b>. Supervisors keep those controls working through <b>daily tag checks</b>, <b>field observation</b> and <b>same-shift follow-up</b>. Coaching helps them observe, give feedback and follow up in a way the crew trusts.',
+  fwd:'Coaching builds supervisors’ <b>field presence and feedback</b>. Observations happen as planned and <b>gaps close the same shift</b>. Scaffold tags and tie-off hold every day, <b>fewer people are exposed to falls</b>, and this contributes to <b>fewer serious injuries</b>.'}
+};
+const ROUTES=[{k:'training',t:'Classroom training',ic:'presentation',best:'the gap is <b>knowledge</b>: people don’t know the rule or the steps.'},{k:'workshop',t:'Workshop',ic:'users-round',best:'the team needs to <b>practise together</b> and agree a shared standard.'},{k:'coaching',t:'Coaching',ic:'message-circle-heart',best:'people know what to do but <b>don’t do it consistently</b>, especially under pressure.'}];
+let thr='energy',dir='back',route='coaching';
+$('#thrSeg').innerHTML=Object.entries(TH).map(([k,v])=>`<button data-thr="${k}" aria-pressed="${k===thr}">${v.lab}</button>`).join('');
+$$('[data-thr]').forEach(b=>b.onclick=()=>{thr=b.dataset.thr;renderChain();});
+$$('[data-dir]').forEach(b=>b.onclick=()=>{dir=b.dataset.dir;renderChain();});
+function renderChain(){
+  pressed('[data-thr]',b=>b.dataset.thr===thr);pressed('[data-dir]',b=>b.dataset.dir===dir);
+  const T=TH[thr],el=$('#ch2');el.classList.toggle('rev',dir==='fwd');
+  const order=dir==='back'?[0,1,2,3,4]:[4,3,2,1,0];
+  let h='<div class="vfl2">Visible felt leadership</div>';
+  LAYERS.forEach((L,i)=>{
+    const n=order.indexOf(i)+1;
+    let items='';
+    if(L.k==='impact')items=`<div class="item on"><b>${IMPACT.t}</b>${IMPACT.d}</div>`;
+    if(L.k==='exp')items=Object.entries(TH).map(([k,v])=>`<button class="item ${k===thr?'on':'dim'}" data-thr2="${k}"><b>${v.exp.t}</b>${v.exp.d}</button>`).join('');
+    if(L.k==='ctrl')items=T.ctrl.map(c=>`<div class="item on"><b>${c.t}</b>${c.d}</div>`).join('');
+    if(L.k==='od')items=T.od.map(c=>`<div class="item on"><b>${c.t}</b>${c.d}</div>`).join('');
+    if(L.k==='cap')items=ROUTES.map(r=>`<button class="item ${r.k===route?'on':''}" data-route="${r.k}"><span class="route"><span class="ri">${icon(r.ic)}</span><b style="margin:0">${r.t}</b></span></button>`).join('');
+    h+=`<div class="col ${n===1?'first':''}" style="--sw:${L.sw}"><div class="col-h"><div class="top"><span class="step">${n}</span><h3>${L.t}</h3></div><p class="q">${L.q}</p><p class="d">${L.d}</p></div>${items}</div>`;
+  });
+  el.innerHTML=h;
+  $$('[data-thr2]').forEach(b=>b.onclick=()=>{thr=b.dataset.thr2;renderChain();});
+  $$('[data-route]').forEach(b=>b.onclick=()=>{route=b.dataset.route;renderChain();});
+  $('#narrEye').textContent=dir==='back'?'Read the chain · design backward':'Read the chain · review forward';
+  $('#narr').innerHTML=T[dir];
+  const R=ROUTES.find(r=>r.k===route),D=T.routes[route];
+  let rb=`<span class="eyebrow">Capability route · ${R.t}</span><h4>${D.who}</h4>`;
+  if(route==='coaching'){
+    rb+=`<div class="dobe-mini"><div><span class="k">Do outcome</span>${D.do}</div><div><span class="k">Be outcome</span>${D.be}</div></div>
+      <p class="best"><b>Effect on the routine:</b> ${D.routine}</p>
+      <p class="evq">“${D.ev}”</p><p class="caption" style="margin-top:6px">Session evidence (L4), recorded by the coach</p>
+      <div class="dims">${D.dims.map(x=>`<span class="chip">${icon('link')}${x}</span>`).join('')}</div>`;
+  } else {
+    rb+=`<p class="narr" style="margin-top:0">${D.what}</p>`;
+  }
+  rb+=`<p class="best"><b>Choose ${R.t.toLowerCase()} when</b> ${R.best}</p>`;
+  $('#routeBox').innerHTML=rb;
+  drawIcons();
+}
+renderChain();
+
+/* ---------- 05 Levels + circle ---------- */
+const LV=[
+  {l:'L1',c:'#DA2128',t:'Business impact',d:'What you hire us for: risk reduction, serious injury prevention, culture change, performance improvement.',q:'What must improve, or be prevented?',e:'Leading and lagging indicators, reviewed by the steering committee.',w:'12–24 months · whole engagement',o:'Sponsor and governance team'},
+  {l:'L2',c:'#A82B4E',t:'Workstream outcomes',d:'How the programme delivers that impact. Coaching can support several workstreams at once.',q:'Which workstreams deliver the result, and what does each need from people?',e:'Workstream measures in your own systems, such as permits, audits and actions closed.',w:'3–9 months · client systems',o:'Workstream leads'},
+  {l:'L3',c:'#5A3070',t:'Coaching programme outcome',d:'The agreed change in how people act and lead across the programme.',q:'What must change in how leaders act, run routines and lead?',e:'Observed change in routines and behaviour, confirmed by the line manager.',w:'3–6 months · coach and line manager',o:'Coachee and line manager'},
+  {l:'L4',c:'#30336A',t:'Session outcome',d:'The specific progress agreed for each coaching session.',q:'What progress will this session work on?',e:'Agreed actions applied in real work and recorded.',w:'Every session · coach and coachee',o:'Coach and coachee'}
+];
+let lad='down',view='ladder',ladTimer=[];
+function renderLadder(){
+  $('#ladderEl').innerHTML=LV.map((v,i)=>`<div class="rung" data-i="${i}"><div class="lv" style="background:${v.c}">${v.l}</div><div class="rung-body"><h3>${v.t}</h3><p>${v.d}</p></div><div class="rung-q"><span class="eyebrow">${lad==='down'?'Design question':'Evidence we look for'}</span><span class="qtext">${lad==='down'?v.q:v.e}</span>${lad==='up'?`<span class="when">${v.w}</span>`:''}<span class="chip">${icon('user-check')}${v.o}</span></div></div>`).join('');
+  drawIcons();
+  $('#ladFoot').textContent=lad==='down'?'Start at L1 and work down to each session.':'Start with each session and build the evidence up to L1.';
+  ladTimer.forEach(clearTimeout);ladTimer=[];
+  if(!reduce){const order=lad==='down'?[0,1,2,3]:[3,2,1,0];order.forEach((idx,k)=>ladTimer.push(setTimeout(()=>{$$('.rung').forEach(r=>r.classList.remove('hit'));const r=$(`.rung[data-i="${idx}"]`);r&&r.classList.add('hit');},k*420)));ladTimer.push(setTimeout(()=>$$('.rung').forEach(r=>r.classList.remove('hit')),order.length*420+500));}
+}
+$$('[data-lad]').forEach(b=>b.onclick=()=>{lad=b.dataset.lad;pressed('[data-lad]',x=>x===b);renderLadder();});
+$$('[data-view]').forEach(b=>b.onclick=()=>{view=b.dataset.view;pressed('[data-view]',x=>x===b);$('#ladderView').hidden=view!=='ladder';$('#circleView').hidden=view!=='circle';$('#ladSeg').style.visibility=view==='ladder'?'visible':'hidden';});
+renderLadder();
+
+const CSEG={
+  l1:{eye:'L1 · Business impact',h:'The result you hire us for',p:'Risk reduction, serious injury prevention, culture change and performance improvement. Every workstream, and the coaching programme, contributes to it.',sup:'Owner: sponsor and governance team · evidence over 12–24 months'},
+  ws1:{eye:'L2 · Workstream outcome',h:'Permit to work and isolation',p:'Permits and isolations are planned, verified and closed out to standard on every job.',sup:'How coaching supports it: coached supervisors verify isolations in the field before releasing the permit.'},
+  ws2:{eye:'L2 · Workstream outcome',h:'Serious injury prevention programme',p:'Situations with serious-injury potential are found, reported and controlled early.',sup:'How coaching supports it: coached leaders escalate weak signals and act on them sooner.'},
+  ws3:{eye:'L2 · Workstream outcome',h:'HSE governance',p:'Leaders review the right indicators at the right level, and act on what they see.',sup:'How coaching supports it: coached managers ask better questions in reviews and follow up.'},
+  coach:{eye:'L3 · Coaching programme outcome',h:'Coaching programme',p:'The agreed change in how leaders act and lead. It sits alongside the workstreams and supports all of them, rather than standing alone.',sup:'Inside it, L4: every coaching session, each with its own agreed progress.'}
+};
+function renderCircle(sel){
+  const c=220,R1=212,R0=180,Rp=168,pt=(a,r)=>[c+r*Math.cos(a),c+r*Math.sin(a)],rad=d=>d*Math.PI/180;
+  const arc=(a0,a1,r0,r1)=>{const[p1x,p1y]=pt(rad(a0),r1),[p2x,p2y]=pt(rad(a1),r1),[p3x,p3y]=pt(rad(a1),r0),[p4x,p4y]=pt(rad(a0),r0);const lg=(a1-a0)>180?1:0;return r0===0?`M${c} ${c} L${p1x} ${p1y} A${r1} ${r1} 0 ${lg} 1 ${p2x} ${p2y} Z`:`M${p1x} ${p1y} A${r1} ${r1} 0 ${lg} 1 ${p2x} ${p2y} L${p3x} ${p3y} A${r0} ${r0} 0 ${lg} 0 ${p4x} ${p4y} Z`;};
+  const segs=[{k:'ws1',a0:-135,a1:-45,fill:'#30336A',l1:'Permit to work',l2:'and isolation',lv:'L2'},{k:'ws2',a0:-45,a1:45,fill:'#3B3F7E',l1:'Serious injury',l2:'prevention',lv:'L2'},{k:'coach',a0:45,a1:135,fill:'#B42A47',l1:'Coaching',l2:'programme',lv:'L3'},{k:'ws3',a0:135,a1:225,fill:'#23254A',l1:'HSE',l2:'governance',lv:'L2'}];
+  const [sx,sy]=pt(rad(-160),196),[ex,ey]=pt(rad(-20),196);
+  let s=`<defs><path id="l1arc" d="M ${sx} ${sy} A 196 196 0 0 1 ${ex} ${ey}"/></defs>`;
+  s+=`<g class="seg-g ${sel&&sel!=='l1'?'dim':''}" data-k="l1" tabindex="0" role="button" aria-label="L1 business impact"><path class="seg-path" d="${arc(0,180,R0,R1)} ${arc(180,359.99,R0,R1)}" fill="#DA2128"/></g>`;
+  s+=`<text font-family="IBM Plex Mono,monospace" font-size="13" letter-spacing="3" fill="#fff" pointer-events="none"><textPath href="#l1arc" startOffset="50%" text-anchor="middle">L1 · BUSINESS IMPACT</textPath></text>`;
+  segs.forEach(g=>{const gap=1.2;s+=`<g class="seg-g ${sel&&sel!==g.k?'dim':''}" data-k="${g.k}" tabindex="0" role="button" aria-label="${g.l1} ${g.l2}"><path class="seg-path" d="${arc(g.a0+gap,g.a1-gap,0,Rp)}" fill="${g.fill}"/></g>`;
+    const am=rad((g.a0+g.a1)/2),[tx,ty]=pt(am,98);
+    s+=`<g pointer-events="none"><rect x="${tx-17}" y="${ty-38}" width="34" height="20" rx="6" fill="rgba(255,255,255,.18)"/><text x="${tx}" y="${ty-24}" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="11" fill="#fff">${g.lv}</text><text x="${tx}" y="${ty}" text-anchor="middle" font-family="Poppins,sans-serif" font-weight="600" font-size="14" fill="#fff">${g.l1}</text><text x="${tx}" y="${ty+17}" text-anchor="middle" font-family="Poppins,sans-serif" font-weight="600" font-size="14" fill="#fff">${g.l2}</text></g>`;
+    if(g.k==='coach'){[-14,0,14].forEach(d=>{const[x,y]=pt(rad(90+d),148);s+=`<circle cx="${x}" cy="${y}" r="5.5" fill="#fff" pointer-events="none"/>`;});const[lx,ly]=pt(rad(90),130);s+=`<text x="${lx}" y="${ly+4}" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="rgba(255,255,255,.9)" pointer-events="none">L4 sessions</text>`;}
+  });
+  $('#circSvg').innerHTML=s;
+  $$('#circSvg .seg-g').forEach(g=>{const k=g.dataset.k;g.onclick=()=>selCirc(k);g.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();selCirc(k)}};});
+}
+function selCirc(k){renderCircle(k);const d=CSEG[k];$('#cvPanel').innerHTML=`<span class="eyebrow">${d.eye}</span><h3>${d.h}</h3><p>${d.p}</p><div class="sup">${d.sup}</div><div class="cv-legend"><span class="chip" style="background:#DA2128">L1 impact · outer ring</span><span class="chip">L2 workstreams</span><span class="chip" style="background:#B42A47">L3 coaching</span><span class="chip" style="background:var(--surface-3);color:var(--fg-strong)">L4 sessions</span></div>`;}
+selCirc('coach');
+
+/* ---------- 06 Triangle ---------- */
+const RO={
+  coachee:{eye:'The coachee',h:'Applies it in real work',sub:'The leader being coached. Owns their own development.',list:['Applies agreed actions in real work','Records what they find and brings it to the next session','Asks their line manager for support when stuck'],edges:['cc','cl']},
+  lm:{eye:'The line manager · direct supervisor',h:'Keeps it going every day',sub:'The person the coachee reports to. The one who makes change stick.',list:['Helps set the coaching outcomes','Supports application in daily work','Joins agreed three-way conversations','Acts when progress stalls'],edges:['cl','ll']},
+  coach:{eye:'The dss+ coach',h:'Builds capability',sub:'Works with the coachee and, by agreement, with the line manager.',list:['Reviews progress and focuses the next session','Builds skill, confidence and independent thinking','Keeps private reflections confidential'],edges:['cc','ll']}
+};
+const NAMES={coachee:'Coachee',lm:'Line manager',coach:'dss+ coach'};
+function setRole(k){$$('.tnode').forEach(n=>n.classList.toggle('on',n.dataset.role===k));['cc','cl','ll'].forEach(e=>{const on=RO[k].edges.includes(e);$('#e-'+e).classList.toggle('on',on);$('#l-'+e+' text').classList.toggle('on',on);});const r=RO[k];$('#rolePanel').innerHTML=`<div class="role-tabs">${Object.keys(RO).map(x=>`<button class="ghost" data-rt="${x}" aria-pressed="${x===k}">${NAMES[x]}</button>`).join('')}</div><span class="eyebrow">${r.eye}</span><h3>${r.h}</h3><p class="rsub">${r.sub}</p><ul class="ticks">${r.list.map(x=>`<li>${x}</li>`).join('')}</ul>`;$$('[data-rt]').forEach(b=>b.onclick=()=>setRole(b.dataset.rt));}
+$$('.tnode').forEach(n=>{const k=n.dataset.role;n.addEventListener('mouseenter',()=>setRole(k));n.addEventListener('focus',()=>setRole(k));n.addEventListener('click',()=>setRole(k));n.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();setRole(k)}});});
+setRole('lm');
+
+/* ---------- 07 Between sessions lanes ---------- */
+const X0=175,X1=825;
+const LANES=[
+  {k:'coachee',lab:'Coachee',y:130,ev:[{x:290,t:'Applies action, logs it'},{x:500,t:'Applies action, logs it'},{x:710,t:'Logs a real example'}]},
+  {k:'lm',lab:'Line manager',y:220,ev:[{x:390,t:'Check-in, field rating'},{x:620,t:'Check-in, field rating'}]},
+  {k:'coach',lab:'dss+ coach',y:310,ev:[],note:'Coach steps back. The line manager leads between sessions.'},
+  {k:'sys',lab:'Client systems',y:398,ev:[],ticks:true,note:'Permits, audits, actions closed: already recorded'}
+];
+(function buildLanes(){
+  let s=`<text class="ln-band" x="500" y="34" text-anchor="middle">TIME BETWEEN SESSIONS</text>`;
+  [[30,'Session n','coach + coachee','Records outcome','and commitments',X0-1],[850,'Session n+1','coach + coachee','Reviews the records,','sets next focus',X1]].forEach(([x,t,sb,n1,n2,dx])=>{
+    s+=`<rect class="ln-sess" x="${x}" y="52" width="120" height="380" rx="18"/><text class="ln-sess-t" x="${x+60}" y="84" text-anchor="middle" font-size="16">${t}</text><text class="ln-sess-s" x="${x+60}" y="102" text-anchor="middle">${sb}</text>`;
+    s+=`<g class="ln-ev" data-x="${dx}"><circle class="ln-dot" cx="${x+60}" cy="310" r="9"/><text class="ln-sess-n" x="${x+60}" y="338" text-anchor="middle">${n1}</text><text class="ln-sess-n" x="${x+60}" y="353" text-anchor="middle">${n2}</text></g>`;
+  });
+  LANES.forEach(L=>{
+    s+=`<text class="ln-lab" x="${X0}" y="${L.y-24}">${L.lab}</text>`;
+    s+=`<line class="ln-track ${L.ev.length?'':'dash'}" x1="${X0}" y1="${L.y}" x2="${X1}" y2="${L.y}"/>`;
+    if(L.ticks){for(let x=X0+20;x<X1;x+=26)s+=`<line class="ln-tick" x1="${x}" y1="${L.y-7}" x2="${x}" y2="${L.y+7}"/>`;}
+    if(L.note)s+=`<text class="ln-note" x="500" y="${L.y+26}" text-anchor="middle">${L.note}</text>`;
+    L.ev.forEach(e=>{s+=`<g class="ln-ev lane-${L.k}" data-x="${e.x}"><circle class="ln-dot" cx="${e.x}" cy="${L.y}" r="10"/><text class="ln-ev-t" x="${e.x}" y="${L.y+30}" text-anchor="middle">${e.t}</text></g>`;});
+  });
+  s+=`<line class="ln-cursor" id="lnCursor" x1="${X0}" y1="56" x2="${X0}" y2="428"/>`;
+  $('#laneSvg').innerHTML=s;
+})();
+let lnMode='with',lnPlay=!reduce,lnStart=null,lnRaf;const LDUR=8000,LHOLD=1800;
+function lnApply(x){
+  $('#lnCursor').setAttribute('x1',x);$('#lnCursor').setAttribute('x2',x);
+  $$('#laneSvg .ln-ev').forEach(g=>{const ex=+g.dataset.x;const isLane=g.classList.contains('lane-coachee')||g.classList.contains('lane-lm');const off=lnMode==='without'&&isLane;g.classList.toggle('off',off);g.classList.toggle('hit',!off&&x>=ex);});
+}
+function lnFrame(ts){if(lnStart===null)lnStart=ts;const el=(ts-lnStart)%(LDUR+LHOLD);const p=Math.min(1,el/LDUR);lnApply(X0+(X1-X0)*p);if(lnPlay)lnRaf=requestAnimationFrame(lnFrame);}
+function lnSetMode(m){lnMode=m;pressed('[data-lp]',b=>b.dataset.lp===m);const msg=$('#laneMsg');msg.textContent=m==='with'?'Session n+1 starts from 5 records: 3 from the coachee and 2 from the line manager, plus data your systems already hold.':'Nothing recorded between sessions. Session n+1 starts from memory.';msg.classList.toggle('bad',m==='without');if(!lnPlay)lnApply(X1);}
+$$('[data-lp]').forEach(b=>b.onclick=()=>lnSetMode(b.dataset.lp));
+$('#lpPlay').onclick=()=>{lnPlay=!lnPlay;$('#lpPlay').textContent=lnPlay?'Pause':'Play';if(lnPlay){lnStart=null;lnRaf=requestAnimationFrame(lnFrame);}else{cancelAnimationFrame(lnRaf);lnApply(X1);}};
+lnSetMode('with');
+if(lnPlay)lnRaf=requestAnimationFrame(lnFrame);else{$('#lpPlay').textContent='Play';lnApply(X1);}
+
+/* ---------- 08 Dashboard ---------- */
+const ST={g:'var(--green)',a:'var(--amber)',r:'var(--red)',n:'var(--grey)'};
+const STN={g:'On track',a:'Watch',r:'Off track',n:'No target yet'};
+const DASH=[
+  {t:'Impact',s:'What we must prevent',items:[
+    {id:'i1',n:'Serious injuries',v:'0',u:'last 90 days',st:'g',what:'Lagging result. Too rare to steer by week to week.',who:'Client HSE system',links:['e1','e2']},
+    {id:'i2',n:'Recordable injury rate',v:'0.38',u:'TRIR, rolling 12 months',st:'a',what:'Lagging result, reviewed by the steering committee.',who:'Client HSE system',links:['e1','e2']}]},
+  {t:'Exposure',s:'Where harm could happen',items:[
+    {id:'e1',n:'Energy-release near misses',v:'4',u:'last month',st:'a',what:'Near misses where hazardous energy was released or nearly released. Reports may rise at first as hidden hazards surface.',who:'Client incident system',links:['i1','i2','c1','c2']},
+    {id:'e2',n:'Jobs with energy-release potential',v:'176',u:'this month',st:'n',what:'How much of the work is exposed. Context for every other measure.',who:'Permit system',links:['i1','i2','c1','c2']}]},
+  {t:'Controls',s:'What stops the harm',items:[
+    {id:'c1',n:'Isolations verified before work',v:'82%',u:'target 100%',st:'a',what:'Permits where every isolation point was checked in the field before release.',who:'Permit audits',links:['e1','e2','o1','o2','o3','k3']},
+    {id:'c2',n:'Zero-energy check recorded',v:'91%',u:'target 100%',st:'a',what:'Jobs with a recorded test-before-touch.',who:'Permit audits',links:['e1','e2','o2']}]},
+  {t:'Operational discipline',s:'What keeps controls working',items:[
+    {id:'o1',n:'Supervisor field verifications',v:'62 of 71',u:'planned this month',st:'g',what:'Field verification routine done as planned.',who:'Line manager check-ins',links:['c1','k1','k2']},
+    {id:'o2',n:'Jobs stopped for a mismatch',v:'3',u:'this month',st:'n',what:'Stop-work used when the site did not match the permit. A healthy sign, not a failure.',who:'Permit system',links:['c1','c2','k2']},
+    {id:'o3',n:'Actions closed on time',v:'68%',u:'target 90%',st:'r',what:'Gaps found in verifications closed by the agreed date.',who:'Client action tracker',links:['c1','k1']}]},
+  {t:'Capability',s:'What makes routines good',items:[
+    {id:'k1',n:'Supervisors coached',v:'14 of 27',u:'in scope',st:'a',what:'Coaching reach across permit-releasing supervisors.',who:'dss+ coaching record',links:['o1','o3']},
+    {id:'k2',n:'Verification quality',v:'3.4 / 5',u:'line manager rating',st:'g',what:'Line manager rating of field verification against the agreed standard.',who:'Line manager check-ins',links:['o1','o2']},
+    {id:'k3',n:'Permit issuers certified',v:'96%',u:'training',st:'g',what:'Knowledge route: certification on the isolation procedure.',who:'Training records',links:['c1']}]}
+];
+const ALLK=DASH.flatMap(c=>c.items);let dSel='c1';
+function renderDash(){
+  const sel=ALLK.find(i=>i.id===dSel);
+  $('#dash').innerHTML=DASH.map(c=>`<div class="dcol"><h3>${c.s}<b>${c.t}</b></h3><div class="stack">${c.items.map(i=>`<button class="kpi ${i.id===dSel?'sel':(sel.links.includes(i.id)?'lnk':'dim')}" style="--st:${ST[i.st]}" data-id="${i.id}"><span class="n">${i.n}</span><span class="v">${i.v} <small>${i.u}</small></span></button>`).join('')}</div></div>`).join('');
+  $$('.kpi').forEach(b=>b.onclick=()=>{dSel=b.dataset.id;renderDash();});
+  const linked=sel.links.map(id=>ALLK.find(i=>i.id===id).n).join(' · ');
+  $('#dDetail').innerHTML=`<div class="box"><span class="eyebrow">${sel.n} · ${STN[sel.st]}</span><p>${sel.what}</p></div><div class="box"><span class="eyebrow">Recorded in</span><p>${sel.who}</p></div><div class="box"><span class="eyebrow">Linked to</span><p>${linked}</p></div>`;
+}
+renderDash();
+
+/* ---------- 09 Menu ---------- */
+const MENU=[
+  {g:'Risk and execution',items:[
+    {id:'od',ic:'repeat',t:'Operational discipline',o:'Run routines well and close the loop',do:['Follow standards and routines','Plan and verify work before it starts','Track and close actions'],be:['Treat routines as protection for the crew','Own execution, with commitment as well as compliance'],ch:['Routines become more consistent','Frontline insight improves the work','Performance becomes more reliable'],ind:['Routines completed to standard','Actions closed on time','Fewer repeat deviations']},
+    {id:'rd',ic:'scale',t:'Risk-based decisions',o:'Make better risk calls under pressure',do:['Prioritise by exposure','Escalate weak signals','Balance risk and production'],be:['Own operational risk','Refuse to normalise deviation'],ch:['Teams act on risk earlier','Risk and production trade-offs improve'],ind:['Weak signals escalated early','Early interventions','Fewer repeat normalised deviations']},
+    {id:'tc',ic:'shield-check',t:'Technical and risk capability',o:'Identify risks earlier and strengthen controls',do:['Assess hazards and root causes','Apply and verify critical controls','Use operational and HSE data'],be:['Stay curious about how things fail','Respect serious-injury potential'],ch:['Risks identified earlier','Critical controls strengthened','Weak signals acted on sooner'],ind:['Risk assessment quality','Controls verified as effective','Fewer repeat control gaps']}]},
+  {g:'Leadership and culture',items:[
+    {id:'cc',ic:'messages-square',t:'Communication and collaboration',o:'Hold clear, honest conversations about risk and performance',do:['Discuss risk in the field','Align priorities','Work across functions'],be:['Be transparent','Be respectful'],ch:['Priorities are shared','Field conversations are credible','Teams act together sooner'],ind:['Quality of field conversations','Shared ownership of risks','Fewer handover issues']},
+    {id:'ps',ic:'hand',t:'Psychological safety and engagement',o:'Help people speak up and improve the work',do:['Invite concerns','Support stop-work decisions','Involve teams in improvement'],be:['Build trust','Remove fear of blame','Welcome challenge'],ch:['People speak up more','Ownership is shared','More improvement ideas come forward'],ind:['Psychological safety pulse','Concerns raised','Ideas implemented']},
+    {id:'vfl',ic:'footprints',t:'Leadership and visible felt leadership',o:'Coach and reinforce teams through visible leadership',do:['Coach and give feedback','Listen and ask questions','Show up credibly in the field'],be:['Role-model the expected behaviours','Care about people’s growth'],ch:['Trust and clarity increase','Teams take more ownership','Safer ways of working continue'],ind:['Coaching frequency and quality','Leaders coaching on their own','Team feedback on the leader']},
+    {id:'mc',ic:'sprout',t:'Mindset and culture',o:'Sustain ownership and improvement without us',do:['Move from "I do" to "we do" to "you do"','Keep improving','Lead locally'],be:['Take ownership','Stay proactive','Choose commitment, not just compliance'],ch:['Local ownership grows','Continuous improvement continues','Safer performance is sustained'],ind:['Practices sustained locally','Locally led improvements','Results held at 90 and 180 days']}]}
+];
+const ALLM=MENU.flatMap(g=>g.items);const picked=new Set(['od','vfl']);let touched=false;
+$('#menuGroups').innerHTML=MENU.map(gr=>`<div class="grp"><p class="grp-h">${gr.g}</p><div class="opts">${gr.items.map(o=>`<button class="opt" data-id="${o.id}" aria-pressed="false"><span class="row"><span class="ico">${icon(o.ic)}</span><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></span><h3>${o.t}</h3><p>${o.o}</p></button>`).join('')}</div></div>`).join('');
+const ul=a=>`<ul>${a.map(x=>`<li>${x}</li>`).join('')}</ul>`;
+function renderFocus(){
+  pressed('.opt',b=>picked.has(b.dataset.id));
+  const sel=ALLM.filter(o=>picked.has(o.id));$('#exTag').hidden=touched;
+  $('#focusBody').innerHTML=sel.length?`<div class="ftable"><div class="frow"><div>Area and coaching outcome</div><div>Do · what leaders do</div><div>Be · how they think</div><div>What changes in the work</div><div>Signs of progress</div></div>${sel.map(o=>`<div class="frow"><div class="nm">${o.t}<span>${o.o}</span></div><div><span class="lab">Do</span>${ul(o.do)}</div><div><span class="lab">Be</span>${ul(o.be)}</div><div><span class="lab">What changes</span>${ul(o.ch)}</div><div><span class="lab">Signs of progress</span>${ul(o.ind)}</div></div>`).join('')}</div>`:`<p class="empty">Nothing selected yet. Pick the areas that matter most to you.</p>`;
+  const ad=$('#advice');
+  if(!sel.length){ad.className='advice';ad.textContent='Most programmes start with two or three areas.';}
+  else if(sel.length<=3){ad.className='advice ok';ad.textContent=`${sel.length} area${sel.length>1?'s':''} selected: a focused programme.`;}
+  else{ad.className='advice warn';ad.textContent=`${sel.length} areas selected. Consider starting with two or three.`;}
+}
+$$('.opt').forEach(b=>b.onclick=()=>{touched=true;const id=b.dataset.id;picked.has(id)?picked.delete(id):picked.add(id);renderFocus();});
+renderFocus();
+
+drawIcons();
+})();
+</script>
+
+</body></html>
