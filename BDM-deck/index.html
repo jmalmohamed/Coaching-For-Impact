@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Coaching for Impact BDM Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap">
+<style>
+/* Layout: dark web-deck in the dss+ KOC style. One section per message: label → claim headline → subtitle → one interactive visual → illustrative caption. */
+:root{
+  --bg:#0E0F22; --surface:rgba(255,255,255,.04); --surface-2:rgba(255,255,255,.07); --surface-3:rgba(255,255,255,.11);
+  --line:rgba(255,255,255,.10); --line-2:rgba(255,255,255,.20);
+  --navy:#23254A; --navy-2:#30336A; --navy-3:#3B3F7E; --red:#DA2128; --coral:#F0585E; --rose:#B42A47;
+  --green:#10B981; --amber:#F59E0B; --grey:#8A8CA0;
+  --fg:#E5E7EB; --fg-strong:#FFFFFF; --muted:rgba(229,231,235,.68); --faint:rgba(229,231,235,.45);
+  --red-tint:rgba(218,33,40,.16); --red-tint-2:rgba(218,33,40,.30);
+  --bar:rgba(14,15,34,.82);
+  --grad:linear-gradient(92deg,#FFFFFF 0%,#F8C9CB 34%,#F0585E 68%,#DA2128 100%);
+  --glow-a:rgba(218,33,40,.20); --glow-b:rgba(48,51,106,.85);
+  --f-display:"Century Gothic","Poppins",ui-sans-serif,system-ui,sans-serif;
+  --f-body:"Inter",ui-sans-serif,system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  color-scheme:dark;
+}
+:root[data-mode="print"]{
+  --bg:#FFFFFF; --surface:#F6F6FA; --surface-2:#EEEEF5; --surface-3:#E4E5EF;
+  --line:#DCDDE8; --line-2:#C3C5D6;
+  --fg:#2A2B40; --fg-strong:#0E0F22; --muted:#55576E; --faint:#85879C;
+  --red-tint:rgba(218,33,40,.07); --red-tint-2:rgba(218,33,40,.16);
+  --bar:rgba(255,255,255,.92);
+  --grad:linear-gradient(92deg,#0E0F22 0%,#0E0F22 30%,#DA2128 75%,#DA2128 100%);
+  --glow-a:transparent; --glow-b:transparent;
+  color-scheme:light;
+}
+@media print{
+  :root{
+    --bg:#FFFFFF; --surface:#F6F6FA; --surface-2:#EEEEF5; --surface-3:#E4E5EF;
+    --line:#DCDDE8; --line-2:#C3C5D6;
+    --fg:#2A2B40; --fg-strong:#0E0F22; --muted:#55576E; --faint:#85879C;
+    --red-tint:rgba(218,33,40,.07); --red-tint-2:rgba(218,33,40,.16);
+    --bar:#FFFFFF;
+    --grad:linear-gradient(92deg,#0E0F22 0%,#0E0F22 30%,#DA2128 75%,#DA2128 100%);
+    --glow-a:transparent; --glow-b:transparent; color-scheme:light;
+  }
+  @page{size:A4 landscape;margin:10mm}
+  body{zoom:.6;background:#fff!important;background-image:none!important}
+  .topbar,#bg,.rings,.review,.seg,#lpPlay,#breakBtn,.mh-actions .ghost{display:none!important}
+  .grad{background:none!important;-webkit-text-fill-color:#DA2128!important;color:#DA2128!important}
+  main > section{break-before:page;page-break-before:always}
+  main > section:first-child{break-before:auto;page-break-before:auto}
+  .box,.item,.kpi,.opt,.stepc,.rung,.col,.frow,.rec-row{break-inside:avoid;page-break-inside:avoid}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+  background:var(--bg);
+  background-image:radial-gradient(900px 620px at 88% -8%,var(--glow-a),transparent 62%),radial-gradient(900px 700px at -12% 105%,var(--glow-b),transparent 60%);
+  background-attachment:fixed;
+  color:var(--fg); font-family:var(--f-body); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bar)}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+:root[data-mode="print"] #bg{display:none}
+main{position:relative;z-index:1}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--coral);outline-offset:3px;border-radius:8px}
+
+/* ---------- top bar ---------- */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--bar);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.topbar-in{display:flex;align-items:center;gap:16px;height:56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.logo{font-family:var(--f-display);font-weight:600;font-size:26px;letter-spacing:-.02em;color:var(--fg-strong);line-height:1;display:flex;align-items:flex-start}
+.logo sup{font-size:15px;color:var(--fg-strong);margin-left:1px;margin-top:-2px}
+.divider{width:1px;height:22px;background:var(--line-2)}
+.deck-title{font-size:14px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.spacer{flex:1}
+.progress{display:flex;gap:5px}
+.progress button{width:18px;height:5px;border-radius:4px;border:0;background:var(--line-2);cursor:pointer;padding:0;transition:width .3s,background .3s}
+.progress button.on{width:36px;background:var(--coral)}
+.now{font-family:var(--f-mono);font-size:12px;color:var(--muted);white-space:nowrap;min-width:170px;text-align:right}
+.icon-btn{width:36px;height:36px;border-radius:10px;border:1px solid transparent;background:transparent;display:grid;place-items:center;cursor:pointer;color:var(--fg)}
+.icon-btn:hover{background:var(--surface-2);border-color:var(--line)}
+.icon-btn svg{width:18px;height:18px}
+.present{display:flex;align-items:center;gap:8px;background:var(--red);color:#fff;border:0;border-radius:10px;padding:8px 14px;font-weight:600;font-size:14px;cursor:pointer}
+.present svg{width:16px;height:16px}
+.mode-btn{font-size:13px;border:1px solid var(--line-2);background:transparent;border-radius:10px;padding:7px 12px;cursor:pointer;color:var(--fg);white-space:nowrap}
+.mode-btn:hover{background:var(--surface-2)}
+@media screen and (max-width:1060px){.progress,.now{display:none}}
+@media screen and (max-width:620px){.deck-title,.divider{display:none}.present span{display:none}}
+
+/* ---------- sections ---------- */
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.intro{padding-block:56px 24px}
+.sec{padding-block:72px 40px;border-top:1px solid var(--line)}
+.label{font-family:var(--f-mono);font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--coral);margin:0 0 14px}
+h1,h2{font-family:var(--f-display);font-weight:700;color:var(--fg-strong);letter-spacing:-.025em;line-height:1.06;text-wrap:balance;margin:0}
+h1{font-size:clamp(34px,5vw,58px)}
+h2{font-size:clamp(30px,4.2vw,50px);max-width:21ch}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{font-size:clamp(16px,1.6vw,19px);color:var(--muted);max-width:64ch;margin:18px 0 0;font-weight:300}
+.caption{font-size:13px;color:var(--faint);margin:14px 0 0;max-width:110ch}
+.review{margin-top:22px;display:flex;gap:12px;align-items:flex-start;border:1px dashed var(--line-2);border-radius:14px;padding:12px 16px;font-size:13.5px;color:var(--muted);max-width:940px}
+.review b{font-family:var(--f-mono);font-weight:500;font-size:11px;letter-spacing:.2em;color:var(--amber);white-space:nowrap;padding-top:2px}
+.review ul{margin:0;padding-left:18px}
+:root[data-mode="print"] .review{display:none}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:24px}
+.stage{margin-top:36px;padding:28px}
+@media screen and (max-width:620px){.stage{padding:18px;border-radius:18px}}
+.mono{font-family:var(--f-mono)}
+.eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint)}
+.seg{display:inline-flex;padding:4px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line);gap:2px;flex-wrap:wrap}
+.seg button{border:0;background:transparent;border-radius:999px;padding:8px 16px;font-size:14px;cursor:pointer;color:var(--muted);font-weight:500}
+.seg button[aria-pressed="true"]{background:var(--fg-strong);color:var(--bg)}
+.stage-head{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.ghost{border:1px solid var(--line-2);background:transparent;border-radius:10px;padding:9px 14px;font-size:14px;cursor:pointer;color:var(--fg)}
+.ghost:hover{background:var(--surface-2)}
+.ghost[aria-pressed="true"]{border-color:var(--red);color:var(--coral)}
+.ticks{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:14.5px;color:var(--muted)}
+.ticks li{display:flex;gap:10px}
+.ticks li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--coral);margin-top:9px}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:4px 10px;border-radius:999px;background:var(--navy);color:#fff}
+.chip svg{width:13px;height:13px}
+
+/* intro stepper */
+.stepper{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:30px;max-width:980px}
+.stp{padding:14px 16px;border-radius:16px;border:1px solid var(--line);background:var(--surface)}
+.stp .n{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;color:var(--faint)}
+.stp .t{font-family:var(--f-display);font-weight:600;color:var(--fg-strong);font-size:16px;margin-top:4px}
+.stp .s{font-size:12.5px;color:var(--muted)}
+.stp.done .n{color:var(--green)}
+.stp.now{border-color:rgba(218,33,40,.6);background:linear-gradient(160deg,var(--red-tint-2),var(--surface))}
+.stp.now .n{color:var(--coral)}
+@media screen and (max-width:760px){.stepper{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ---------- 01 curve ---------- */
+.curve svg{width:100%;height:auto;display:block}
+.cv-axis{stroke:var(--line-2);stroke-width:1.5}
+.cv-grid{stroke:var(--line);stroke-width:1}
+.cv-t{font-family:var(--f-mono);font-size:12px;fill:var(--faint)}
+.cv-with{fill:none;stroke:var(--green);stroke-width:4;stroke-linecap:round}
+.cv-without{fill:none;stroke:var(--amber);stroke-width:4;stroke-linecap:round;stroke-dasharray:2 9}
+.cv-area{fill:var(--green);opacity:.08}
+.cv-lab{font-family:var(--f-display);font-weight:600;font-size:15px}
+#cvWith,#cvWithout{transition:opacity .3s}
+.cv-dim{opacity:.15}
+
+/* ---------- 02 Do + Be ---------- */
+.dobe{display:grid;grid-template-columns:1fr auto 1fr auto 1.1fr;gap:16px;align-items:stretch}
+.op{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--red);color:#fff;font-weight:700;font-size:22px;align-self:center;font-family:var(--f-display)}
+.db-card{padding:24px;border-radius:20px;background:var(--surface-2);border:1px solid var(--line);transition:opacity .35s,filter .35s}
+.db-card.dim{opacity:.28;filter:grayscale(1)}
+.db-card h3,.res h3{margin:0 0 4px;font-family:var(--f-display);font-size:20px;color:var(--fg-strong)}
+.db-tag{display:inline-block;font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:4px 10px;border-radius:6px;background:var(--navy);color:#fff;margin-bottom:12px}
+.db-tag.be{background:var(--red)}
+.quote{font-style:italic;color:var(--fg-strong);margin:12px 0;font-size:16px}
+.res{padding:26px;border-radius:20px;border:1px solid var(--line);transition:background .35s,border-color .35s}
+.res.good{background:linear-gradient(150deg,var(--red-tint-2),var(--red-tint));border-color:rgba(218,33,40,.45)}
+.res.warn{background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.45)}
+.res .eyebrow{color:var(--coral)}
+.res.warn .eyebrow{color:var(--amber)}
+.res h3{font-size:26px;margin:8px 0 10px}
+.res p{margin:0 0 12px;color:var(--muted);font-size:15px}
+.defn{margin-top:22px;padding:18px 22px;border-left:3px solid var(--red);background:var(--surface);border-radius:0 14px 14px 0;display:grid;grid-template-columns:1.6fr 1fr;gap:24px;align-items:center}
+.defn .eyebrow{color:var(--coral)}
+.defn p{margin:6px 0 0;font-style:italic;color:var(--fg-strong)}
+.three-d{display:flex;gap:8px;flex-wrap:wrap}
+.three-d span{display:flex;flex-direction:column;padding:10px 12px;border-radius:12px;background:var(--surface-2);border:1px solid var(--line);font-size:12.5px;color:var(--muted);flex:1;min-width:120px}
+.three-d b{font-family:var(--f-display);color:var(--fg-strong);font-size:15px}
+@media screen and (max-width:900px){.dobe,.defn{grid-template-columns:1fr}.op{justify-self:center}}
+
+/* ---------- 03 four must-haves ---------- */
+.los{display:flex;align-items:center;margin-bottom:26px;overflow-x:auto;padding:6px 2px 10px}
+.los .pill{flex:none;font-size:13px;padding:8px 14px;border-radius:999px;border:1px solid var(--line-2);white-space:nowrap;color:var(--fg)}
+.los .pill.end{border-color:rgba(16,185,129,.55);color:var(--green);transition:all .3s}
+.los .pill.end.lost{border-color:var(--line-2);color:var(--faint);opacity:.6}
+.los .conn{flex:1;min-width:24px;height:2px;background:var(--line-2)}
+.los .conn.live{background:linear-gradient(90deg,var(--coral),var(--red))}
+.los .conn.cut{background:repeating-linear-gradient(90deg,var(--red) 0 6px,transparent 6px 12px)}
+.los .node{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-family:var(--f-display);background:var(--navy);color:#fff;border:2px solid var(--line-2);transition:all .3s;cursor:pointer}
+.los .node.sel{background:var(--red);border-color:var(--red);box-shadow:0 0 0 6px var(--red-tint)}
+.los .node.broken{background:transparent;border:2px dashed var(--red);color:var(--red)}
+.los-msg{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:-14px 0 22px;min-height:18px}
+.los-msg.bad{color:var(--red)}
+.mh-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.mh{text-align:left;padding:22px;border-radius:20px;background:var(--surface-2);border:1px solid var(--line);cursor:pointer;transition:border-color .25s,background .25s,transform .25s;display:flex;flex-direction:column;gap:10px;min-height:200px}
+.mh:hover{border-color:var(--line-2);transform:translateY(-2px)}
+.mh[aria-pressed="true"]{background:linear-gradient(160deg,var(--red-tint-2),var(--surface));border-color:rgba(218,33,40,.55)}
+.mh .num{font-family:var(--f-mono);font-size:12px;color:var(--faint)}
+.mh .ico{color:var(--coral)}
+.mh .ico svg{width:30px;height:30px;stroke-width:1.6}
+.mh h3{margin:0;font-family:var(--f-display);font-size:19px;line-height:1.2;color:var(--fg-strong)}
+.mh p{margin:0;font-size:14px;color:var(--muted)}
+.mh-detail{margin-top:16px;display:grid;grid-template-columns:1.3fr 1.3fr 1fr;gap:14px}
+.box{padding:18px 20px;border-radius:16px;background:var(--surface);border:1px solid var(--line);min-width:0}
+.box p{margin:6px 0 0;font-size:15px}
+.box.bad .eyebrow{color:var(--red)}
+.mh-actions{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+@media screen and (max-width:980px){.mh-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.mh-detail{grid-template-columns:1fr}}
+@media screen and (max-width:520px){.mh-grid{grid-template-columns:1fr}.mh{min-height:0}}
+
+/* ---------- 04 cause-and-effect chain ---------- */
+.ch2{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));column-gap:30px;row-gap:10px}
+.vfl2{grid-column:4 / 6;grid-row:1;height:26px;display:flex;align-items:center;justify-content:center;font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--navy);border-radius:8px}
+.col{grid-row:2;position:relative;display:flex;flex-direction:column;gap:10px;min-width:0}
+.col:not(:last-child)::after{content:"";position:absolute;right:-21px;top:24px;width:12px;height:12px;border-top:2.5px solid var(--coral);border-right:2.5px solid var(--coral);transform:rotate(45deg);transition:transform .4s}
+.ch2.rev .col:not(:last-child)::after{transform:rotate(-135deg)}
+.col-h{padding:14px 14px 12px;border-radius:16px;background:var(--surface-2);border:1px solid var(--line);border-top:3px solid var(--sw)}
+.col-h .top{display:flex;align-items:center;gap:8px}
+.step{font-family:var(--f-mono);font-size:11px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--surface-3);color:var(--fg-strong);flex:none}
+.col.first .step{background:var(--red);color:#fff}
+.col-h h3{margin:0;font-family:var(--f-display);font-size:16.5px;line-height:1.15;color:var(--fg-strong)}
+.col-h .q{margin:8px 0 0;font-size:13px;color:var(--fg);line-height:1.4;font-weight:500}
+.col-h .d{margin:6px 0 0;font-size:12.5px;color:var(--faint);line-height:1.4}
+.item{text-align:left;padding:12px 13px;border-radius:12px;background:var(--surface);border:1px solid var(--line);font-size:13px;line-height:1.4;color:var(--muted);transition:all .3s}
+.item b{display:block;color:var(--fg-strong);font-size:14px;font-weight:600;margin-bottom:3px}
+.item.on{border-color:rgba(218,33,40,.6);background:linear-gradient(160deg,var(--red-tint-2),var(--surface));color:var(--fg)}
+.item.dim{opacity:.38}
+button.item{cursor:pointer}
+button.item:hover{border-color:var(--line-2)}
+.route{display:flex;gap:10px;align-items:center}
+.route .ri{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:var(--navy);color:#fff;flex:none}
+.route .ri svg{width:16px;height:16px}
+.c2-panels{margin-top:22px;display:grid;grid-template-columns:1fr 1.35fr;gap:14px}
+.c2-panels h4{margin:8px 0 10px;font-family:var(--f-display);font-size:20px;color:var(--fg-strong);line-height:1.25}
+.narr{font-size:15.5px;color:var(--fg);margin:8px 0 0;line-height:1.65}
+.narr b{color:var(--fg-strong);font-weight:600}
+.dobe-mini{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.dobe-mini div{padding:12px 14px;border-radius:12px;background:var(--surface-2);border:1px solid var(--line);font-size:14px}
+.dobe-mini .k{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);display:block;margin-bottom:4px}
+.evq{margin:10px 0 0;padding:10px 14px;border-left:3px solid var(--green);background:rgba(16,185,129,.07);border-radius:0 10px 10px 0;font-style:italic;color:var(--fg-strong);font-size:14.5px}
+.best{font-size:14px;color:var(--muted);margin:10px 0 0}
+.best b{color:var(--fg-strong);font-weight:600}
+.dims{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+@media screen and (max-width:1080px){
+  .ch2{grid-template-columns:1fr;row-gap:30px}
+  .vfl2{grid-column:auto;grid-row:auto;order:4}
+  .col{grid-row:auto}
+  .col:nth-child(2){order:1}.col:nth-child(3){order:2}.col:nth-child(4){order:3}.col:nth-child(5){order:5}.col:nth-child(6){order:6}
+  .col:not(:last-child)::after{right:auto;left:50%;top:auto;bottom:-20px;transform:rotate(135deg)}
+  .ch2.rev .col:not(:last-child)::after{transform:rotate(-45deg)}
+  .c2-panels{grid-template-columns:1fr}
+}
+@media screen and (max-width:560px){.dobe-mini{grid-template-columns:1fr}}
+
+/* ---------- 05 levels ---------- */
+.ladder{display:grid;gap:12px}
+.rung{display:grid;grid-template-columns:64px 1fr 290px;border-radius:18px;border:1px solid var(--line);background:var(--surface-2);overflow:hidden;transition:border-color .3s,box-shadow .3s}
+.rung.hit{border-color:rgba(218,33,40,.6);box-shadow:0 0 0 4px var(--red-tint)}
+.rung:nth-child(2){margin-left:3%}.rung:nth-child(3){margin-left:6%}.rung:nth-child(4){margin-left:9%}
+.lv{display:grid;place-items:center;font-family:var(--f-display);font-weight:700;font-size:20px;color:#fff}
+.rung-body{padding:16px 20px;min-width:0}
+.rung-body h3{margin:0;font-family:var(--f-display);font-size:18px;color:var(--fg-strong)}
+.rung-body p{margin:4px 0 0;font-size:14px;color:var(--muted)}
+.rung-q{padding:16px 18px;border-left:1px solid var(--line);background:var(--surface);display:flex;flex-direction:column;gap:8px;min-width:0}
+.rung-q .eyebrow{color:var(--coral)}
+.rung-q .qtext{font-size:14px;color:var(--fg-strong);line-height:1.45}
+.rung-q .when{font-family:var(--f-mono);font-size:11.5px;color:var(--faint)}
+.rung-q .chip{align-self:flex-start}
+.ladder-foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:18px;font-size:14.5px;color:var(--muted)}
+.circle-view{display:grid;grid-template-columns:minmax(0,440px) 1fr;gap:30px;align-items:center}
+.circle-view svg{width:100%;height:auto;max-width:440px;justify-self:center}
+.seg-path{cursor:pointer;transition:opacity .25s,filter .25s}
+.seg-path:hover{filter:brightness(1.15)}
+.seg-g.dim .seg-path{opacity:.45}
+.seg-g:focus{outline:none}
+.seg-g:focus-visible .seg-path{stroke:var(--coral);stroke-width:3}
+.cv-panel{padding:24px}
+.cv-panel h3{margin:6px 0 10px;font-family:var(--f-display);font-size:24px;color:var(--fg-strong);line-height:1.2}
+.cv-panel p{margin:0 0 10px;color:var(--muted);font-size:15px}
+.cv-panel .eyebrow{color:var(--coral)}
+.cv-panel .sup{padding:12px 14px;border-radius:12px;background:var(--surface-2);border:1px solid var(--line);font-size:14px;color:var(--fg)}
+.cv-legend{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+@media screen and (max-width:900px){
+  .rung{grid-template-columns:52px 1fr}
+  .rung-q{grid-column:1 / -1;border-left:0;border-top:1px solid var(--line)}
+  .rung:nth-child(n){margin-left:0}
+  .circle-view{grid-template-columns:1fr}
+}
+
+/* ---------- 06 triangle ---------- */
+.tri{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:center}
+.tri svg{width:100%;height:auto;max-width:560px;justify-self:center}
+.tnode{cursor:pointer}
+.tnode .ring{fill:none;stroke:var(--coral);stroke-width:2;opacity:0;transition:opacity .3s}
+.tnode.on .ring{opacity:1}
+.tnode text{font-family:var(--f-display);font-weight:700;fill:#fff;pointer-events:none}
+.tnode .small{font-family:var(--f-body);font-weight:500;font-size:12px;fill:rgba(255,255,255,.85)}
+.tedge{stroke:var(--line-2);stroke-width:2;stroke-dasharray:5 6;transition:stroke .3s,stroke-width .3s}
+.tedge.on{stroke:var(--coral);stroke-width:3;stroke-dasharray:none}
+.tlabel{font-family:var(--f-mono);font-size:12px;fill:var(--muted)}
+.tlabel.on{fill:var(--coral)}
+.tlabel-bg{fill:var(--bg)}
+.role{padding:26px}
+.role .eyebrow{color:var(--coral)}
+.role h3{margin:6px 0 4px;font-family:var(--f-display);font-size:26px;color:var(--fg-strong)}
+.role .rsub{margin:0 0 16px;color:var(--muted);font-size:14.5px}
+.role .ticks{font-size:15px;color:var(--fg)}
+.role-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.conf{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.conf .shared .eyebrow{color:var(--green)}
+.conf .private .eyebrow{color:var(--amber)}
+.agree{margin-top:14px;font-size:14.5px;color:var(--muted)}
+@media screen and (max-width:900px){.tri,.conf{grid-template-columns:1fr}}
+
+/* ---------- 07 between sessions ---------- */
+.lanes-scroll{overflow-x:auto;margin:0 -6px;padding:0 6px}
+.lanes-scroll svg{width:100%;min-width:760px;height:auto;display:block}
+.ln-sess{fill:var(--navy)}
+.ln-sess-t{font-family:var(--f-display);font-weight:700;fill:#fff}
+.ln-sess-s{font-family:var(--f-body);font-size:12px;fill:rgba(255,255,255,.75)}
+.ln-sess-n{font-family:var(--f-body);font-size:11.5px;fill:rgba(255,255,255,.9)}
+.ln-lab{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.12em;fill:var(--coral);text-transform:uppercase}
+.ln-track{stroke:var(--line-2);stroke-width:2}
+.ln-track.dash{stroke-dasharray:4 7}
+.ln-ev{transition:opacity .35s}
+.ln-ev.off{opacity:.12}
+.ln-dot{fill:var(--surface-3);stroke:var(--line-2);stroke-width:1.5;transition:fill .3s,stroke .3s}
+.ln-ev.hit .ln-dot{fill:var(--green);stroke:var(--green)}
+.ln-ev-t{font-family:var(--f-body);font-size:12px;fill:var(--fg)}
+.ln-note{font-family:var(--f-body);font-size:12.5px;fill:var(--faint);font-style:italic}
+.ln-tick{stroke:var(--grey);stroke-width:2;opacity:.5}
+.ln-cursor{stroke:var(--coral);stroke-width:2}
+.ln-band{font-family:var(--f-mono);font-size:12px;letter-spacing:.16em;fill:var(--faint)}
+.lane-msg{margin:14px 0 0;font-family:var(--f-display);font-weight:600;font-size:17px;color:var(--fg-strong)}
+.lane-msg.bad{color:var(--amber)}
+.rec-table{margin-top:22px;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.rec-row{display:grid;grid-template-columns:170px 1.6fr 1fr 1fr;border-top:1px solid var(--line)}
+.rec-row:first-child{border-top:0;background:var(--surface-2)}
+.rec-row>div{padding:12px 16px;font-size:14px;min-width:0}
+.rec-row:first-child>div{font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.rec-row .who{font-weight:600;color:var(--fg-strong);display:flex;gap:8px;align-items:center}
+.rec-row .who i{width:10px;height:10px;border-radius:3px;display:inline-block;flex:none}
+.rec-row .ex{display:block;font-style:italic;color:var(--muted);font-size:13px;margin-top:4px}
+@media screen and (max-width:860px){.rec-row{grid-template-columns:1fr}.rec-row:first-child{display:none}.rec-row>div{padding:6px 16px}.rec-row>div:first-child{padding-top:14px}.rec-row>div:last-child{padding-bottom:14px}}
+
+/* ---------- 08 dashboard ---------- */
+.dash{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.dcol h3{margin:0 0 10px;font-family:var(--f-mono);font-weight:500;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+.dcol h3 b{display:block;font-family:var(--f-display);font-size:16px;letter-spacing:0;text-transform:none;color:var(--fg-strong);margin-top:2px}
+.dcol .stack{display:grid;gap:10px}
+.kpi{text-align:left;cursor:pointer;padding:12px 13px;border-radius:12px;background:var(--surface-2);border:1px solid var(--line);border-left:4px solid var(--st);transition:all .25s;display:flex;flex-direction:column;gap:4px}
+.kpi:hover{border-color:var(--line-2);border-left-color:var(--st)}
+.kpi .n{font-size:13px;color:var(--fg);line-height:1.3}
+.kpi .v{font-family:var(--f-display);font-weight:700;font-size:20px;color:var(--fg-strong);font-variant-numeric:tabular-nums;line-height:1.1}
+.kpi .v small{font-family:var(--f-body);font-weight:400;font-size:12px;color:var(--muted)}
+.kpi.sel{box-shadow:0 0 0 2px var(--coral)}
+.kpi.lnk{box-shadow:0 0 0 1px var(--coral)}
+.kpi.dim{opacity:.35}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
+.legend span{display:flex;gap:6px;align-items:center}
+.legend i{width:10px;height:10px;border-radius:3px}
+.d-detail{margin-top:18px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+@media screen and (max-width:1080px){.dash{grid-template-columns:repeat(2,minmax(0,1fr))}.d-detail{grid-template-columns:1fr}}
+@media screen and (max-width:560px){.dash{grid-template-columns:1fr}}
+
+/* ---------- 09 menu ---------- */
+.grp-h{font-family:var(--f-mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);margin:0 0 12px}
+.grp{margin-bottom:22px}
+.opts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.opt{text-align:left;cursor:pointer;padding:18px;border-radius:18px;background:var(--surface-2);border:1px solid var(--line);display:flex;flex-direction:column;gap:8px;transition:border-color .25s,background .25s}
+.opt:hover{border-color:var(--line-2)}
+.opt[aria-pressed="true"]{border-color:rgba(218,33,40,.6);background:linear-gradient(160deg,var(--red-tint-2),var(--surface))}
+.opt .row{display:flex;justify-content:space-between;align-items:center}
+.opt .ico{color:var(--coral)}
+.opt .ico svg{width:24px;height:24px;stroke-width:1.7}
+.chk{width:22px;height:22px;border-radius:6px;border:1.5px solid var(--line-2);display:grid;place-items:center;transition:all .2s}
+.opt[aria-pressed="true"] .chk{background:var(--red);border-color:var(--red)}
+.chk svg{width:14px;height:14px;color:#fff;opacity:0}
+.opt[aria-pressed="true"] .chk svg{opacity:1}
+.opt h3{margin:0;font-family:var(--f-display);font-size:17px;line-height:1.2;color:var(--fg-strong)}
+.opt p{margin:0;font-size:13.5px;color:var(--muted)}
+.focus{margin-top:10px;padding:22px}
+.focus-h{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.focus-h h3{margin:0;font-family:var(--f-display);font-size:20px;color:var(--fg-strong);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.focus-h h3 svg{width:20px;height:20px;color:var(--coral)}
+.ex-tag{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;color:var(--amber);text-transform:uppercase}
+.ftable{border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.frow{display:grid;grid-template-columns:1.05fr 1.2fr .95fr 1.05fr 1.05fr;border-top:1px solid var(--line)}
+.frow:first-child{border-top:0;background:var(--surface-2)}
+.frow>div{padding:12px 14px;font-size:13.5px;min-width:0;color:var(--fg)}
+.frow:first-child>div{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.frow .nm{font-family:var(--f-display);font-weight:600;color:var(--fg-strong);font-size:15px}
+.frow .nm span{display:block;font-family:var(--f-body);font-weight:400;font-size:13px;color:var(--coral);margin-top:4px}
+.frow ul{margin:0;padding-left:16px;display:grid;gap:3px}
+.frow .lab{display:none;font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:4px}
+.empty{font-size:14px;color:var(--faint);margin:6px 0}
+.advice{font-size:13.5px;padding:8px 12px;border-radius:10px;background:var(--surface);border:1px solid var(--line)}
+.advice.warn{border-color:rgba(245,158,11,.45);color:var(--amber)}
+.advice.ok{border-color:rgba(16,185,129,.45);color:var(--green)}
+@media screen and (max-width:1080px){.opts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media screen and (max-width:860px){.frow{grid-template-columns:1fr}.frow:first-child{display:none}.frow .lab{display:block}.frow>div{padding:8px 14px}}
+@media screen and (max-width:520px){.opts{grid-template-columns:1fr}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding-block:clamp(72px,12vh,140px) clamp(64px,10vh,120px)}
+main{overflow-x:clip}
+.hero-in{position:relative;z-index:2;max-width:820px}
+.hero h1{font-size:clamp(44px,7.4vw,96px);line-height:1.0;max-width:12ch}
+.hero .sub{font-size:clamp(17px,1.8vw,21px);max-width:46ch;margin-top:26px}
+.hero .chips{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:34px}
+.hero .chips span.c{padding:8px 16px;border-radius:999px;border:1px solid;font-size:14.5px;font-weight:500}
+.hero .chips .c1{border-color:rgba(240,88,94,.55);color:var(--coral)}
+.hero .chips .c2{border-color:rgba(245,158,11,.55);color:var(--amber)}
+.hero .chips .c3{border-color:rgba(16,185,129,.55);color:var(--green)}
+.hero .chips .dash{width:28px;height:1px;background:var(--line-2)}
+.hero .meta{margin-top:48px;font-size:14px;color:var(--faint)}
+.hero .meta b{color:var(--fg-strong);font-family:var(--f-display)}
+.rings{position:absolute;z-index:1;right:-180px;top:50%;width:min(760px,90vw);aspect-ratio:1;max-width:100%;translate:0 -50%;pointer-events:none;opacity:.9}
+.rings svg{width:100%;height:100%}
+.rings .r{fill:none;transform-origin:50% 50%;transform-box:fill-box}
+.rings .spin{animation:spin 80s linear infinite}
+.rings .spin2{animation:spin 120s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+:root[data-mode="print"] .rings{opacity:.35}
+@media screen and (max-width:900px){.rings{right:-320px;opacity:.4}}
+
+/* ---------- 10 next steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.stepc{position:relative;text-align:left;cursor:pointer;padding:20px 18px;border-radius:18px;background:var(--surface-2);border:1px solid var(--line);display:flex;flex-direction:column;gap:10px;transition:all .25s;min-height:170px}
+.stepc:hover{border-color:var(--line-2);transform:translateY(-2px)}
+.stepc[aria-pressed="true"]{border-color:rgba(218,33,40,.6);background:linear-gradient(160deg,var(--red-tint-2),var(--surface))}
+.stepc .big{font-family:var(--f-display);font-weight:700;font-size:34px;color:var(--coral);line-height:1}
+.stepc h3{margin:0;font-family:var(--f-display);font-size:17px;line-height:1.25;color:var(--fg-strong)}
+.stepc:not(:last-child)::after{content:"";position:absolute;right:-10px;top:34px;width:8px;height:8px;border-top:2px solid var(--faint);border-right:2px solid var(--faint);transform:rotate(45deg)}
+.st-detail{margin-top:14px;display:grid;grid-template-columns:1fr 1.4fr;gap:14px}
+.agree-box{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.agree-box .box .eyebrow{color:var(--coral)}
+.agree-box .ticks{margin-top:10px;color:var(--fg)}
+@media screen and (max-width:1080px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.stepc::after{display:none}.st-detail,.agree-box{grid-template-columns:1fr}}
+@media screen and (max-width:520px){.steps{grid-template-columns:1fr}.stepc{min-height:0}}
+
+/* ---------- closing ---------- */
+.closing{padding-block:96px 120px;border-top:1px solid var(--line);text-align:center}
+.closing .logo{justify-content:center;font-size:clamp(56px,9vw,104px)}
+.closing .logo sup{font-size:.55em;margin-top:-.08em}
+.closing h2{margin:28px auto 0;max-width:22ch;font-size:clamp(28px,3.6vw,44px)}
+.closing p{margin:16px auto 0;color:var(--faint);font-size:14px}
+
+/* ---------- present mode ---------- */
+html.presenting{scroll-snap-type:y proximity}
+html.presenting main > section{min-height:calc(100vh - 56px);scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center}
+html.presenting .wrap{max-width:1320px}
+
+.outro{padding-block:64px 96px;border-top:1px solid var(--line)}
+.outro ol{margin:18px 0 0;padding-left:22px;color:var(--fg);font-size:16px;display:grid;gap:8px;max-width:80ch}
+
+
+/* ---------- BDM playbook components ---------- */
+.part{font-family:var(--f-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);margin:0 0 6px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media screen and (max-width:980px){.grid3,.grid4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media screen and (max-width:620px){.grid2,.grid3,.grid4{grid-template-columns:1fr}}
+.tile{padding:20px;border-radius:18px;background:var(--surface-2);border:1px solid var(--line);display:flex;flex-direction:column;gap:8px;min-width:0}
+.tile h3{margin:0;font-family:var(--f-display);font-size:18px;line-height:1.2;color:var(--fg-strong)}
+.tile p{margin:0;font-size:14px;color:var(--muted)}
+.tile .k{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--coral)}
+.tile.hl{background:linear-gradient(160deg,var(--red-tint-2),var(--surface));border-color:rgba(218,33,40,.55)}
+.tile .ico{color:var(--coral)} .tile .ico svg{width:26px;height:26px;stroke-width:1.6}
+.stat .v{font-family:var(--f-display);font-weight:700;font-size:40px;line-height:1;color:var(--fg-strong);font-variant-numeric:tabular-nums}
+.stat .v small{font-size:18px;color:var(--muted);font-weight:600}
+.banner{display:flex;gap:12px;align-items:center;padding:10px 16px;border-radius:12px;border:1px dashed rgba(245,158,11,.6);color:var(--amber);font-size:13.5px;margin-bottom:20px;background:rgba(245,158,11,.06)}
+.banner b{font-family:var(--f-mono);font-size:11px;letter-spacing:.16em}
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.tag.direct{background:rgba(218,33,40,.18);color:var(--coral);border:1px solid rgba(218,33,40,.5)}
+.tag.support{background:rgba(59,63,126,.35);color:#B9C2FF;border:1px solid rgba(110,120,220,.45)}
+.tag.none{background:transparent;color:var(--faint);border:1px solid var(--line-2)}
+.tag.know{background:rgba(16,185,129,.12);color:var(--green);border:1px solid rgba(16,185,129,.4)}
+.tag.sys{background:rgba(245,158,11,.1);color:var(--amber);border:1px solid rgba(245,158,11,.4)}
+.tag.prac{background:rgba(218,33,40,.18);color:var(--coral);border:1px solid rgba(218,33,40,.5)}
+:root[data-mode="print"] .tag.support{color:#3B3F7E;background:rgba(59,63,126,.1)}
+/* teach / mentor / coach strip */
+.tmc{margin-top:22px}
+/* diagnosis */
+.diag{display:grid;grid-template-columns:1fr 1.15fr;gap:22px;align-items:start}
+.stmts{display:grid;gap:8px}
+.stmt{text-align:left;cursor:pointer;padding:12px 14px;border-radius:12px;background:var(--surface-2);border:1px solid var(--line);font-size:14.5px;color:var(--fg);display:flex;gap:10px;align-items:flex-start}
+.stmt:hover{border-color:var(--line-2)}
+.stmt[aria-pressed="true"]{border-color:rgba(218,33,40,.6);background:linear-gradient(160deg,var(--red-tint-2),var(--surface))}
+.stmt .q{font-family:var(--f-display);font-size:20px;color:var(--coral);line-height:1}
+.gapcards{display:grid;gap:10px}
+.gapc{padding:16px 18px;border-radius:16px;border:1px solid var(--line);background:var(--surface);transition:all .25s}
+.gapc.on{border-color:rgba(218,33,40,.6);background:linear-gradient(160deg,var(--red-tint-2),var(--surface));box-shadow:0 0 0 3px var(--red-tint)}
+.gapc.off{opacity:.45}
+.gapc .top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:6px}
+.gapc h3{margin:0;font-family:var(--f-display);font-size:17px;color:var(--fg-strong)}
+.gapc p{margin:2px 0 0;font-size:13.5px;color:var(--muted)}
+.gapc p b{color:var(--fg-strong);font-weight:600}
+.verdict{margin-top:12px;padding:14px 16px;border-radius:14px;background:var(--surface-2);border:1px solid var(--line);font-size:14.5px;min-height:52px}
+.verdict b{color:var(--fg-strong)}
+@media screen and (max-width:900px){.diag{grid-template-columns:1fr}}
+/* signals and questions */
+.quotes{display:grid;gap:10px}
+.quote2{padding:12px 16px;border-radius:12px;background:var(--surface-2);border:1px solid var(--line);font-style:italic;color:var(--fg-strong);font-size:15px}
+.qs{counter-reset:q;display:grid;gap:8px}
+.qrow{display:grid;grid-template-columns:30px 1fr;gap:10px;padding:10px 14px;border-radius:12px;background:var(--surface);border:1px solid var(--line)}
+.qrow .n{font-family:var(--f-display);font-weight:700;color:var(--coral);font-size:17px}
+.qrow .t{font-size:14.5px;color:var(--fg-strong);font-weight:500}
+.qrow .w{font-size:13px;color:var(--muted);margin-top:2px}
+/* scorecard */
+.score{display:grid;grid-template-columns:1.5fr 1fr;gap:22px;align-items:start}
+.prow{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:10px 14px;border-radius:12px;background:var(--surface-2);border:1px solid var(--line);margin-bottom:8px}
+.prow .t{font-size:14.5px;color:var(--fg-strong)}
+.prow .t small{display:block;font-size:12.5px;color:var(--muted)}
+.prow .crit{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;color:var(--coral);margin-left:6px}
+.tri3{display:inline-flex;border:1px solid var(--line-2);border-radius:999px;overflow:hidden}
+.tri3 button{border:0;background:transparent;padding:6px 11px;font-size:12.5px;cursor:pointer;color:var(--muted)}
+.tri3 button[aria-pressed="true"][data-v="y"]{background:var(--green);color:#06281C}
+.tri3 button[aria-pressed="true"][data-v="p"]{background:var(--amber);color:#2B1B00}
+.tri3 button[aria-pressed="true"][data-v="n"]{background:var(--red);color:#fff}
+.go{padding:22px;border-radius:18px;border:1px solid var(--line)}
+.go .big{font-family:var(--f-display);font-weight:700;font-size:34px;line-height:1.05}
+.go.g{background:rgba(16,185,129,.1);border-color:rgba(16,185,129,.5)} .go.g .big{color:var(--green)}
+.go.c{background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.5)} .go.c .big{color:var(--amber)}
+.go.n{background:rgba(218,33,40,.14);border-color:rgba(218,33,40,.55)} .go.n .big{color:var(--coral)}
+.go p{margin:10px 0 0;font-size:14.5px;color:var(--fg)}
+.walk{margin-top:14px}
+@media screen and (max-width:900px){.score{grid-template-columns:1fr}}
+/* tables */
+.tbl{border:1px solid var(--line);border-radius:16px;overflow:hidden;overflow-x:auto}
+.tbl table{width:100%;border-collapse:collapse;min-width:720px}
+.tbl th{font-family:var(--f-mono);font-weight:500;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);text-align:left;padding:11px 14px;background:var(--surface-2)}
+.tbl td{padding:11px 14px;border-top:1px solid var(--line);font-size:14px;vertical-align:top;color:var(--fg)}
+.tbl td.ws{font-weight:600;color:var(--fg-strong);white-space:nowrap}
+.tbl td.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.tbl th.num{text-align:right}
+.tbl tr.lvl td{background:var(--surface);font-family:var(--f-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);padding:8px 14px}
+.tbl tr.dim td{opacity:.3}
+.tbl tr.hit td{background:var(--red-tint)}
+.thread{display:flex;align-items:stretch;gap:0;margin-top:16px;overflow-x:auto}
+.thread .st{flex:1;min-width:150px;padding:12px 14px;border-radius:14px;background:var(--surface-2);border:1px solid var(--line)}
+.thread .st .eyebrow{color:var(--coral)}
+.thread .st p{margin:6px 0 0;font-size:13.5px;color:var(--fg)}
+.thread .ar{flex:none;width:26px;display:grid;place-items:center;color:var(--coral);font-size:20px;font-weight:700}
+/* estimator */
+.est{display:grid;grid-template-columns:1.25fr 1fr;gap:22px;align-items:start}
+.fset{border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin:0 0 12px;background:var(--surface)}
+.fset legend{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);padding:0 6px}
+.frow2{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.fld{display:flex;flex-direction:column;gap:4px;font-size:12.5px;color:var(--muted)}
+.fld input{font:inherit;font-size:15px;color:var(--fg-strong);background:var(--surface-2);border:1px solid var(--line-2);border-radius:10px;padding:7px 10px;width:100%;font-variant-numeric:tabular-nums}
+.fld input:focus{outline:2px solid var(--coral);outline-offset:1px}
+.res-box{padding:22px;border-radius:18px;background:linear-gradient(160deg,var(--red-tint-2),var(--surface));border:1px solid rgba(218,33,40,.5)}
+.res-box .big{font-family:var(--f-display);font-weight:700;font-size:52px;line-height:1;color:var(--fg-strong);font-variant-numeric:tabular-nums}
+.res-box .big small{font-size:18px;color:var(--muted)}
+.bk{display:grid;gap:8px;margin-top:16px}
+.bk .r{display:grid;grid-template-columns:1fr auto;gap:8px;font-size:13.5px;color:var(--fg)}
+.bk .r b{font-variant-numeric:tabular-nums;color:var(--fg-strong)}
+.bk .bar{grid-column:1/-1;height:6px;border-radius:4px;background:var(--surface-3);overflow:hidden}
+.bk .bar i{display:block;height:100%;background:var(--coral);border-radius:4px;transition:width .3s}
+@media screen and (max-width:980px){.est{grid-template-columns:1fr}.frow2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* objections */
+.obj{display:grid;gap:10px}
+.ob{border:1px solid var(--line);border-radius:16px;background:var(--surface-2);overflow:hidden}
+.ob summary{cursor:pointer;list-style:none;padding:14px 18px;display:flex;gap:12px;align-items:center;font-family:var(--f-display);font-size:17px;color:var(--fg-strong)}
+.ob summary::-webkit-details-marker{display:none}
+.ob summary .n{font-family:var(--f-mono);font-size:12px;color:var(--coral);font-weight:500}
+.ob summary::after{content:"+";margin-left:auto;color:var(--faint);font-family:var(--f-body);font-size:20px}
+.ob[open] summary::after{content:"–"}
+.ob .body{padding:0 18px 16px;display:grid;grid-template-columns:1.6fr 1fr;gap:14px}
+.ob .body p{margin:0;font-size:14.5px;color:var(--fg)}
+.ob .proof{font-size:13px;color:var(--muted);border-left:3px solid var(--coral);padding-left:12px}
+@media screen and (max-width:760px){.ob .body{grid-template-columns:1fr}}
+/* ---------- v2 additions ---------- */
+.rung{grid-template-columns:64px 1fr 380px}
+@media screen and (max-width:900px){.rung{grid-template-columns:52px 1fr}}
+.hero-note{margin:16px 0 0;font-family:var(--f-display);font-size:18px;color:var(--fg-strong)}
+/* proof tiles */
+.pf .v{font-family:var(--f-display);font-weight:700;font-size:44px;line-height:1;color:var(--fg-strong);font-variant-numeric:tabular-nums}
+.pf .v.down{color:var(--green)} .pf .v.up{color:var(--coral)}
+.pbar{position:relative;height:10px;border-radius:6px;background:var(--surface-3);overflow:hidden;margin:4px 0 2px}
+.pbar i{position:absolute;left:0;top:0;bottom:0;border-radius:6px;transition:width .6s cubic-bezier(.2,.7,.2,1)}
+.pbar i.base{background:var(--line-2);z-index:2;height:4px;top:3px}
+.pbar i.now.up{background:var(--coral)} .pbar i.now.down{background:var(--green)}
+.pbar i.now.down{z-index:3}
+/* 10/20/70 */
+.mix{margin-top:22px}
+.mix-bar{display:flex;height:40px;border-radius:12px;overflow:hidden;margin-top:10px;border:1px solid var(--line)}
+.mix-bar>div{display:flex;align-items:center;padding:0 12px;color:#fff;font-size:14px;white-space:nowrap}
+.m1{background:var(--grey)} .m2{background:var(--red)} .m3{background:var(--navy-3)}
+.mix-leg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px;font-size:13.5px;color:var(--muted)}
+.mix-leg b{color:var(--fg-strong);font-weight:600}
+.mix-leg .sw{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:middle}
+@media screen and (max-width:760px){.mix-leg{grid-template-columns:1fr}}
+.more-tile{margin-top:14px;padding:14px 18px;border-radius:14px;border:1px dashed var(--line-2);color:var(--muted);font-size:14.5px;text-align:center}
+/* typical order */
+.order{margin-bottom:18px}
+.order-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:8px}
+.order-row .o{padding:8px 14px;border-radius:999px;font-size:14px;font-weight:500;border:1px solid var(--line-2)}
+.order-row .o1{color:var(--green);border-color:rgba(16,185,129,.45)} .order-row .o2{color:var(--coral);border-color:rgba(218,33,40,.55);background:var(--red-tint)} .order-row .o3{color:var(--amber);border-color:rgba(245,158,11,.45);border-style:dashed}
+.order-row .ar{color:var(--coral);font-weight:700;font-size:20px}
+/* contribution graph */
+.cg-scroll{overflow-x:auto;overflow-y:hidden;margin-top:6px}
+.cg{position:relative;display:grid;gap:34px;min-width:860px;padding:6px 0}
+.cg-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:hidden;z-index:0}
+.cg-row{position:relative;display:grid;grid-template-columns:118px 1fr;gap:14px;align-items:center}
+.cg-lv{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);line-height:1.4}
+.cg-cells{display:grid;gap:12px;position:relative;z-index:1}
+.cg-box{position:relative;text-align:left;padding:12px 14px;border-radius:14px;background:linear-gradient(var(--surface),var(--surface)),var(--bg);border:1px solid var(--line-2);display:flex;flex-direction:column;gap:4px;min-width:0;font:inherit;color:var(--fg);transition:opacity .25s,border-color .25s,box-shadow .25s}
+.cg-box b{font-family:var(--f-display);font-size:15px;color:var(--fg-strong);line-height:1.2}
+.cg-box span{font-size:12.5px;color:var(--muted)}
+.cg-box .id{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;color:var(--coral)}
+.cg-box.imp{border-color:rgba(218,33,40,.55);background:linear-gradient(160deg,var(--red-tint-2),var(--red-tint)),var(--bg);align-items:center;text-align:center}
+.cg-box.imp>b{letter-spacing:.2em}
+.impstats{display:flex;gap:28px;flex-wrap:wrap;justify-content:center}
+.impstats span{font-size:13px;color:var(--muted)} .impstats b{font-size:20px;margin-right:6px}
+.cg-box.ws,.cg-box.coach{cursor:pointer}
+.cg-box.ws:hover,.cg-box.coach:hover{border-color:var(--coral)}
+.cg-box.ws.sel,.cg-box.coach.sel{box-shadow:0 0 0 2px var(--coral)}
+.cg-box.ws .st{margin-top:4px}
+#cg9 .cg-box.ws:not(.on){opacity:.6}
+.cg-box.coach{border-color:rgba(218,33,40,.6);background:linear-gradient(160deg,var(--red-tint),var(--surface)),var(--bg)}
+.cg-box.coach.off{opacity:.35;border-style:dashed}
+.cg-box.other{border-style:dashed;border-color:var(--line-2)}
+.cg-box.fmt{border-color:var(--navy-3)}
+.cg-box.sm{padding:10px 10px}.cg-box.sm b{font-size:13.5px}.cg-box.sm .tag{align-self:flex-start;margin-top:4px;font-size:11px;padding:2px 8px}
+.cg-box.dim{opacity:.32}
+.sess{display:flex;justify-content:space-around;gap:8px}
+.sc{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-mono);font-size:12px;color:#fff;background:var(--navy-2);border:2px solid var(--coral);position:relative;z-index:1;transition:opacity .25s}
+.sc.off{opacity:.3}
+.cg-svg path{fill:none}
+.cg-svg path.up{stroke:var(--line-2);stroke-width:1.5}
+.cg-svg path.up.hot{stroke:var(--fg);opacity:.7}
+.cg-svg path.o{stroke:var(--grey);stroke-width:1.5;stroke-dasharray:3 4;opacity:.7}
+.cg-svg path.o.faint{opacity:.35}
+.cg-svg path.d{stroke:var(--coral);stroke-width:3}
+.cg-svg path.s{stroke:var(--coral);stroke-width:2.2;stroke-dasharray:7 6}
+.cg-svg path.sess{stroke:var(--coral);stroke-width:1.2;opacity:.6}
+.cg-svg path.hot{opacity:1}
+.cg-svg path.dimmed{opacity:.12}
+#cg9 path.d.hot,#cg9 path.s.hot{stroke-width:3.6}
+.cg-legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
+.cg-legend span{display:inline-flex;align-items:center;gap:6px}
+.lg{display:inline-block;width:26px;height:0;border-top:3px solid var(--coral)}
+.lg.s{border-top-style:dashed;border-top-width:2px}
+.lg.o{border-top:2px dotted var(--grey)}
+/* test box + diagnosis cards */
+.test-box{padding:16px 18px;border-radius:16px;background:var(--surface);border:1px solid rgba(218,33,40,.45)}
+.test-box p{margin:6px 0 0;color:var(--fg-strong);font-size:15.5px}
+.test-row{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:10px;font-size:13.5px;color:var(--muted)}
+.test-row>span{display:inline-flex;gap:8px;align-items:center}
+.dcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;margin-top:12px}
+.dcard{text-align:left;cursor:pointer;font:inherit;color:var(--fg);padding:14px 16px;border-radius:16px;background:var(--surface-2);border:1px solid var(--line);display:flex;flex-direction:column;gap:8px;border-left:4px solid var(--line-2)}
+.dcard.r-d{border-left-color:var(--red)} .dcard.r-s{border-left-color:#6E78DC} .dcard.r-n{border-left-color:var(--line-2)}
+.dcard:hover{border-color:var(--line-2)}
+.dcard .dh .id{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;color:var(--coral);display:block}
+.dcard .dh b{font-family:var(--f-display);font-size:16px;color:var(--fg-strong)}
+.dcard .dt{display:flex;flex-wrap:wrap;gap:6px}
+.dcard .df{margin:0;font-size:13.5px;color:var(--muted)}
+.dcard .dw{display:none;margin:0;font-size:13.5px;color:var(--fg);padding-top:8px;border-top:1px solid var(--line)}
+.dcard.open{background:linear-gradient(160deg,var(--red-tint),var(--surface-2))}
+.dcard.open .dw{display:block}
+:root[data-mode="print"] .dcard .dw{display:block}
+@media print{.dcard .dw{display:block}}
+/* indicator tree */
+.tree-scroll{overflow-x:auto;overflow-y:hidden;margin-top:6px}
+.tree{position:relative;display:grid;grid-template-columns:1fr 1.25fr 1.2fr 1fr;gap:56px;min-width:900px}
+.tcol{display:flex;flex-direction:column;position:relative;z-index:1}
+.tcol .th{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:10px;min-height:28px}
+.tbody{display:flex;flex-direction:column;justify-content:space-around;gap:10px;flex:1}
+.tn{position:relative;text-align:left;cursor:pointer;font:inherit;padding:10px 30px 10px 12px;border-radius:12px;background:linear-gradient(var(--surface-2),var(--surface-2)),var(--bg);border:1px solid var(--line-2);display:flex;flex-direction:column;gap:2px;transition:opacity .25s,box-shadow .25s}
+.tn b{font-size:13.5px;color:var(--fg-strong);font-weight:600;line-height:1.25}
+.tn span{font-size:12px;color:var(--muted)}
+.tn .dot{position:absolute;right:10px;top:12px;width:9px;height:9px;border-radius:50%}
+.tn.lv1{border-color:rgba(218,33,40,.6)} .tn.lv3{border-color:rgba(218,33,40,.45)} .tn.lv4{border-color:var(--navy-3)}
+.tn.nolink{border-style:dashed}
+.tn.sel{box-shadow:0 0 0 2px var(--coral)}
+.tn.dim{opacity:.3}
+.tag.compelling{background:rgba(16,185,129,.12);color:var(--green);border:1px solid rgba(16,185,129,.4)}
+.tag.minimum{background:transparent;color:var(--muted);border:1px solid var(--line-2)}
+/* type x format */
+.tbl table.tf{min-width:640px}
+.tf td.dotc{text-align:center;color:var(--coral);font-size:16px}
+.tf th:nth-child(n+3){text-align:center}
+/* estimator v2 */
+.est-leg{display:flex;flex-wrap:wrap;gap:10px 24px;font-size:13px;color:var(--muted);margin-bottom:14px}
+.est-leg b{color:var(--fg-strong)}
+.est-leg .sw{display:inline-block;width:14px;height:14px;border-radius:4px;margin-right:6px;vertical-align:-2px;border:1px solid var(--line-2);background:var(--surface-2)}
+.est-leg .sw.pa{border-color:rgba(245,158,11,.7);background:rgba(245,158,11,.14)}
+.fld.pa{color:var(--amber)}
+.fld.pa input{border-color:rgba(245,158,11,.55);background:rgba(245,158,11,.08);color:var(--amber)}
+:root[data-mode="print"] .fld.pa input{color:#8A5A00}
+.fld.calc output{font-size:15px;color:var(--fg-strong);padding:7px 10px;border-radius:10px;border:1px dashed var(--line-2);font-variant-numeric:tabular-nums}
+.bk .r small{display:block;font-size:11.5px;color:var(--faint);margin-top:1px}
+.tbl table.pt{min-width:0}
+.tbl table.pt td{font-size:13px}
+.tbl table.pt td.ws{white-space:normal}
+
+#indBody td:last-child{white-space:nowrap}
+.cg{gap:42px}
+.cg,.tree{contain:layout}
+</style></head><body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<header class="topbar">
+  <div class="topbar-in">
+    <div class="logo" aria-label="dss+">dss<sup>+</sup></div>
+    <div class="divider"></div>
+    <div class="deck-title">Coaching for Impact · BDM playbook</div>
+    <div class="spacer"></div>
+    <nav class="progress" id="progress" aria-label="Sections"></nav>
+    <div class="now" id="now">Overview</div>
+    <button class="icon-btn" id="prev" aria-label="Previous section"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+    <button class="icon-btn" id="next" aria-label="Next section"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+    <button class="mode-btn" id="modeBtn" aria-pressed="false">Print view</button>
+    <button class="present" id="presentBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg><span>Present</span></button>
+  </div>
+</header>
+<main>
+
+  <section class="wrap hero" id="opening" data-name="Opening">
+    <div class="rings" aria-hidden="true">
+      <svg viewBox="0 0 600 600">
+        <defs><radialGradient id="hg" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#DA2128" stop-opacity=".35"/><stop offset="70%" stop-color="#DA2128" stop-opacity="0"/></radialGradient></defs>
+        <circle cx="300" cy="300" r="300" fill="url(#hg)"/>
+        <g class="r spin"><circle cx="300" cy="300" r="270" stroke="#DA2128" stroke-width="22" stroke-opacity=".55" stroke-dasharray="380 40" fill="none"/></g>
+        <g class="r spin2"><circle cx="300" cy="300" r="225" stroke="#F0585E" stroke-width="1.5" stroke-dasharray="3 9" fill="none"/></g>
+        <g class="r spin"><circle cx="300" cy="300" r="190" stroke="#3B3F7E" stroke-width="48" stroke-opacity=".55" stroke-dasharray="270 28" fill="none"/></g>
+        <circle cx="300" cy="300" r="110" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="1"/>
+        <circle cx="300" cy="300" r="12" fill="#F0585E"/>
+      </svg>
+    </div>
+    <div class="hero-in">
+      <p class="label">dss+ · Coaching for Impact · BDM playbook</p>
+      <h1>Sell coaching where it <span class="grad">makes results last.</span></h1>
+      <p class="sub">An internal guide for dss+ business developers and managers: when to sell coaching, when not to, and how it contributes to business impact.</p>
+      <div class="chips" aria-label="The playbook in three moves"><span class="c c1">Start from the impact</span><span class="dash"></span><span class="c c2">Find the routines that drive it</span><span class="dash"></span><span class="c c3">Decide where coaching helps</span></div>
+      <p class="hero-note">Coaching is a means, not the product.</p>
+      <p class="meta">Internal use · dss+ business development · November 2026</p>
+    </div>
+  </section>
+
+  <!-- 01 -->
+  <section class="wrap sec" id="why" data-name="The problem">
+    <p class="part">Part 1 · Why</p>
+    <p class="label">01 · The client problem</p>
+    <h2>Training and tools fade when nobody follows up. <span class="grad">Coaching in the routines makes them hold.</span></h2>
+    <p class="sub">Clients judge dss+ on results that last after we leave. When leaders are coached inside the routines they already run, results move within months.</p>
+    <div class="card stage">
+      <div class="stage-head">
+        <span class="eyebrow">Indicative results · dss+ Area Transformation programmes</span>
+        <div class="seg" role="group" aria-label="Time since start">
+          <button data-pf="3" aria-pressed="false">After 3 months</button>
+          <button data-pf="6" aria-pressed="true">After 6 months</button>
+        </div>
+      </div>
+      <div class="grid4" id="proofGrid"></div>
+      <div class="grid3" style="margin-top:18px">
+        <div class="tile"><span class="k">For the client</span><p>New procedures and training look good on paper, but the field doesn't change. Audits find the same gaps a year later.</p></div>
+        <div class="tile"><span class="k">For dss+</span><p>Our results are judged after we leave. If practice fades, the programme is remembered as "a report and some workshops".</p></div>
+        <div class="tile hl"><span class="k">What coaching adds</span><p>Someone works with leaders on applying the change in their own work, week after week, until it holds without us.</p></div>
+      </div>
+    </div>
+    <p class="caption">Indicative averages from dss+ Area Transformation programmes, where leaders are coached in the field on their routines. Results vary by site. Use them as a reference, not as a promise to a client.</p>
+  </section>
+
+  <!-- 02 -->
+  <section class="wrap sec" id="dobe" data-name="What coaching builds">
+    <p class="part">Part 1 · Why</p>
+    <p class="label">02 · What coaching builds</p>
+    <h2>Coaching builds what leaders do <span class="grad">and why they commit to it.</span></h2>
+    <p class="sub">Every coaching outcome has two parts: Do (the behaviour you can see) and Be (the mindset that makes it last). You'll find both in the coaching outcomes later in this playbook.</p>
+    <div class="card stage">
+      <div class="stage-head">
+        <span class="eyebrow">See what happens with only one half</span>
+        <div class="seg" role="group" aria-label="Choose combination">
+          <button data-db="do" aria-pressed="false">Do only</button>
+          <button data-db="be" aria-pressed="false">Be only</button>
+          <button data-db="both" aria-pressed="true">Do + Be</button>
+        </div>
+      </div>
+      <div class="dobe">
+        <div class="db-card" id="dbDo"><span class="db-tag">Do · Knowledge</span><h3>What leaders do</h3><p class="quote">“I follow the rules because I have to.”</p><ul class="ticks"><li>Skills and behaviours you can see</li><li>Standards and routines we can check</li><li>Knowledge applied in the work</li></ul></div>
+        <div class="op" aria-hidden="true">+</div>
+        <div class="db-card" id="dbBe"><span class="db-tag be">Be · Mindset</span><h3>Why they commit to it</h3><p class="quote">“I follow the rules because I want to.”</p><ul class="ticks"><li>Commitment, awareness and blind spots</li><li>Values, purpose and ownership</li><li>Makes the doing last</li></ul></div>
+        <div class="op" aria-hidden="true">=</div>
+        <div class="res good" id="dbRes" aria-live="polite"></div>
+      </div>
+      <div class="grid3 tmc">
+        <div class="tile"><span class="k">Teach / train</span><h3>When they don't know</h3><p>Transfers knowledge and the standard. Right for a knowledge gap.</p></div>
+        <div class="tile"><span class="k">Mentor</span><h3>When they need direction</h3><p>Shares experience from someone who has done the job. Right for new roles.</p></div>
+        <div class="tile hl"><span class="k">Coach</span><h3>When they know but don't do</h3><p>Draws out the leader's own thinking and commitment. Right for a practice gap.</p></div>
+      </div>
+      <div class="mix">
+        <span class="eyebrow">How a programme typically mixes them</span>
+        <div class="mix-bar" role="img" aria-label="About 10% formal learning, 20% coaching and peer learning, 70% applying it in real work">
+          <div class="m1" style="flex:10"><b>~10%</b></div>
+          <div class="m2" style="flex:20"><b>~20%</b></div>
+          <div class="m3" style="flex:70"><b>~70%</b></div>
+        </div>
+        <div class="mix-leg">
+          <div><span class="sw m1"></span><b>Formal learning</b> · teach: short classroom or online modules</div>
+          <div><span class="sw m2"></span><b>Coaching and peer learning</b> · coach and mentor: feedback, reflection, peers</div>
+          <div><span class="sw m3"></span><b>Applying it in real work</b> · assignments inside routines leaders already run</div>
+        </div>
+      </div>
+    </div>
+    <p class="caption">The 10/20/70 split is a planning guide, not a fixed rule. Coaches mix teaching, mentoring and coaching according to the leader's capability, using the Discover, Develop and Deliver conversation.</p>
+  </section>
+
+  <!-- 03 -->
+  <section class="wrap sec" id="fit" data-name="Where it fits">
+    <p class="part">Part 2 · Where it fits</p>
+    <p class="label">03 · Where it fits · examples</p>
+    <h2>Coaching strengthens work <span class="grad">dss+ already sells.</span></h2>
+    <p class="sub">Eight examples, not a full list. Coaching is rarely bought on its own in high-hazard industries. It gets bought as the lever that makes another programme stick. Click an example to see what coaching adds.</p>
+    <div class="card stage">
+      <div class="grid4" id="fitGrid"></div>
+      <div class="grid3" id="fitDetail" style="margin-top:14px" aria-live="polite"></div>
+      <div class="more-tile">+ any dss+ engagement where leaders must change how they work</div>
+    </div>
+    <p class="caption">Illustrative examples. Positioning view (opinion, not data): coaching sold as part of a programme is easier to justify and to measure than standalone coaching.</p>
+  </section>
+
+  <!-- 04 -->
+  <section class="wrap sec" id="musts" data-name="Four must-haves">
+    <p class="part">Part 2 · Where it fits</p>
+    <p class="label">04 · How we position it</p>
+    <h2>Four must-haves separate our coaching <span class="grad">from generic coaching.</span></h2>
+    <p class="sub">Generic coaching rarely links to business results. These four make the link, and they are what the client is buying from dss+. Click one to see what it means.</p>
+    <div class="card stage">
+      <div class="los" id="los" aria-hidden="true"></div>
+      <div class="los-msg" id="losMsg">Line of sight · intact</div>
+      <div class="mh-grid" id="mhGrid"></div>
+      <div class="mh-detail" id="mhDetail" aria-live="polite"></div>
+      <div class="mh-actions"><button class="ghost" id="breakBtn" aria-pressed="false">Show what happens if it's missing</button></div>
+    </div>
+  </section>
+
+  <!-- 05 -->
+  <section class="wrap sec" id="gap" data-name="When to sell">
+    <p class="part">Part 3 · When to sell</p>
+    <p class="label">05 · Diagnose the gap</p>
+    <h2>Coaching closes the gap <span class="grad">between knowing and doing.</span></h2>
+    <p class="sub">It doesn't replace training or fixing the system. It makes them stick. Click a statement you might hear from a client to see which gap it points to and what to sell.</p>
+    <div class="card stage">
+      <div class="order">
+        <span class="eyebrow">Typical order</span>
+        <div class="order-row"><span class="o o1">Teach what they don't know</span><span class="ar">›</span><span class="o o2">Coach them to apply it</span><span class="o o3">Fix the system in parallel</span></div>
+      </div>
+      <div class="diag">
+        <div><span class="eyebrow">What the client says</span><div class="stmts" id="stmts" style="margin-top:10px"></div></div>
+        <div><span class="eyebrow">Gap type and what to sell</span><div class="gapcards" id="gapcards" style="margin-top:10px"></div><div class="verdict" id="gapVerdict" aria-live="polite"></div></div>
+      </div>
+    </div>
+    <p class="caption">Most programmes combine all three: a new procedure (system), training on it (knowledge) and coaching to apply it under pressure (practice).</p>
+  </section>
+
+  <!-- 06 -->
+  <section class="wrap sec" id="signals" data-name="Signals and questions">
+    <p class="part">Part 3 · When to sell</p>
+    <p class="label">06 · Spot and qualify</p>
+    <h2>Listen for these signals, <span class="grad">then ask these questions.</span></h2>
+    <p class="sub">One good conversation tells you whether coaching fits. The answers also feed the contribution map later.</p>
+    <div class="card stage">
+      <div class="grid2" style="gap:24px;align-items:start">
+        <div><span class="eyebrow">Listen for</span><div class="quotes" id="quotes" style="margin-top:10px"></div></div>
+        <div><span class="eyebrow">Then ask</span><div class="qs" id="qs" style="margin-top:10px"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 -->
+  <section class="wrap sec" id="prereq" data-name="Prerequisites">
+    <p class="part">Part 3 · When to sell</p>
+    <p class="label">07 · Prerequisites</p>
+    <h2>No prerequisites, <span class="grad">no coaching.</span></h2>
+    <p class="sub">These nine conditions decide whether coaching will succeed. They are also what the client commits to. Score the opportunity: four of them are critical.</p>
+    <div class="card stage">
+      <div class="score">
+        <div id="prows"></div>
+        <div>
+          <div class="go" id="goBox" aria-live="polite"></div>
+          <div class="box walk"><span class="eyebrow" style="color:var(--coral)">Walk away when</span>
+            <ul class="ticks" style="margin-top:10px;color:var(--fg)"><li>The gap is only knowledge: sell training (coaching can follow)</li><li>The gap is a broken system or missing resources: sell consulting first</li><li>Coaching is meant to "fix" a person, as a disciplinary step</li><li>The timeline is under 3 months</li><li>Coaching is only a box to tick in a bid</li></ul></div>
+        </div>
+      </div>
+    </div>
+    <p class="caption">Example scoring shown. Click Yes, Partly or No to score a real opportunity.</p>
+  </section>
+
+  <!-- 08 -->
+  <section class="wrap sec" id="levels" data-name="Four levels">
+    <p class="part">Part 4 · How it contributes</p>
+    <p class="label">08 · Four levels</p>
+    <h2>Four levels link each session <span class="grad">to business impact.</span></h2>
+    <p class="sub">L1 is the impact the whole engagement is hired for. L2 is the outcome of each workstream, set from the exposures blocking L1, whether or not coaching is involved. L3 is what coaching changes. L4 is each session.</p>
+    <div class="card stage">
+      <div class="stage-head">
+        <span class="eyebrow" id="ladEye">Design down · the question at each level</span>
+        <div class="seg" role="group" aria-label="Direction"><button data-lad="down" aria-pressed="true">Design down</button><button data-lad="up" aria-pressed="false">Evidence up</button></div>
+      </div>
+      <div class="ladder" id="ladderEl"></div>
+      <div class="ladder-foot"><span id="ladFoot"></span></div>
+    </div>
+    <div class="card stage" style="margin-top:18px">
+      <div class="stage-head">
+        <span class="eyebrow">Click a workstream to switch coaching's contribution on or off</span>
+        <div class="cg-legend"><span><i class="lg d"></i>Direct</span><span><i class="lg s"></i>Supporting</span><span><i class="lg o"></i>Other interventions</span></div>
+      </div>
+      <div class="cg-scroll"><div class="cg" id="cg9"></div></div>
+      <div class="grid2" style="margin-top:14px">
+        <div class="box" id="cg9Panel" aria-live="polite"></div>
+        <div class="box" id="cg9Verdict" aria-live="polite"></div>
+      </div>
+    </div>
+    <p class="caption">Generic example. Coaching reaches business impact only through the workstreams it serves, never directly. We claim contribution, not sole cause.</p>
+  </section>
+
+  <!-- 09 -->
+  <section class="wrap sec" id="falcon" data-name="Case: the project">
+    <p class="part">Part 4 · How it contributes</p>
+    <p class="label">09 · Illustrative case · Project Falcon</p>
+    <h2>One programme, seven workstreams, <span class="grad">three impact targets.</span></h2>
+    <p class="sub">A fictional 18-month safety improvement programme at a gas processing plant. The workstreams were set from the exposures blocking L1, before anyone discussed coaching. Coaching was then linked workstream by workstream.</p>
+    <div class="card stage">
+      <div class="banner"><b>ILLUSTRATIVE</b> Fictional client and dummy numbers, built to show the logic. Not a dss+ result.</div>
+      <span class="eyebrow" style="color:var(--coral)">L1 · Business impact (18 months)</span>
+      <div class="grid3" style="margin:10px 0 22px">
+        <div class="tile stat"><span class="v">−40%</span><p>Serious-injury-potential events</p></div>
+        <div class="tile stat"><span class="v">0.62 <small>→</small> 0.40</span><p>Total recordable injury rate (TRIR)</p></div>
+        <div class="tile stat"><span class="v">0</span><p>Tier 1–2 process safety events</p></div>
+      </div>
+      <span class="eyebrow" style="color:var(--coral)">L2 · Workstreams</span>
+      <div class="grid4" id="wsGrid" style="margin-top:10px"></div>
+    </div>
+  </section>
+
+  <!-- 10 -->
+  <section class="wrap sec" id="diagnosis" data-name="Case: why coaching">
+    <p class="part">Part 4 · How it contributes</p>
+    <p class="label">10 · Illustrative case · Why coaching</p>
+    <h2>Coaching was linked only where <span class="grad">the diagnosis showed leaders must act differently.</span></h2>
+    <p class="sub">The baseline assessment looked at each workstream. Coaching links directly to two, supports four, and has no role in one. Click a workstream to see why.</p>
+    <div class="card stage">
+      <div class="test-box">
+        <span class="eyebrow" style="color:var(--coral)">The test</span>
+        <p><b>If we took coaching out, would this workstream outcome still be met?</b></p>
+        <div class="test-row"><span><span class="tag direct">Direct</span> No. The outcome is a change in how leaders work.</span><span><span class="tag support">Supporting</span> Partly, but slower or weaker.</span><span><span class="tag none">No role</span> Yes.</span></div>
+      </div>
+      <div class="stage-head" style="margin-top:16px"><span class="eyebrow">Filter</span><div class="seg" role="group" aria-label="Filter"><button data-df="all" aria-pressed="true">All</button><button data-df="d" aria-pressed="false">Direct</button><button data-df="s" aria-pressed="false">Supporting</button><button data-df="n" aria-pressed="false">No role</button></div></div>
+      <div class="dcards" id="diagCards"></div>
+    </div>
+    <p class="caption">Illustrative. In a real bid, these findings come from the diagnostic phase or the client's own data.</p>
+  </section>
+
+  <!-- 11 -->
+  <section class="wrap sec" id="map" data-name="Case: contribution map">
+    <p class="part">Part 4 · How it contributes</p>
+    <p class="label">11 · Illustrative case · Contribution map</p>
+    <h2>The contribution map shows <span class="grad">which workstreams each coaching outcome serves.</span></h2>
+    <p class="sub">Three coaching outcomes (L3) linked to the workstreams (L2) they serve. Click a coaching outcome to see its Do and Be and its cause-and-effect thread. Click a workstream to see how coaching links to it.</p>
+    <div class="card stage">
+      <div class="stage-head">
+        <span class="eyebrow">Project Falcon · contribution map</span>
+        <div class="cg-legend"><span><i class="lg d"></i>Direct</span><span><i class="lg s"></i>Supporting</span><span><i class="lg o"></i>Other interventions</span></div>
+      </div>
+      <div class="cg-scroll"><div class="cg" id="cg12"></div></div>
+      <div class="grid2" style="margin-top:14px">
+        <div class="box" id="mapA" aria-live="polite"></div>
+        <div class="box" id="mapB" aria-live="polite"></div>
+      </div>
+      <div class="thread" id="thread"></div>
+    </div>
+    <p class="caption">Illustrative. Coaching scope: 8 area superintendents (one-to-one), 24 frontline supervisors (8 groups of 3) and the plant leadership team (team), their line managers involved throughout.</p>
+  </section>
+
+  <!-- 12 -->
+  <section class="wrap sec" id="indicators" data-name="Case: indicators">
+    <p class="part">Part 4 · How it contributes</p>
+    <p class="label">12 · Illustrative case · Indicator tree</p>
+    <h2>The indicator tree shows <span class="grad">contribution, not attribution.</span></h2>
+    <p class="sub">Every indicator sits on a line from a session up to business impact. Click any box to see its indicators and follow its line. Filter by coaching outcome to follow one thread.</p>
+    <div class="card stage">
+      <div class="stage-head"><span class="eyebrow">Follow one coaching outcome</span><div class="seg" role="group" aria-label="Coaching outcome" id="indSeg"></div></div>
+      <div class="tree-scroll"><div class="tree" id="tree"></div></div>
+      <div class="tbl" style="margin-top:16px"><table><thead><tr><th>Indicator</th><th>Evidence</th><th>Source</th><th class="num">Baseline</th><th class="num">Target</th><th class="num">Month 6</th><th class="num">Month 12</th><th>Status</th></tr></thead><tbody id="indBody"></tbody></table></div>
+    </div>
+    <p class="caption">Dummy numbers. <b>Minimum</b> evidence shows the activity happened. <b>Compelling</b> evidence shows behaviour, routine quality or results changed. Track a vital few (3–5) per leader group on the dashboard. L1 is reviewed over 12–24 months; L2–L4 are steered monthly.</p>
+  </section>
+
+  <!-- 13 -->
+  <section class="wrap sec" id="modalities" data-name="Modalities">
+    <p class="part">Part 5 · How to shape it</p>
+    <p class="label">13 · Modalities</p>
+    <h2>Choose the modality by <span class="grad">who is coached and why.</span></h2>
+    <p class="sub">Three modalities, delivered face to face, online, or a mix. Most programmes combine them, as Project Falcon does. Keep sessions no more than 2 weeks apart where you can.</p>
+    <div class="card stage">
+      <div class="grid4" id="modGrid"></div>
+      <div class="grid2" style="margin-top:14px">
+        <div class="box"><span class="eyebrow" style="color:var(--coral)">Rotating crews</span><p>For 14/14 or 28/28 rotations, plan sessions around each hitch on site and use short online sessions to keep the rhythm while the leader is away.</p></div>
+        <div class="box"><span class="eyebrow" style="color:var(--coral)">Project Falcon mix (illustrative)</span><p>One-to-one for 8 area superintendents · 24 supervisors in 8 groups of 3 · team coaching for the plant leadership team · online check-ins between field sessions · 4 internal coaches developed for handover.</p></div>
+      </div>
+      <div style="margin-top:18px"><span class="eyebrow">What you coach on, and the usual format</span>
+        <div class="tbl" style="margin-top:10px"><table class="tf"><thead><tr><th>Coaching type</th><th>Focus</th><th>One-to-one</th><th>Group (max 3)</th><th>Team</th><th>In the field</th></tr></thead><tbody id="tfBody"></tbody></table></div>
+        <p class="caption" style="margin-top:8px">● usual · ○ possible. Coaching types from the dss+ Coaching for Impact point of view. Online is a channel for any of them.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14 -->
+  <section class="wrap sec" id="scope" data-name="Scoping">
+    <p class="part">Part 5 · How to shape it</p>
+    <p class="label">14 · Scoping</p>
+    <h2>Scope by effort drivers, <span class="grad">not by coaching hours.</span></h2>
+    <p class="sub">Estimate coach days from what drives effort, then commercial applies the day rate. The fields are pre-filled with the Project Falcon example.</p>
+    <div class="card stage">
+      <div class="est-leg"><span><i class="sw in"></i><b>Scope inputs</b> · change them for your opportunity</span><span><i class="sw pa"></i><b>Parameters</b> · dss+ planning assumptions; change them only with the coaching lead</span></div>
+      <div class="est">
+        <form id="estForm" onsubmit="return false">
+          <fieldset class="fset"><legend>One-to-one</legend><div class="frow2">
+            <label class="fld">Coachees<input id="e_o_n" type="number" min="0" value="8"></label>
+            <label class="fld">Sessions each<input id="e_o_s" type="number" min="0" value="8"></label>
+            <label class="fld">Hours per session<input id="e_o_h" type="number" min="0" step="0.5" value="1.5"></label>
+            <label class="fld pa">Max sessions per coach day (count, not hours)<input id="p_o_cap" type="number" min="1" value="4"></label></div></fieldset>
+          <fieldset class="fset"><legend>Group</legend><div class="frow2">
+            <label class="fld">Coachees in groups<input id="e_g_c" type="number" min="0" value="24"></label>
+            <label class="fld pa">Max coachees per group<input id="p_g_max" type="number" min="1" value="3"></label>
+            <label class="fld calc">Groups<output id="o_g_n">8</output></label>
+            <label class="fld">Sessions per group<input id="e_g_s" type="number" min="0" value="8"></label>
+            <label class="fld">Hours per session<input id="e_g_h" type="number" min="0" step="0.5" value="1.5"></label>
+            <label class="fld pa">Max sessions per coach day (count, not hours)<input id="p_g_cap" type="number" min="1" value="3"></label></div></fieldset>
+          <fieldset class="fset"><legend>Team</legend><div class="frow2">
+            <label class="fld">Teams<input id="e_t_n" type="number" min="0" value="1"></label>
+            <label class="fld">Sessions per team<input id="e_t_s" type="number" min="0" value="4"></label>
+            <label class="fld">Hours per session<input id="e_t_h" type="number" min="0" step="0.5" value="2"></label>
+            <label class="fld pa">Max sessions per coach day (count, not hours)<input id="p_t_cap" type="number" min="1" value="2"></label></div></fieldset>
+          <fieldset class="fset"><legend>Three-way line manager meetings</legend><div class="frow2">
+            <label class="fld">Coachees with three-way meetings<input id="e_lm_n" type="number" min="0" value="32"></label>
+            <label class="fld">Meetings each<input id="e_lm_s" type="number" min="0" value="3"></label>
+            <label class="fld pa">Hours per meeting<input id="p_lm_h" type="number" min="0" step="0.5" value="1"></label>
+            <label class="fld pa">Max meetings per coach day (count)<input id="p_lm_cap" type="number" min="1" value="6"></label></div></fieldset>
+          <fieldset class="fset"><legend>Design and contribution map</legend><div class="frow2">
+            <label class="fld">Workstreams coaching links to<input id="e_d_ws" type="number" min="0" value="6"></label>
+            <label class="fld">Leader groups with their own pathway<input id="e_d_lg" type="number" min="0" value="3"></label>
+            <label class="fld pa">Base days<input id="p_d_base" type="number" min="0" step="0.5" value="2"></label>
+            <label class="fld pa">Days per workstream<input id="p_d_ws" type="number" min="0" step="0.25" value="0.5"></label>
+            <label class="fld pa">Days per leader group<input id="p_d_lg" type="number" min="0" step="0.25" value="1"></label></div></fieldset>
+          <fieldset class="fset"><legend>Measurement setup</legend><div class="frow2">
+            <label class="fld">Coaching outcomes (L3)<input id="e_m_co" type="number" min="0" value="3"></label>
+            <label class="fld">Sites<input id="e_m_si" type="number" min="0" value="1"></label>
+            <label class="fld pa">Base days<input id="p_m_base" type="number" min="0" step="0.5" value="1"></label>
+            <label class="fld pa">Days per coaching outcome<input id="p_m_co" type="number" min="0" step="0.25" value="0.5"></label>
+            <label class="fld pa">Days per site<input id="p_m_si" type="number" min="0" step="0.25" value="0.5"></label></div></fieldset>
+          <fieldset class="fset"><legend>Reporting, handover and internal coaches</legend><div class="frow2">
+            <label class="fld">Programme months<input id="e_rep" type="number" min="0" value="9"></label>
+            <label class="fld pa">Reporting days per month<input id="p_rep" type="number" min="0" step="0.25" value="0.5"></label>
+            <label class="fld">Close-out and handover (days)<input id="e_cls" type="number" min="0" step="0.5" value="2"></label>
+            <label class="fld">Internal coaches developed<input id="e_ic_n" type="number" min="0" value="4"></label>
+            <label class="fld pa">Days per internal coach<input id="p_ic_d" type="number" min="0" step="0.5" value="2.5"></label></div></fieldset>
+          <fieldset class="fset"><legend>General parameters</legend><div class="frow2">
+            <label class="fld pa">Hours per coach day<input id="p_hpd" type="number" min="1" step="0.5" value="8"></label>
+            <label class="fld pa">Prep and notes per session (h)<input id="p_prep" type="number" min="0" step="0.25" value="0.5"></label></div></fieldset>
+        </form>
+        <div>
+          <div class="res-box" aria-live="polite"><span class="eyebrow" style="color:var(--coral)">Estimated coach effort</span><div class="big" id="estTotal">0</div><div class="bk" id="estBk"></div>
+            <p style="margin:14px 0 0;font-size:13.5px;color:var(--muted)">Price = coach days × [day rate from commercial].</p></div>
+          <div class="box" style="margin-top:14px"><span class="eyebrow" style="color:var(--coral)">How the estimate works</span>
+            <ul class="ticks" style="margin-top:10px;color:var(--fg)">
+              <li><span><b>Coaching days</b> = the larger of: total hours (session + prep) ÷ hours per coach day, or sessions ÷ max sessions per coach day. Travel and shift times limit how many sessions fit in a day.</span></li>
+              <li><span><b>Design</b> = base + days per linked workstream + days per leader group.</span></li>
+              <li><span><b>Measurement setup</b> = base + days per coaching outcome + days per site.</span></li>
+              <li><span><b>Reporting</b> = months × days per month: monthly progress report and steering input.</span></li>
+              <li><span><b>Internal coaches</b> = coaches × days each: training, co-coaching and quality checks.</span></li>
+            </ul></div>
+          <div class="box" style="margin-top:14px"><span class="eyebrow" style="color:var(--coral)">How to show coaching in the price</span>
+            <div class="tbl" style="margin-top:10px"><table class="pt"><thead><tr><th>Option</th><th>Pros</th><th>Cons</th></tr></thead><tbody>
+              <tr><td class="ws">Separate line item <span class="tag direct">Default</span></td><td>Visible, clear accountability; workstreams can be priced on their own</td><td>Easier to cut</td></tr>
+              <tr><td class="ws">Spread across the workstreams it serves</td><td>Protects coaching; ties cost to outcomes</td><td>Harder to track and report</td></tr>
+            </tbody></table></div></div>
+          <div class="box" style="margin-top:14px"><span class="eyebrow" style="color:var(--coral)">Rules</span>
+            <ul class="ticks" style="margin-top:10px;color:var(--fg)"><li>Never cut line manager meetings or measurement to save cost</li><li>Levers that lower cost: fewer sessions for experienced leaders, online check-ins, internal coaches for handover, a pilot before scaling</li></ul></div>
+        </div>
+      </div>
+    </div>
+    <p class="caption">Parameters are planning assumptions for this playbook, not dss+ standard rates. Check them with the coaching lead before you price.</p>
+  </section>
+
+  <!-- 15 -->
+  <section class="wrap sec" id="objections" data-name="Objections">
+    <p class="part">Part 6 · Handle and close</p>
+    <p class="label">15 · Objections</p>
+    <h2>Seven objections, <span class="grad">and how to answer them.</span></h2>
+    <p class="sub">Answer with the client's own data where you can. The proof points refer back to this playbook.</p>
+    <div class="card stage"><div class="obj" id="obj"></div></div>
+  </section>
+
+  <!-- 16 -->
+  <section class="wrap sec" id="next" data-name="Next steps">
+    <p class="part">Part 6 · Handle and close</p>
+    <p class="label">16 · Next steps</p>
+    <h2>Bring in the coaching lead <span class="grad">before the proposal, not after.</span></h2>
+    <p class="sub">Five steps from first signal to an agreed coaching scope.</p>
+    <div class="card stage">
+      <div class="steps" id="stepsEl" style="grid-template-columns:repeat(5,minmax(0,1fr))"></div>
+      <div class="agree-box">
+        <div class="box"><span class="eyebrow">Materials</span><ul class="ticks"><li>This BDM playbook, with the scoping estimator</li><li>Client pitch deck (in preparation)</li><li>Proposal module for the coaching scope (in preparation)</li></ul></div>
+        <div class="box"><span class="eyebrow">Contact</span><ul class="ticks"><li>Coaching for Impact lead: [name, to confirm]</li><li>Commercial and day rates: [contact, to confirm]</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap closing" id="close" data-name="Close">
+    <div class="logo" aria-label="dss+">dss<sup>+</sup></div>
+    <h2>Start from the impact, <span class="grad">and show how coaching contributes.</span></h2>
+    <p>Internal use only. Project Falcon is fictional; all case numbers are dummy figures.</p>
+  </section>
+</main>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script>
+(function(){
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const icon=n=>`<i data-lucide="${n}"></i>`;
+const drawIcons=()=>{try{window.lucide&&lucide.createIcons({attrs:{'stroke-width':1.7}})}catch(e){}};
+const pressed=(sel,fn)=>$$(sel).forEach(b=>b.setAttribute('aria-pressed',fn(b)));
+
+/* ---------- background ---------- */
+const cv=$('#bg'),cx=cv.getContext('2d');let W,H,bgOn=true;
+function size(){const d=Math.min(window.devicePixelRatio||1,2);W=cv.width=innerWidth*d;H=cv.height=innerHeight*d;}
+function draw(t){cx.clearRect(0,0,W,H);const n=26;for(let i=0;i<n;i++){const base=H*(0.15+i/n*0.95),amp=H*0.05*(1+Math.sin(i*.7));cx.beginPath();for(let x=0;x<=W;x+=W/90){const y=base+Math.sin(x/W*3.2+i*.45+t*.00012)*amp+Math.sin(x/W*7.5-i*.3+t*.00008)*amp*.35;x?cx.lineTo(x,y):cx.moveTo(x,y);}cx.strokeStyle=i%7===3?'rgba(240,88,94,.07)':'rgba(255,255,255,.035)';cx.lineWidth=(window.devicePixelRatio||1);cx.stroke();}}
+function loopBg(t){if(bgOn)draw(t);requestAnimationFrame(loopBg);}
+size();addEventListener('resize',()=>{size();if(bgOn)draw(0)});draw(0);if(!reduce)requestAnimationFrame(loopBg);
+
+/* ---------- top bar ---------- */
+const secs=$$('main > section');
+secs.forEach(s=>{const b=document.createElement('button');b.setAttribute('aria-label',s.dataset.name);b.onclick=()=>s.scrollIntoView();$('#progress').appendChild(b);});
+let cur=0;
+function setCur(i){cur=i;$$('#progress button').forEach((b,j)=>b.classList.toggle('on',j===i));const s=secs[i];const lab=s.querySelector('.label');const num=lab&&/^\d\d/.test(lab.textContent)?lab.textContent.slice(0,2)+' · ':'';$('#now').textContent=num+s.dataset.name;}
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)setCur(secs.indexOf(e.target))})},{rootMargin:'-45% 0px -50% 0px'});
+secs.forEach(s=>io.observe(s));setCur(0);
+const go=d=>secs[Math.max(0,Math.min(secs.length-1,cur+d))].scrollIntoView();
+$('#prev').onclick=()=>go(-1);$('#next').onclick=()=>go(1);
+addEventListener('keydown',e=>{if(e.target.closest('input,textarea'))return;if(['ArrowRight','PageDown'].includes(e.key)){e.preventDefault();go(1)}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(-1)}});
+const root=document.documentElement;
+function setPresent(on){root.classList.toggle('presenting',on);$('#presentBtn span').textContent=on?'Exit':'Present';secs[cur].scrollIntoView();}
+$('#presentBtn').onclick=async()=>{const on=!root.classList.contains('presenting');setPresent(on);try{if(on&&!document.fullscreenElement)await root.requestFullscreen();if(!on&&document.fullscreenElement)await document.exitFullscreen();}catch(e){}};
+document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement&&root.classList.contains('presenting'))setPresent(false);});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&root.classList.contains('presenting'))setPresent(false);});
+
+$('#modeBtn').onclick=()=>{const on=document.documentElement.getAttribute('data-mode')!=='print';on?document.documentElement.setAttribute('data-mode','print'):document.documentElement.removeAttribute('data-mode');$('#modeBtn').setAttribute('aria-pressed',on);$('#modeBtn').textContent=on?'Screen view':'Print view';bgOn=!on;if(on)cx.clearRect(0,0,W,H);else draw(0);};
+
+/* ---------- shared: link drawing for graphs and tree ---------- */
+function linkPath(C,a,b,sa,sb,fa=.5,fb=.5){
+ const A=a.getBoundingClientRect(),B=b.getBoundingClientRect();
+ const pt=(R,s,f)=>s==='top'?[R.left+R.width*f-C.left,R.top-C.top]:s==='bottom'?[R.left+R.width*f-C.left,R.bottom-C.top]:s==='left'?[R.left-C.left,R.top+R.height*f-C.top]:[R.right-C.left,R.top+R.height*f-C.top];
+ const [x1,y1]=pt(A,sa,fa),[x2,y2]=pt(B,sb,fb);
+ if(sa==='top'||sa==='bottom'){const m=(y1+y2)/2;return `M${x1.toFixed(1)} ${y1.toFixed(1)} C${x1.toFixed(1)} ${m.toFixed(1)} ${x2.toFixed(1)} ${m.toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}`;}
+ const m=(x1+x2)/2;return `M${x1.toFixed(1)} ${y1.toFixed(1)} C${m.toFixed(1)} ${y1.toFixed(1)} ${m.toFixed(1)} ${y2.toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}`;
+}
+function drawSvg(cont,paths){
+ const svg=cont.querySelector('svg.cg-svg');if(!svg)return;const C=cont.getBoundingClientRect();
+ svg.setAttribute('viewBox',`0 0 ${C.width.toFixed(0)} ${C.height.toFixed(0)}`);
+ svg.innerHTML=paths.map(p=>`<path class="${p.cls}" d="${linkPath(C,p.a,p.b,p.sa,p.sb,p.fa,p.fb)}"/>`).join('');
+}
+const spread=(i,n)=>(i+1)/(n+1);
+const redrawers=[];
+let rdQueued=false,rdForce=false,rdSizes='';
+const sizeKey=()=>$$('.cg,.tree').map(el=>el.offsetWidth+'x'+el.offsetHeight).join('|');
+function redrawAll(force){ // batched to one draw per frame; skips when nothing changed size
+ if(force===true)rdForce=true;
+ if(rdQueued)return;rdQueued=true;
+ requestAnimationFrame(()=>{rdQueued=false;const k=sizeKey(),f=rdForce;rdForce=false;if(!f&&k===rdSizes)return;rdSizes=k;redrawers.forEach(fn=>{try{fn()}catch(e){}});});
+}
+const redrawNow=()=>redrawAll(true);
+if(window.ResizeObserver){const ro=new ResizeObserver(()=>redrawAll());setTimeout(()=>$$('.cg,.tree').forEach(el=>ro.observe(el)),0);}
+addEventListener('resize',()=>redrawAll());
+document.fonts&&document.fonts.ready.then(redrawNow);
+addEventListener('load',redrawNow);
+$('#modeBtn').addEventListener('click',()=>setTimeout(redrawNow,80));
+$('#presentBtn').addEventListener('click',()=>setTimeout(redrawNow,350));
+addEventListener('beforeprint',redrawNow);
+
+/* ---------- 01 proof tiles ---------- */
+const PF=[
+ {k:'Leader competency',s:'Scale 1–5',dir:'up',v:{3:'+23%',6:'+70%'},f:{3:'about 2.0 → 2.5',6:'about 2.0 → 3.4'},b:{3:[25,37.5],6:[25,60]}},
+ {k:'Routine quality',s:'Scale 1–4',dir:'up',v:{3:'+25%',6:'+80%'},f:{3:'about 1.5 → 1.9',6:'about 1.5 → 2.7'},b:{3:[16.7,30],6:[16.7,56.7]}},
+ {k:'Serious-injury-potential events',s:'Index, start = 100',dir:'down',v:{3:'−17%',6:'−52%'},f:{3:'100 → 83',6:'100 → 48'},b:{3:[100,83],6:[100,48]}},
+ {k:'Recordable injury frequency (TRIFR)',s:'Index, start = 100',dir:'down',v:{3:'−25%',6:'−65%'},f:{3:'100 → 75',6:'100 → 35'},b:{3:[100,75],6:[100,35]}}];
+let pf='6';
+function renderPF(){
+ pressed('[data-pf]',b=>b.dataset.pf===pf);
+ $('#proofGrid').innerHTML=PF.map(p=>`<div class="tile pf"><span class="k">${p.k}</span><span class="v ${p.dir}">${p.v[pf]}</span><div class="pbar"><i class="base" style="width:${p.b[pf][0]}%"></i><i class="now ${p.dir}" style="width:${p.b[pf][1]}%"></i></div><p>${p.f[pf]} <span style="color:var(--faint)">· ${p.s}</span></p></div>`).join('');
+}
+$$('[data-pf]').forEach(b=>b.onclick=()=>{pf=b.dataset.pf;renderPF();});renderPF();
+
+/* ---------- 02 Do + Be ---------- */
+const DB={
+  both:{cls:'good',eye:'The result',h:'Operational discipline',p:'that contributes to business impact.',list:['Routines run well','Controls verified, not assumed','The loop is closed']},
+  do:{cls:'warn',eye:'Do only',h:'Compliance',p:'Works while someone is watching. Under time pressure, or when the supervisor is away, the standard slips.',list:['Routines done to tick the box','Controls assumed, not checked']},
+  be:{cls:'warn',eye:'Be only',h:'Good intent',p:'People care and want to do it right, but without clear standards and skills, effort goes in the wrong place.',list:['Commitment without method','Hard to check, hard to sustain']}
+};
+function setDB(k){pressed('[data-db]',b=>b.dataset.db===k);$('#dbDo').classList.toggle('dim',k==='be');$('#dbBe').classList.toggle('dim',k==='do');const d=DB[k],r=$('#dbRes');r.className='res '+d.cls;r.innerHTML=`<span class="eyebrow">${d.eye}</span><h3>${d.h}</h3><p>${d.p}</p><ul class="ticks">${d.list.map(x=>`<li>${x}</li>`).join('')}</ul>`;}
+$$('[data-db]').forEach(b=>b.onclick=()=>setDB(b.dataset.db));setDB('both');
+
+/* ---------- 03 where it fits ---------- */
+const FIT=[
+ {t:'Safety leadership and culture',ic:'flame',add:'Leaders practise visible felt leadership in the field, not only in workshops.',who:'Site and area managers',sig:'"Our culture survey hasn’t moved in two years."'},
+ {t:'Process safety management',ic:'factory',add:'Element owners and supervisors apply new PSM standards in daily work.',who:'Element owners, supervisors',sig:'"The new MOC standard is approved, but nobody follows it."'},
+ {t:'Operational discipline and MOS',ic:'repeat',add:'Leaders run tiered meetings and routines to standard and close the loop.',who:'Shift and area leaders',sig:'"Our meetings happen, but nothing gets followed up."'},
+ {t:'Frontline leadership development',ic:'hard-hat',add:'Supervisors turn workshop content into field habits, week after week.',who:'Frontline supervisors',sig:'"We trained our supervisors, but they lead the same way."'},
+ {t:'Learning from incidents and HOP',ic:'search',add:'Leaders hold no-blame learning conversations and share lessons with crews.',who:'Investigation leads, superintendents',sig:'"People stopped reporting near misses."'},
+ {t:'Contractor safety',ic:'handshake',add:'Company supervisors hold risk-based handovers with contractor crews.',who:'Company and contractor supervisors',sig:'"Most of our incidents involve contractors."'},
+ {t:'Capability building and training',ic:'graduation-cap',add:'Coaching after training turns new knowledge into practice on the job.',who:'Recently trained staff and their leaders',sig:'"We train every year and see no change."'},
+ {t:'Operational excellence',ic:'trending-up',add:'Leaders own improvement routines and keep them going after go-live.',who:'Process owners, team leaders',sig:'"Gains disappear after the consultants leave."'}];
+let fitSel=3;
+function renderFit(){
+ $('#fitGrid').innerHTML=FIT.map((f,i)=>`<button class="tile ${i===fitSel?'hl':''}" data-fit="${i}" style="text-align:left;cursor:pointer" aria-pressed="${i===fitSel}"><span class="ico">${icon(f.ic)}</span><h3>${f.t}</h3></button>`).join('');
+ const f=FIT[fitSel];
+ $('#fitDetail').innerHTML=`<div class="box"><span class="eyebrow" style="color:var(--coral)">What coaching adds</span><p>${f.add}</p></div><div class="box"><span class="eyebrow" style="color:var(--coral)">Typical coachees</span><p>${f.who}</p></div><div class="box"><span class="eyebrow" style="color:var(--coral)">Signal to listen for</span><p style="font-style:italic">${f.sig}</p></div>`;
+ $$('[data-fit]').forEach(b=>b.onclick=()=>{fitSel=+b.dataset.fit;renderFit();});drawIcons();
+}
+renderFit();
+
+/* ---------- 04 Four must-haves ---------- */
+const MH=[
+  {t:'Solution design',ic:'drafting-compass',s:'Design from business impact back to what coaching must change.',what:'Coaching outcomes are written from the impact (L1) and the workstreams it serves (L2), before anyone is coached. Coaching happens inside the routines leaders already run: no new meetings.',without:'Coaching becomes general development activity, with no clear link to the client’s priorities.',owner:'Sponsor, workstream leads and dss+'},
+  {t:'Line manager accountability',ic:'users',s:'Line managers own the outcomes and hold their direct reports to them.',what:'The line manager helps set the outcomes, supports their direct report in daily work and acts when progress stalls.',without:'Change depends on the coach. When the coach leaves, the new habits fade.',owner:'Line manager (direct supervisor)'},
+  {t:'Progress captured between sessions',ic:'calendar-check',s:'Coachee and line manager record what was applied in real work.',what:'Between sessions, a few fields are recorded: actions tried, what the line manager saw, what changed.',without:'The weeks between sessions become a blind spot. Nobody can say what was practised.',owner:'Coachee and line manager'},
+  {t:'Line of sight to impact',ic:'git-fork',s:'An agreed view links coaching to workstream outcomes and business impact.',what:'<b>Minimum:</b> one agreed page linking each coaching outcome to the workstream outcomes it serves. <b>Full contribution map:</b> for engagements with several workstreams, as in Project Falcon (sections 11–12).',without:'You can count sessions held, but you cannot show what coaching contributed. Coaching then looks like a cost line, the first thing to cut.',owner:'dss+ coach and workstream leads'}];
+let mhSel=0,mhBroken=false;
+$('#mhGrid').innerHTML=MH.map((m,i)=>`<button class="mh" data-i="${i}" aria-pressed="false"><span class="num">0${i+1}</span><span class="ico">${icon(m.ic)}</span><h3>${m.t}</h3><p>${m.s}</p></button>`).join('');
+function renderLos(){let h='<span class="pill">Coaching activity</span>';MH.forEach((m,i)=>{const cut=mhBroken&&i===mhSel;h+=`<span class="conn ${cut?'cut':(mhBroken&&i>mhSel?'':'live')}"></span><span class="node ${i===mhSel?(mhBroken?'broken':'sel'):''}" data-i="${i}">${cut?'✕':i+1}</span>`;});h+=`<span class="conn ${mhBroken?'cut':'live'}"></span><span class="pill end ${mhBroken?'lost':''}">Business impact</span>`;$('#los').innerHTML=h;$$('#los .node').forEach(n=>n.onclick=()=>selMH(+n.dataset.i));const msg=$('#losMsg');msg.textContent=mhBroken?`Line of sight · broken at must-have ${mhSel+1}`:'Line of sight · intact';msg.classList.toggle('bad',mhBroken);}
+function selMH(i){mhSel=i;pressed('.mh',b=>+b.dataset.i===i);const m=MH[i];$('#mhDetail').innerHTML=`<div class="box"><span class="eyebrow">What it means</span><p>${m.what}</p></div><div class="box bad"><span class="eyebrow">Without it</span><p>${m.without}</p></div><div class="box"><span class="eyebrow">Owned by</span><p>${m.owner}</p></div>`;renderLos();}
+$$('.mh').forEach(b=>b.onclick=()=>selMH(+b.dataset.i));
+$('#breakBtn').onclick=()=>{mhBroken=!mhBroken;$('#breakBtn').setAttribute('aria-pressed',mhBroken);$('#breakBtn').textContent=mhBroken?'Put it back':"Show what happens if it's missing";renderLos();};
+selMH(0);
+
+/* ---------- 05 gap diagnosis ---------- */
+const GAPS={know:{t:'Knowledge gap',tag:'know',lab:'Teach, then coach',def:'They don’t know the standard, the rule or the method.',sell:'Training first, then coaching to apply it on the job. Add mentoring for people new to the role.'},
+ sys:{t:'System gap',tag:'sys',lab:'Fix, then coach',def:'The procedure, tool, structure or resources are missing or broken.',sell:'Consulting to fix the system, first or in parallel. Coaching then helps leaders adopt it.'},
+ prac:{t:'Practice gap',tag:'prac',lab:'Coach',def:'They know the standard but don’t apply it consistently, especially under pressure.',sell:'Coaching, usually alongside the programme that fixes the system.'}};
+const STM=[
+ {s:'They’re all certified on PTW, but in the field isolations aren’t checked.',g:'prac',v:'Knowing is there, doing isn’t. <b>Sell coaching</b> for supervisors, tied to the PTW workstream.'},
+ {s:'Our supervisors haven’t learned the new MOC procedure yet.',g:'know',v:'They can’t apply what they don’t know. <b>Sell training first</b>, then coaching so they apply it on the job.'},
+ {s:'Our permit system doesn’t cover simultaneous operations.',g:'sys',v:'The system itself has a hole. <b>Sell consulting</b> to redesign the procedure. Coaching can help supervisors adopt it once it exists.'},
+ {s:'We trained everyone on risk assessment last year. Nothing changed in the field.',g:'prac',v:'Classic knowing-doing gap. <b>Sell coaching</b> after training, with line managers involved.'},
+ {s:'The maintenance backlog keeps growing: we don’t have enough planners.',g:'sys',v:'A resource and planning problem. <b>Sell consulting</b> or nothing. Coaching has no role here.'},
+ {s:'After incidents, leaders look for who to blame, so people stopped reporting.',g:'prac',v:'Leaders know how to investigate but react in ways that silence people. <b>Sell coaching</b> on learning conversations.'},
+ {s:'Our new frontline leaders have never led a crew before.',g:'know',v:'New role, missing know-how. <b>Sell training and mentoring</b> first; coaching as they grow into the role.'}];
+let stSel=0;
+function renderGap(){
+ $('#stmts').innerHTML=STM.map((x,i)=>`<button class="stmt" data-st="${i}" aria-pressed="${i===stSel}"><span class="q">“</span><span>${x.s}</span></button>`).join('');
+ const cur=STM[stSel];
+ $('#gapcards').innerHTML=Object.entries(GAPS).map(([k,g])=>`<div class="gapc ${k===cur.g?'on':'off'}"><div class="top"><h3>${g.t}</h3><span class="tag ${g.tag}">${g.lab}</span></div><p>${g.def}</p><p><b>Sell:</b> ${g.sell}</p></div>`).join('');
+ $('#gapVerdict').innerHTML=cur.v;
+ $$('[data-st]').forEach(b=>b.onclick=()=>{stSel=+b.dataset.st;renderGap();});
+}
+renderGap();
+
+/* ---------- 06 signals and questions ---------- */
+const QUOTES=['We trained them, but nothing changed in the field.','Supervisors know the rules, but take shortcuts under pressure.','Our audits look good on paper, not on site.','The culture survey hasn’t moved.','We need the results to last after the consultants leave.','The new procedures are approved, but nobody uses them.'];
+const QS=[['What result must improve, or be prevented?','Gives you L1 and the sponsor’s priority.'],['Which workstreams or programmes carry that result?','Shows where coaching can link (L2).'],['Do people already know the standard?','Separates a knowledge gap from a practice gap.'],['What happens to the standard under pressure?','Confirms a practice gap.'],['Who would be coached, and who do they report to?','Identifies coachees and line managers.'],['Will line managers give time to follow up?','The most common reason coaching fails.'],['What data do you already collect?','Feeds the indicators without extra effort.'],['Who sponsors this, and by when must it show results?','Timeline under 3 months means no-go.']];
+$('#quotes').innerHTML=QUOTES.map(q=>`<div class="quote2">“${q}”</div>`).join('');
+$('#qs').innerHTML=QS.map((q,i)=>`<div class="qrow"><span class="n">${i+1}</span><div><div class="t">${q[0]}</div><div class="w">${q[1]}</div></div></div>`).join('');
+
+/* ---------- 07 prerequisites ---------- */
+const PRE=[
+ ['A named sponsor who owns the business impact (L1)',true,'Without one, nobody protects time or acts on results.'],
+ ['A clear link to at least one workstream outcome (L2)',true,'No link means no way to show contribution.'],
+ ['Line managers committed to check-ins and three-way meetings',true,'They make the change stick between sessions.'],
+ ['Coachees understand the purpose and take part willingly',false,'Imposed coaching rarely changes behaviour.'],
+ ['Agreed confidentiality: what is shared, what stays private',true,'Protects trust and keeps coaching out of discipline.'],
+ ['Access to data for the indicators',false,'Use data the client already collects where possible.'],
+ ['Protected time, e.g. 1.5–2 hours no more than 2 weeks apart',false,'In and around the work, including online.'],
+ ['Stable roles for the coaching period (6+ months)',false,'Rotations and reorganisations reset progress.'],
+ ['Internal coach candidates named, if handover is in scope',false,'Named before delivery starts, so they can learn alongside dss+.']];
+const pv=['y','y','p','y','y','p','y','y','p'];
+function renderPre(){
+ $('#prows').innerHTML=PRE.map((p,i)=>`<div class="prow"><div class="t">${i+1}. ${p[0]}${p[1]?'<span class="crit">CRITICAL</span>':''}<small>${p[2]}</small></div><div class="tri3" role="group" aria-label="${p[0]}">${[['y','Yes'],['p','Partly'],['n','No']].map(([v,l])=>`<button data-pi="${i}" data-v="${v}" aria-pressed="${pv[i]===v}">${l}</button>`).join('')}</div></div>`).join('');
+ $$('[data-pi]').forEach(b=>b.onclick=()=>{pv[+b.dataset.pi]=b.dataset.v;renderPre();});
+ const critNo=PRE.some((p,i)=>p[1]&&pv[i]==='n'),anyNo=pv.includes('n'),critP=PRE.filter((p,i)=>p[1]&&pv[i]==='p'),nP=pv.filter(v=>v==='p').length;
+ const weak=PRE.map((p,i)=>pv[i]!=='y'?`${i+1}`:null).filter(Boolean);
+ let cls,big,txt;
+ if(critNo||pv.filter(v=>v==='n').length>=2){cls='n';big='No-go';txt='A critical prerequisite is missing. Fix it with the client before you propose coaching, or walk away.';}
+ else if(anyNo||critP.length||nP>=4){cls='c';big='Go with caution';txt=`Propose coaching only with conditions in the proposal for item${weak.length>1?'s':''} ${weak.join(', ')}. Make them client commitments.`;}
+ else{cls='g';big='Go';txt='The prerequisites are in place. Bring in the coaching lead to draft the contribution map.';}
+ $('#goBox').className='go '+cls;$('#goBox').innerHTML=`<span class="eyebrow">Verdict</span><div class="big">${big}</div><p>${txt}</p>`;
+}
+renderPre();
+
+/* ---------- 08 four levels ---------- */
+const LV=[
+ {l:'L1',c:'#DA2128',t:'Business impact',d:'The result the whole engagement is hired for.',q:'What business impact must the engagement deliver?',e:'Serious-injury-potential events, TRIR, Tier 1–2 process safety events.',w:'12–24 months · steering committee',o:'Client sponsor'},
+ {l:'L2',c:'#A82B4E',t:'Workstream outcomes',d:'The scope needed to remove the exposures blocking L1, whether or not coaching is involved.',q:'What must change in the organisation to remove the exposures blocking L1? Then, workstream by workstream: does coaching contribute, and how?',e:'An outcome state with "better" defined, e.g. a PTW system that works: ≥90% of permits checked in the field meet the standard. Scored on a 1–5 maturity scale at baseline, 6 and 12 months.',w:'6–12 months · workstream leads',o:'Workstream leads, not the coach'},
+ {l:'L3',c:'#5A3070',t:'Coaching outcomes',d:'All coaching outcomes: what coached leaders do (Do) and how they show up (Be), including their contribution to each L2 outcome.',q:'What must leaders do differently (Do), and how must they show up (Be), for the workstreams to land?',e:'Do: routine quality score (1–4), competency maturity (1–5), observed field practice. Be: behaviours seen by the line manager or a 360, team speak-up pulse.',w:'3–6 months · coach and line manager',o:'Coachee and line manager'},
+ {l:'L4',c:'#30336A',t:'Session outcomes',d:'The progress agreed in each coaching session.',q:'What will this session move forward?',e:'Action agreed and completed, the leader’s own progress rating, a short survey after each session.',w:'Every session · coach and coachee',o:'Coach and coachee'}];
+let lad='down',ladTimer=[];
+function renderLadder(){
+ $('#ladderEl').innerHTML=LV.map((v,i)=>`<div class="rung" data-i="${i}"><div class="lv" style="background:${v.c}">${v.l}</div><div class="rung-body"><h3>${v.t}</h3><p>${v.d}</p></div><div class="rung-q"><span class="eyebrow">${lad==='down'?'Design question':'Evidence we look for'}</span><span class="qtext">${lad==='down'?v.q:v.e}</span>${lad==='up'?`<span class="when">${v.w}</span>`:''}<span class="chip">${icon('user-check')}${v.o}</span></div></div>`).join('');
+ drawIcons();
+ $('#ladEye').textContent=lad==='down'?'Design down · the question at each level':'Evidence up · what shows the contribution';
+ $('#ladFoot').textContent=lad==='down'?'Start from business impact and work down to each session.':'Start with each session and build the evidence up to business impact.';
+ ladTimer.forEach(clearTimeout);ladTimer=[];
+ if(!reduce){const order=lad==='down'?[0,1,2,3]:[3,2,1,0];order.forEach((idx,k)=>ladTimer.push(setTimeout(()=>{$$('.rung').forEach(r=>r.classList.remove('hit'));const r=$(`.rung[data-i="${idx}"]`);r&&r.classList.add('hit');},k*420)));ladTimer.push(setTimeout(()=>$$('.rung').forEach(r=>r.classList.remove('hit')),order.length*420+500));}
+}
+$$('[data-lad]').forEach(b=>b.onclick=()=>{lad=b.dataset.lad;pressed('[data-lad]',x=>x===b);renderLadder();});
+renderLadder();
+
+/* ---------- 08 dynamic contribution graph (generic) ---------- */
+const G9=[
+ {id:'A',t:'Field leadership routines',e:'e.g. field verification of critical controls',role:'d',on:true,txt:'The outcome is a change in how leaders work in the field. Without coaching it would likely not be met.'},
+ {id:'B',t:'Critical procedures',e:'e.g. updated PTW and MOC',role:'s',on:true,txt:'The rewrite is consulting work. Coaching helps supervisors apply the new procedure on the job.'},
+ {id:'C',t:'Competency framework',e:'e.g. standards, training, assessment',role:'s',on:true,txt:'The framework, training and assessment carry the outcome. Coaching helps leaders apply what they learn: teach first, then coach.'},
+ {id:'D',t:'Equipment integrity',e:'e.g. safety-critical elements',role:'n',on:false,txt:'Engineering and assurance work. There is no leadership behaviour to coach, so leave coaching off.'}];
+let g9Sel='A';
+$('#cg9').innerHTML=`<svg class="cg-svg" aria-hidden="true"></svg>
+ <div class="cg-row"><span class="cg-lv">L1 · Business impact</span><div class="cg-cells"><div class="cg-box imp" id="g9imp"><b>IMPACT</b><span>The result the engagement is hired for, e.g. fewer serious-injury-potential events</span></div></div></div>
+ <div class="cg-row"><span class="cg-lv">L2 · Workstream outcomes</span><div class="cg-cells" style="grid-template-columns:repeat(4,minmax(0,1fr))">${G9.map(w=>`<button class="cg-box ws" data-g9="${w.id}"><span class="id">${w.id}</span><b>${w.t}</b><span>${w.e}</span><span class="st"></span></button>`).join('')}</div></div>
+ <div class="cg-row"><span class="cg-lv">L3 · Outcomes</span><div class="cg-cells" style="grid-template-columns:1fr 1fr"><div class="cg-box coach" id="g9coach"><b>Coaching programme outcomes</b><span>What coached leaders do and how they show up</span></div><div class="cg-box other" id="g9other"><b>Other interventions and client action</b><span>Procedures, training, systems, engineering</span></div></div></div>
+ <div class="cg-row"><span class="cg-lv">L4 · Sessions</span><div class="cg-cells" style="grid-template-columns:1fr 1fr"><div class="sess">${[1,2,3,4,5,6].map(i=>`<span class="sc" id="g9s${i}">S${i}</span>`).join('')}</div><div></div></div></div>`;
+function drawG9(){
+ const cont=$('#cg9'),imp=$('#g9imp'),coach=$('#g9coach'),other=$('#g9other');const P=[];
+ const on=G9.filter(w=>w.on);
+ G9.forEach((w,i)=>{const el=$(`[data-g9="${w.id}"]`);
+  P.push({a:el,b:imp,sa:'top',sb:'bottom',fb:spread(i,G9.length),cls:'up'});
+  P.push({a:el,b:other,sa:'bottom',sb:'top',fa:.72,fb:spread(i,G9.length),cls:'o'});
+  if(w.on){const k=on.indexOf(w);P.push({a:el,b:coach,sa:'bottom',sb:'top',fa:.3,fb:spread(k,on.length),cls:(w.role==='d'?'d':'s')+(w.id===g9Sel?' hot':'')});}
+ });
+ if(on.length)for(let i=1;i<=6;i++)P.push({a:$('#g9s'+i),b:coach,sa:'top',sb:'bottom',fb:spread(i-1,6),cls:'sess'});
+ drawSvg(cont,P);
+}
+function renderG9(){
+ G9.forEach(w=>{const el=$(`[data-g9="${w.id}"]`);el.classList.toggle('on',w.on);el.classList.toggle('sel',w.id===g9Sel);el.setAttribute('aria-pressed',w.on);const r=w.on?(w.role==='n'?'s':w.role):'n';el.querySelector('.st').innerHTML=w.on?`<span class="tag ${ROLE[r][0]}">Coaching: ${ROLE[r][1]}</span>`:`<span class="tag none">Coaching: off</span>`;});
+ const on=G9.filter(w=>w.on).length;
+ $('#g9coach').classList.toggle('off',!on);$$('#cg9 .sc').forEach(s=>s.classList.toggle('off',!on));
+ const w=G9.find(x=>x.id===g9Sel);
+ $('#cg9Panel').innerHTML=`<span class="eyebrow" style="color:var(--coral)">${w.id} · ${w.t}</span><p style="margin-top:8px">${w.on?`<span class="tag ${ROLE[w.role==='n'?'s':w.role][0]}">${ROLE[w.role==='n'?'s':w.role][1]}</span>`:'<span class="tag none">No coaching link</span>'}</p><p>${w.txt}</p>${w.role==='n'&&w.on?'<p style="color:var(--amber)">Check the test: would this outcome still be met without coaching? If yes, switch coaching off.</p>':''}`;
+ $('#cg9Verdict').innerHTML=on?`<span class="eyebrow" style="color:var(--coral)">What this tells the BDM</span><p style="margin-top:8px"><b style="color:var(--fg-strong)">Coaching contributes to ${on} of ${G9.length} workstreams.</b> Every workstream also needs its own interventions. Coaching reaches the impact only through the workstreams, never directly.</p>`:`<span class="eyebrow" style="color:var(--red)">What this tells the BDM</span><p style="margin-top:8px"><b style="color:var(--fg-strong)">No workstream depends on how leaders act.</b> There is nothing for coaching to contribute to. Don't sell coaching here.</p>`;
+ drawG9();
+}
+$$('[data-g9]').forEach(b=>b.onclick=()=>{const w=G9.find(x=>x.id===b.dataset.g9);w.on=!w.on;g9Sel=w.id;renderG9();});
+redrawers.push(drawG9);
+
+/* ---------- 09–12 Project Falcon ---------- */
+const WS=[
+ {id:'WS1',t:'Safety-critical elements',sh:'Safety-critical elements',d:'Identify and register the equipment whose failure could cause, or fail to stop, a major accident.',role:'n',gap:['sys'],f:'No SCE register; performance standards missing for 60% of critical equipment.',why:'Engineering and assurance work. No leadership behaviour to coach.'},
+ {id:'WS2',t:'Critical procedures',sh:'Critical procedures',d:'Review and update PTW, MOC, risk assessment and other selected procedures.',role:'s',gap:['sys','prac'],f:'Procedures outdated. Past rollouts were not followed in the field: only 61% of isolations verified.',why:'The rewrite is consulting. Coaching helps supervisors apply the new procedures on the job (C1, C2).'},
+ {id:'WS3',t:'Safety organisation and HSE governance',sh:'HSE governance',d:'Clear HSE roles, committees and review routines from plant to leadership team.',role:'s',gap:['sys','prac'],f:'New HSE committees designed, but area reviews are box-ticking: few questions, little follow-up.',why:'Structure is consulting. Coaching helps superintendents run reviews that ask and follow up (C3).'},
+ {id:'WS4',t:'Competency on critical topics',sh:'Competency',d:'Define the competency framework and standards for risk assessment, MOC, PTW and incident investigation; train and assess against them.',role:'s',gap:['sys','know','prac'],f:'No competency framework for critical roles. 95% of supervisors trained on PTW, but training is not linked to field practice.',why:'The framework, training and assessment carry the outcome. Coaching helps supervisors apply what they learn (C1, C2). Order: teach first, then coach.'},
+ {id:'WS5',t:'PSM reporting, Tier 1–4',sh:'PSM reporting T1–4',d:'A reporting system for process safety events, including Tier 3–4 near misses.',role:'s',gap:['sys','prac'],f:'Tier 1–2 reporting works. Only 4 Tier 3–4 near misses reported a month.',why:'The system is a design job. Reporting depends on people speaking up (C3).'},
+ {id:'WS6',t:'Contractor safety management',sh:'Contractor safety',d:'Contractor selection, onboarding, supervision and handovers.',role:'d',gap:['prac'],f:'Prequalification works. Handovers between company and contractor supervisors are weak.',why:'The outcome is a change in how supervisors verify contractor work and hold handovers (C1, C2). Without coaching it would likely not be met.'},
+ {id:'WS7',t:'Learning from incidents',sh:'Learning from incidents',d:'Investigations that find causes, and lessons shared with crews.',role:'d',gap:['prac'],f:'Investigations are done, but leaders ask "who" not "why". Lessons reach crews in 20% of cases.',why:'Practice gap in how leaders run learning conversations (C3).'}];
+const ROLE={d:['direct','Direct'],s:['support','Supporting'],n:['none','No role']};
+const GT={know:['know','Knowledge'],sys:['sys','System'],prac:['prac','Practice']};
+$('#wsGrid').innerHTML=WS.map(w=>`<div class="tile"><span class="k">${w.id}</span><h3>${w.t}</h3><p>${w.d}</p></div>`).join('')+`<div class="tile hl"><span class="k">L3 · Coaching scope</span><h3>32 leaders coached</h3><p>8 area superintendents one-to-one, 24 frontline supervisors in 8 groups of 3, plant leadership team as a team.</p></div>`;
+renderG9();
+
+/* 10 diagnosis cards */
+let df='all',dOpen='WS4';
+function renderDiag(){
+ $('#diagCards').innerHTML=WS.filter(w=>df==='all'||w.role===df).map(w=>`<button class="dcard ${w.id===dOpen?'open':''} r-${w.role}" data-dc="${w.id}" aria-expanded="${w.id===dOpen}"><div class="dh"><span class="id">${w.id}</span><b>${w.t}</b></div><div class="dt">${w.gap.map(g=>`<span class="tag ${GT[g][0]}">${GT[g][1]}</span>`).join('')}<span class="tag ${ROLE[w.role][0]}">${ROLE[w.role][1]}</span></div><p class="df">${w.f}</p><p class="dw"><span class="eyebrow" style="color:var(--coral)">Why</span><br>${w.why}</p></button>`).join('');
+ $$('[data-dc]').forEach(b=>b.onclick=()=>{dOpen=dOpen===b.dataset.dc?'':b.dataset.dc;renderDiag();});
+}
+$$('[data-df]').forEach(b=>b.onclick=()=>{df=b.dataset.df;pressed('[data-df]',x=>x===b);renderDiag();});
+renderDiag();
+
+/* 11 contribution map */
+const CO=[
+ {id:'C1',t:'Field verification of critical controls',sh:'Field verification',do:'Verifies isolations and permit conditions at the job site with the crew before work starts.',be:'Sees verification as protecting the crew, not paperwork.',links:{WS2:'s',WS4:'s',WS6:'d'},
+  thread:['Session: supervisor plans 3 field verifications this week and logs one: "found a missing lock, stopped the job".','Supervisors rated to standard on field verification: 30% → 80%.','WS2: isolations verified in the field: 61% → 95%. WS6: contractor isolations checked too.','Serious-injury-potential events: −40%.']},
+ {id:'C2',t:'Risk-based job conversations',sh:'Risk-based job talks',do:'Leads pre-job and handover talks using the updated risk assessment and MOC, including with contractor crews.',be:'Refuses to normalise deviation, even under production pressure.',links:{WS2:'s',WS4:'s',WS6:'d'},
+  thread:['Session: supervisor practises opening every pre-job talk with "what could hurt us today?".','Pre-job talks rated risk-based by the line manager: 35% → 80%.','WS6: contractor handovers covering live risks: 40% → 90%.','TRIR: 0.62 → 0.40.']},
+ {id:'C3',t:'Learning and speak-up conversations',sh:'Learning and speak-up',do:'Holds a no-blame learning conversation after every event, and asks follow-up questions in area reviews.',be:'Stays curious rather than blaming. Treats a reported near miss as good news.',links:{WS3:'s',WS5:'s',WS7:'d'},
+  thread:['Session: superintendent prepares 3 learning questions for Thursday’s area review.','Leaders rated no-blame in learning reviews: 25% → 75%.','WS5: Tier 3–4 near misses reported: 4 → 25 a month. WS7: lessons shared in 7 days: 20% → 80%.','Tier 1–2 process safety events: 0.']}];
+const CELL={'C1-WS2':'The updated PTW procedure only works if supervisors check isolations and permit conditions in the field. Coaching builds that habit.','C1-WS4':'Supervisors are trained and assessed on PTW in WS4. Coaching helps them apply it in the field: teach first, then coach.','C1-WS6':'Contractor crews work under the same permits. Verifying their isolations is a supervisor habit, so coaching is a main lever.','C2-WS2':'The updated risk assessment and MOC get used in real pre-job talks, not only filed.','C2-WS4':'Risk assessment training in WS4 becomes a habit of risk-based pre-job talks.','C2-WS6':'Handovers with contractor supervisors cover the live risks, not just the job status. Coaching is a main lever.','C3-WS3':'Superintendents ask learning questions in area reviews and follow up on actions.','C3-WS5':'When leaders react well to bad news, crews report more Tier 3–4 near misses.','C3-WS7':'Leaders run no-blame learning conversations, and lessons reach the crews.'};
+const L4F=[{id:'F1',t:'One-to-one',s:'8 superintendents',co:['C2','C3']},{id:'F2',t:'Groups of 3',s:'24 supervisors',co:['C1','C2']},{id:'F3',t:'Team',s:'Plant leadership team',co:['C3']}];
+let mSel={k:'co',id:'C1'};
+$('#cg12').innerHTML=`<svg class="cg-svg" aria-hidden="true"></svg>
+ <div class="cg-row"><span class="cg-lv">L1 · Business impact</span><div class="cg-cells"><div class="cg-box imp" id="g12imp"><div class="impstats"><span><b>−40%</b> serious-injury-potential events</span><span><b>0.62 → 0.40</b> TRIR</span><span><b>0</b> Tier 1–2 process safety events</span></div></div></div></div>
+ <div class="cg-row"><span class="cg-lv">L2 · Workstream outcomes</span><div class="cg-cells" style="grid-template-columns:repeat(7,minmax(0,1fr))">${WS.map(w=>`<button class="cg-box ws sm r-${w.role}" data-m12="${w.id}"><span class="id">${w.id}</span><b>${w.sh}</b><span class="tag ${ROLE[w.role][0]}">${ROLE[w.role][1]}</span></button>`).join('')}</div></div>
+ <div class="cg-row"><span class="cg-lv">L3 · Outcomes</span><div class="cg-cells" style="grid-template-columns:repeat(3,minmax(0,1fr)) 1.15fr">${CO.map(c=>`<button class="cg-box coach" data-c12="${c.id}"><span class="id">${c.id}</span><b>${c.sh}</b></button>`).join('')}<div class="cg-box other" id="g12other"><b>Other interventions and client action</b><span>Procedures, frameworks, systems, engineering</span></div></div></div>
+ <div class="cg-row"><span class="cg-lv">L4 · Sessions</span><div class="cg-cells" style="grid-template-columns:repeat(3,minmax(0,1fr)) 1.15fr">${L4F.map(f=>`<div class="cg-box fmt" id="g12${f.id}"><b>${f.t}</b><span>${f.s}</span></div>`).join('')}<div></div></div></div>`;
+function m12Hot(){ // which ids are in focus
+ const hot=new Set();
+ if(mSel.k==='co'){const c=CO.find(x=>x.id===mSel.id);hot.add(c.id);Object.keys(c.links).forEach(w=>hot.add(w));L4F.filter(f=>f.co.includes(c.id)).forEach(f=>hot.add(f.id));}
+ else{hot.add(mSel.id);CO.filter(c=>c.links[mSel.id]).forEach(c=>{hot.add(c.id);L4F.filter(f=>f.co.includes(c.id)).forEach(f=>hot.add(f.id));});}
+ return hot;
+}
+function drawG12(){
+ const cont=$('#cg12'),imp=$('#g12imp'),other=$('#g12other');const P=[],hot=m12Hot();
+ WS.forEach((w,i)=>{const el=$(`[data-m12="${w.id}"]`);
+  P.push({a:el,b:imp,sa:'top',sb:'bottom',fb:spread(i,WS.length),cls:'up'+(hot.has(w.id)?' hot':'')});
+  P.push({a:el,b:other,sa:'bottom',sb:'top',fa:.8,fb:spread(i,WS.length),cls:'o faint'});});
+ CO.forEach(c=>{const ce=$(`[data-c12="${c.id}"]`),ks=Object.keys(c.links);ks.forEach((wid,k)=>{const we=$(`[data-m12="${wid}"]`);const on=hot.has(c.id)&&hot.has(wid);P.push({a:ce,b:we,sa:'top',sb:'bottom',fa:spread(k,ks.length),fb:.4,cls:(c.links[wid]==='d'?'d':'s')+(on?' hot':' dimmed')});});});
+ L4F.forEach(f=>f.co.forEach((cid,k)=>{const on=hot.has(f.id)&&hot.has(cid);P.push({a:$('#g12'+f.id),b:$(`[data-c12="${cid}"]`),sa:'top',sb:'bottom',fa:spread(k,f.co.length),cls:'sess'+(on?' hot':' dimmed')});}));
+ drawSvg(cont,P);
+}
+function renderMap(){
+ const hot=m12Hot();
+ $$('[data-m12]').forEach(b=>{b.classList.toggle('dim',!hot.has(b.dataset.m12));b.classList.toggle('sel',mSel.k==='ws'&&mSel.id===b.dataset.m12);b.setAttribute('aria-pressed',mSel.k==='ws'&&mSel.id===b.dataset.m12);});
+ $$('[data-c12]').forEach(b=>{b.classList.toggle('dim',!hot.has(b.dataset.c12));b.classList.toggle('sel',mSel.k==='co'&&mSel.id===b.dataset.c12);b.setAttribute('aria-pressed',mSel.k==='co'&&mSel.id===b.dataset.c12);});
+ L4F.forEach(f=>$('#g12'+f.id).classList.toggle('dim',!hot.has(f.id)));
+ const L=['L4 · Session','L3 · Coaching outcome','L2 · Workstream outcome','L1 · Business impact'];
+ if(mSel.k==='co'){
+  const c=CO.find(x=>x.id===mSel.id);
+  $('#mapA').innerHTML=`<span class="eyebrow" style="color:var(--coral)">${c.id} · ${c.t}</span><div class="dobe-mini" style="margin-top:10px"><div><span class="k">Do</span>${c.do}</div><div><span class="k">Be</span>${c.be}</div></div>`;
+  $('#mapB').innerHTML=`<span class="eyebrow" style="color:var(--coral)">Serves these workstreams</span>${Object.entries(c.links).map(([w,r])=>`<p style="margin-top:8px"><span class="tag ${ROLE[r][0]}">${ROLE[r][1]}</span> <b style="color:var(--fg-strong)">${w} · ${WS.find(x=>x.id===w).sh}</b><br>${CELL[c.id+'-'+w]}</p>`).join('')}`;
+  $('#thread').innerHTML=c.thread.map((t,i)=>`<div class="st"><span class="eyebrow">${L[i]}</span><p>${t}</p></div>${i<3?'<span class="ar">›</span>':''}`).join('');
+  $('#thread').style.display='';
+ }else{
+  const w=WS.find(x=>x.id===mSel.id),cs=CO.filter(c=>c.links[w.id]);
+  $('#mapA').innerHTML=`<span class="eyebrow" style="color:var(--coral)">${w.id} · ${w.t}</span><p style="margin-top:8px"><span class="tag ${ROLE[w.role][0]}">${ROLE[w.role][1]}</span></p><p>${w.why}</p>`;
+  $('#mapB').innerHTML=cs.length?`<span class="eyebrow" style="color:var(--coral)">Coaching outcomes that serve it</span>${cs.map(c=>`<p style="margin-top:8px"><b style="color:var(--fg-strong)">${c.id} · ${c.t}</b><br>${CELL[c.id+'-'+w.id]}</p>`).join('')}`:`<span class="eyebrow" style="color:var(--coral)">Coaching outcomes that serve it</span><p style="margin-top:8px">None. This workstream outcome is delivered by the workstream itself, through other interventions.</p>`;
+  $('#thread').style.display='none';
+ }
+ drawG12();
+}
+$$('[data-c12]').forEach(b=>b.onclick=()=>{mSel={k:'co',id:b.dataset.c12};renderMap();});
+$$('[data-m12]').forEach(b=>b.onclick=()=>{mSel={k:'ws',id:b.dataset.m12};renderMap();});
+redrawers.push(drawG12);
+renderMap();
+
+/* 12 indicator tree */
+const TN={
+ L1:{lv:1,t:'Business impact',sub:'3 indicators',ind:[
+  ['Serious-injury-potential events per quarter','','c','Client HSE system','15','9','13','10','a'],
+  ['TRIR (rolling 12 months)','','c','Client HSE system','0.62','0.40','0.55','0.46','a'],
+  ['Tier 1–2 process safety events (rolling 12 months)','','c','PSM reporting (WS5)','2','0','1','0','g']]},
+ WS2:{lv:2,ws:'WS2',ind:[['PTW and MOC working in the field: maturity (1–5)','','c','Maturity assessment','2.0','4.0','2.6','3.3','a'],['Isolations verified in the field','','c','PTW field audits','61%','95%','78%','90%','g']]},
+ WS4:{lv:2,ws:'WS4',ind:[['Competency system for critical roles: maturity (1–5)','','c','Maturity assessment','1.5','4.0','2.4','3.5','g'],['Critical-role holders assessed as competent','','c','Competency records','0%','90%','35%','72%','g']]},
+ WS6:{lv:2,ws:'WS6',ind:[['Contractor safety management: maturity (1–5)','','c','Maturity assessment','2.0','4.0','2.5','3.3','a'],['Contractor handovers covering live risks','','c','Handover audits','40%','90%','61%','82%','a']]},
+ WS3:{lv:2,ws:'WS3',ind:[['HSE governance: maturity (1–5)','','c','Maturity assessment','2.0','4.0','2.5','3.2','a'],['Area reviews with actions followed up','','c','Governance tracker','30%','85%','55%','76%','a']]},
+ WS5:{lv:2,ws:'WS5',ind:[['PSM reporting Tier 1–4: maturity (1–5)','','c','Maturity assessment','2.0','4.0','2.8','3.5','g'],['Tier 3–4 near misses reported per month','','c','PSM reporting','4','25','12','21','g']]},
+ WS7:{lv:2,ws:'WS7',ind:[['Learning from incidents: maturity (1–5)','','c','Maturity assessment','1.5','3.5','2.2','3.0','a'],['Lessons shared with crews within 7 days','','c','Investigation log','20%','80%','48%','72%','a']]},
+ WS1:{lv:2,ws:'WS1',ind:[['SCE management: maturity (1–5)','','c','Maturity assessment','1.5','4.0','2.5','3.4','g'],['SCE assurance tasks done on time','','c','Maintenance system','55%','95%','72%','88%','g']]},
+ C1:{lv:3,co:'C1',ind:[['Supervisors rated to standard on field verification','Do','c','Line manager observation','30%','80%','58%','76%','g'],['Field verifications logged per supervisor per week','Do','m','Coaching record','0.5','3','2.1','2.8','g'],['Stops the job when a control is missing','Be','c','Line manager observation','20%','75%','45%','66%','a']]},
+ C2:{lv:3,co:'C2',ind:[['Pre-job talks rated risk-based','Do','c','Line manager rating','35%','80%','60%','75%','g'],['Routine quality score of pre-job talks (1–4)','Do','c','Routine observation','1.6','3.0','2.2','2.8','g'],['Crew pulse: “my supervisor won’t accept shortcuts”','Be','c','Crew pulse survey','45%','80%','58%','71%','a']]},
+ C3:{lv:3,co:'C3',ind:[['Leaders rated no-blame in learning reviews','Do','c','Line manager and coach','25%','75%','45%','68%','a'],['Learning questions asked per area review','Do','m','Review observation','0.5','3','1.8','2.6','g'],['Team speak-up pulse (1–5)','Be','c','Team pulse survey','2.4','3.8','2.9','3.4','a']]},
+ L4:{lv:4,t:'Session outcomes',sub:'3 indicators',ind:[['Sessions held as planned','','m','Coaching record','–','90%','92%','91%','g'],['Agreed actions completed and logged','','m','Coaching record','–','85%','78%','86%','g'],['Session quality survey (1–5)','','m','QR survey after each session','–','4.2','4.3','4.4','g']]}};
+const L2ORDER=['WS2','WS4','WS6','WS3','WS5','WS7','WS1'];
+// evidence edges: lower -> higher
+const TE=[];CO.forEach(c=>{TE.push(['L4',c.id]);Object.keys(c.links).forEach(w=>TE.push([c.id,w]));});L2ORDER.forEach(w=>TE.push([w,'L1']));
+let tSel='C1';
+const STC={g:['var(--green)','On track'],a:['var(--amber)','Watch']};
+const stWorst=ind=>ind.some(r=>r[8]==='a')?'a':'g';
+function tNode(id){const n=TN[id];let t,s;
+ if(n.lv===2){const w=WS.find(x=>x.id===id);t=`${id} · ${w.sh}`;s=`${n.ind[0][4]} → ${n.ind[0][5]} maturity`;}
+ else if(n.lv===3){const c=CO.find(x=>x.id===id);t=`${id} · ${c.sh}`;s='Do + Be · 3 indicators';}
+ else{t=n.t;s=n.sub;}
+ const role=n.lv===2?WS.find(x=>x.id===id).role:'';
+ return `<button class="tn lv${n.lv} ${role==='n'?'nolink':''}" data-tn="${id}"><b>${t}</b><span>${s}</span><i class="dot" style="background:${STC[stWorst(n.ind)][0]}"></i></button>`;}
+$('#tree').innerHTML=`<svg class="cg-svg" aria-hidden="true"></svg>
+ <div class="tcol"><span class="th">L1 · Business impact</span><div class="tbody">${tNode('L1')}</div></div>
+ <div class="tcol"><span class="th">L2 · Workstream outcomes</span><div class="tbody">${L2ORDER.map(tNode).join('')}</div></div>
+ <div class="tcol"><span class="th">L3 · Coaching outcomes</span><div class="tbody">${['C1','C2','C3'].map(tNode).join('')}</div></div>
+ <div class="tcol"><span class="th">L4 · Sessions</span><div class="tbody">${tNode('L4')}</div></div>`;
+function chain(id){const s=new Set([id]);let f=[id];while(f.length){const n=[];f.forEach(x=>TE.forEach(([a,b])=>{if(a===x&&!s.has(b)){s.add(b);n.push(b)}}));f=n;}
+ f=[id];const d=new Set();while(f.length){const n=[];f.forEach(x=>TE.forEach(([a,b])=>{if(b===x&&!d.has(a)&&!s.has(a)){d.add(a);n.push(a)}}));f=n;}d.forEach(x=>s.add(x));return s;}
+function drawTree(){
+ const cont=$('#tree'),hot=chain(tSel),P=[];
+ const nodeEl=id=>$(`[data-tn="${id}"]`);
+ const into={};TE.forEach(([a,b])=>{(into[b]=into[b]||[]).push(a);});
+ const outof={};TE.forEach(([a,b])=>{(outof[a]=outof[a]||[]).push(b);});
+ TE.forEach(([a,b])=>{ // a is lower level (right), b higher (left)
+  const ins=into[b],outs=outof[a];
+  let cls='up';if(TN[a].lv===3&&TN[b].lv===2){cls=CO.find(c=>c.id===a).links[b]==='d'?'d':'s';}
+  if(TN[a].lv===4)cls='sess';
+  const on=hot.has(a)&&hot.has(b);
+  P.push({a:nodeEl(a),b:nodeEl(b),sa:'left',sb:'right',fa:spread(outs.indexOf(b),outs.length),fb:spread(ins.indexOf(a),ins.length),cls:cls+(on?' hot':' dimmed')});
+ });
+ drawSvg(cont,P);
+}
+const EV={c:['compelling','Compelling'],m:['minimum','Minimum']};
+function renderTree(){
+ const hot=chain(tSel);
+ $$('[data-tn]').forEach(b=>{b.classList.toggle('dim',!hot.has(b.dataset.tn));b.classList.toggle('sel',b.dataset.tn===tSel);b.setAttribute('aria-pressed',b.dataset.tn===tSel);});
+ pressed('[data-ind]',b=>b.dataset.ind===(['C1','C2','C3'].includes(tSel)?tSel:(tSel==='L1'?'all':'')));
+ const ids=['L1',...L2ORDER,'C1','C2','C3','L4'].filter(id=>hot.has(id));
+ const LVN={1:'L1 · Business impact',2:'L2 · Workstream outcomes',3:'L3 · Coaching outcomes',4:'L4 · Session outcomes'};
+ let lastLv=0,h='';
+ ids.forEach(id=>{const n=TN[id];if(n.lv!==lastLv){h+=`<tr class="lvl"><td colspan="8">${LVN[n.lv]}</td></tr>`;lastLv=n.lv;}
+  const pre=n.lv===2?`${id} · `:n.lv===3?`${id} · `:'';
+  n.ind.forEach(r=>{h+=`<tr class="${id===tSel?'hit':''}"><td>${pre}${r[1]?`<b style="color:var(--coral);font-weight:600">${r[1]}</b> · `:''}${r[0]}</td><td><span class="tag ${EV[r[2]][0]}">${EV[r[2]][1]}</span></td><td style="color:var(--muted)">${r[3]}</td><td class="num">${r[4]}</td><td class="num">${r[5]}</td><td class="num">${r[6]}</td><td class="num"><b style="color:var(--fg-strong)">${r[7]}</b></td><td><span style="display:inline-flex;gap:6px;align-items:center;font-size:13px"><i style="width:9px;height:9px;border-radius:50%;background:${STC[r[8]][0]};display:inline-block"></i>${STC[r[8]][1]}</span></td></tr>`;});});
+ $('#indBody').innerHTML=h;
+ drawTree();
+}
+$('#indSeg').innerHTML=['all','C1','C2','C3'].map(k=>`<button data-ind="${k}" aria-pressed="false">${k==='all'?'All':k}</button>`).join('');
+$$('[data-ind]').forEach(b=>b.onclick=()=>{tSel=b.dataset.ind==='all'?'L1':b.dataset.ind;renderTree();});
+$$('[data-tn]').forEach(b=>b.onclick=()=>{tSel=b.dataset.tn;renderTree();});
+redrawers.push(drawTree);
+renderTree();
+
+/* ---------- 13 modalities ---------- */
+const MOD=[
+ {t:'One-to-one',ic:'user',k:'Modality',best:'Senior and middle leaders; personal stretch; confidential topics.',fmt:'60–90 min, no more than 2 weeks apart where possible, plus three-way meetings with the line manager.',lim:'Highest cost per person.'},
+ {t:'Group',ic:'users-round',k:'Modality',best:'2–3 peers at the same level facing the same challenge, such as supervisors.',fmt:'About 1.5 hours, no more than 2 weeks apart; peers learn from each other.',lim:'Less depth on personal topics. Maximum 3 coachees per group.'},
+ {t:'Team',ic:'users',k:'Modality',best:'An intact team: people who already work together every day and share goals, such as a site leadership team or a shift crew with its supervisor.',fmt:'2–3 hours every 2–4 weeks, on how the team works together: handovers, decisions, meetings.',lim:'Needs a leader willing to be coached in front of the team.'},
+ {t:'Online',ic:'video',k:'Delivery channel',best:'Remote or rotating sites; check-ins between field sessions.',fmt:'30–60 min video calls, combined with any modality. Keeps the 2-week rhythm when leaders rotate.',lim:'Not for first sessions, sensitive topics or field observation.'}];
+$('#modGrid').innerHTML=MOD.map(m=>`<div class="tile"><span class="ico">${icon(m.ic)}</span><span class="k">${m.k}</span><h3>${m.t}</h3><p><b style="color:var(--fg-strong)">Best for:</b> ${m.best}</p><p><b style="color:var(--fg-strong)">Format:</b> ${m.fmt}</p><p><b style="color:var(--fg-strong)">Limits:</b> ${m.lim}</p></div>`).join('');
+const TF=[['Executive and leadership','Mindset, visible felt leadership, priorities','●','○','●',''],['Governance','Quality of reviews and decisions','○','','●','○'],['Routines-based','Quality of the routines leaders run','●','●','','●'],['Area of Transformation field coaching','Installing routines and competencies in one area','●','●','○','●']];
+$('#tfBody').innerHTML=TF.map(r=>`<tr><td class="ws">${r[0]}</td><td style="color:var(--muted)">${r[1]}</td>${r.slice(2).map(v=>`<td class="dotc">${v}</td>`).join('')}</tr>`).join('');
+
+/* ---------- 14 estimator ---------- */
+const num=id=>Math.max(0,parseFloat($('#'+id).value)||0);
+const f1=v=>(Math.round(v*10)/10).toString();
+function coachDays(sessions,h,prep,cap,hpd){const byH=sessions*(h+prep)/hpd,byS=cap?sessions/cap:0;return {v:Math.max(byH,byS),lim:byS>byH?'sessions':'hours',byH,byS};}
+function estimate(){
+ const hpd=num('p_hpd')||8,prep=num('p_prep');
+ const groups=Math.ceil(num('e_g_c')/Math.max(1,num('p_g_max')));$('#o_g_n').textContent=groups;
+ const o=coachDays(num('e_o_n')*num('e_o_s'),num('e_o_h'),prep,num('p_o_cap'),hpd);
+ const g=coachDays(groups*num('e_g_s'),num('e_g_h'),prep,num('p_g_cap'),hpd);
+ const t=coachDays(num('e_t_n')*num('e_t_s'),num('e_t_h'),prep,num('p_t_cap'),hpd);
+ const lm=coachDays(num('e_lm_n')*num('e_lm_s'),num('p_lm_h'),0,num('p_lm_cap'),hpd);
+ const des=num('p_d_base')+num('p_d_ws')*num('e_d_ws')+num('p_d_lg')*num('e_d_lg');
+ const mes=num('p_m_base')+num('p_m_co')*num('e_m_co')+num('p_m_si')*num('e_m_si');
+ const rep=num('e_rep')*num('p_rep'),cls=num('e_cls'),ic=num('e_ic_n')*num('p_ic_d');
+ const lim=x=>x.v?`hours check ${f1(x.byH)} d · sessions check ${f1(x.byS)} d → uses the larger`:'';
+ const parts=[
+  ['One-to-one coaching',o.v,lim(o)],['Group coaching',g.v,`${groups} groups · ${lim(g)}`],['Team coaching',t.v,lim(t)],['Three-way line manager meetings',lm.v,lim(lm)],
+  ['Design and contribution map',des,`${f1(num('p_d_base'))} + ${f1(num('p_d_ws'))}×${num('e_d_ws')} + ${f1(num('p_d_lg'))}×${num('e_d_lg')}`],
+  ['Measurement setup',mes,`${f1(num('p_m_base'))} + ${f1(num('p_m_co'))}×${num('e_m_co')} + ${f1(num('p_m_si'))}×${num('e_m_si')}`],
+  ['Monthly reporting',rep,`${num('e_rep')} months × ${f1(num('p_rep'))}`],['Close-out and handover',cls,''],['Internal coach development',ic,`${num('e_ic_n')} coaches × ${f1(num('p_ic_d'))}`]];
+ const tot=parts.reduce((a,p)=>a+p[1],0);
+ $('#estTotal').innerHTML=`${tot.toFixed(1)} <small>coach days</small>`;
+ $('#estBk').innerHTML=parts.map(([n,v,why])=>`<div class="r"><span>${n}${why?`<small>${why}</small>`:''}</span><b>${v.toFixed(1)} d</b><div class="bar"><i style="width:${tot?v/tot*100:0}%"></i></div></div>`).join('');
+}
+$$('#estForm input').forEach(i=>i.addEventListener('input',estimate));estimate();
+
+/* ---------- 15 objections ---------- */
+const OBJ=[
+ ['"We already trained them."','Training builds knowing. Coaching closes the gap between knowing and doing. Ask for their own data: how many are trained, and how many apply it in the field?','Project Falcon: 95% of supervisors trained on PTW, only 61% of isolations verified in the field (section 10).'],
+ ['"Coaching is soft. How do you measure it?"','We measure at four levels, from each session up to business impact, using indicators the client already tracks where possible.','Four levels (section 08) and indicator tree (section 12).'],
+ ['"Our supervisors have no time."','Coaching happens inside the routines they already run: field sessions no more than 2 weeks apart and short online check-ins. No new meetings. If the client can’t protect that time, it’s a no-go.','Prerequisites (section 07) and modalities (section 13).'],
+ ['"Our HSE team can do this."','They can, and that is the goal. We develop their coaches alongside our delivery, so the capability stays.','Internal coach development in scoping (section 14).'],
+ ['"It’s too expensive."','Show coaching as its own line, next to the workstream outcomes it protects, against the cost of a programme whose results fade. Lower the cost with fewer sessions for experienced leaders, online check-ins, internal coaches or a pilot before scaling.','Scoping estimator (section 14).'],
+ ['"What if coaching exposes people problems?"','Confidentiality is agreed up front: outcomes and progress are shared, personal reflections stay private. Coaching is never a disciplinary tool.','Prerequisites (section 07).'],
+ ['"What happens when dss+ leaves?"','We hand over step by step. I do: dss+ coaches while internal coaches observe. We do: they co-coach with us. You do: they coach and we check quality. By the end, the client runs it.','Internal coach development (section 14) and prerequisite 9 (section 07).']];
+$('#obj').innerHTML=OBJ.map((o,i)=>`<details class="ob" ${i===0?'open':''}><summary><span class="n">0${i+1}</span>${o[0]}</summary><div class="body"><p>${o[1]}</p><div class="proof"><span class="eyebrow" style="color:var(--coral)">Proof point</span><br>${o[2]}</div></div></details>`).join('');
+
+/* ---------- 16 next steps ---------- */
+const NS=[['Spot and diagnose','Use the signals and gap types (sections 05–06) in your first conversation.'],['Score the prerequisites','Run the scorecard (section 07). A critical "No" means fix it first or walk away.'],['Call the coaching lead','Before the proposal. Draft the contribution map with the client (section 11).'],['Scope and propose','Estimate coach days (section 14). Show coaching as a separate line or spread across workstreams.'],['Agree a pilot and a review point','Start with one area or site, review the evidence, then scale. Investment follows evidence.']];
+$('#stepsEl').innerHTML=NS.map((s,i)=>`<div class="stepc" style="cursor:default"><span class="big">${i+1}</span><h3>${s[0]}</h3><p style="margin:0;font-size:13.5px;color:var(--muted)">${s[1]}</p></div>`).join('');
+
+drawIcons();
+setTimeout(redrawNow,50);
+
+})();
+</script>
+</body></html>
